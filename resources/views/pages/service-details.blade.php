@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--<< Header Area >>-->
+    <head>
+        <!-- ========== Meta Tags ========== -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="modinatheme">
+        <meta name="description" content="{{ $service['name'] }} — {{ config('company.name') }}">
+        <!-- ======== Page title ============ -->
+        <title>{{ $service['title'] }} - {{ config('company.legal_name') }}</title>
+        <!--<< Favcion >>-->
+        <link rel="shortcut icon" href="{{ asset('visaland-html/assets/img/favicon.svg') }}">
+        <!--<< Bootstrap min.css >>-->
+        <link rel="stylesheet" href="{{ asset('visaland-html/assets/css/bootstrap.min.css') }}">
+        <!--<< Font Awesome.css >>-->
+        <link rel="stylesheet" href="{{ asset('visaland-html/assets/css/font-awesome.css') }}">
+        <!--<< Animate.css >>-->
+        <link rel="stylesheet" href="{{ asset('visaland-html/assets/css/animate.css') }}">
+        <!--<< Magnific Popup.css >>-->
+        <link rel="stylesheet" href="{{ asset('visaland-html/assets/css/magnific-popup.css') }}">
+        <!--<< MeanMenu.css >>-->
+        <link rel="stylesheet" href="{{ asset('visaland-html/assets/css/meanmenu.css') }}">
+        <!--<< Slick.css >>-->
+        <link rel="stylesheet" href="{{ asset('visaland-html/assets/css/slick.css') }}">
+        <!--<< Swiper Slider.css >>-->
+        <link rel="stylesheet" href="{{ asset('visaland-html/assets/css/swiper-bundle.min.css') }}">
+        <!--<< Nice Select.css >>-->
+        <link rel="stylesheet" href="{{ asset('visaland-html/assets/css/nice-select.css') }}">
+        <!--<< Main.css >>-->
+        <link rel="stylesheet" href="{{ asset('visaland-html/assets/css/main.css') }}">
+        <!--<< Style.css >>-->
+        <link rel="stylesheet" href="{{ asset('visaland-html/style.css') }}">
+    </head>
+
+    <body>
+
+         <!-- Back To Top Start -->
+         <div class="scroll-up">
+            <svg class="scroll-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+            </svg>
+        </div>
+
+        <!-- Preloader Start -->
+        <div id="preloader" class="preloader">
+            <div class="animation-preloader">
+                <div class="spinner">                
+                </div>
+                <div class="txt-loading">
+                    <span data-text-preloader="V" class="letters-loading">
+                        V
+                    </span>
+                    <span data-text-preloader="I" class="letters-loading">
+                        I
+                    </span>
+                    <span data-text-preloader="S" class="letters-loading">
+                        S
+                    </span>
+                    <span data-text-preloader="A" class="letters-loading">
+                        A
+                    </span>
+                    <span data-text-preloader="L" class="letters-loading">
+                        L
+                    </span>
+                    <span data-text-preloader="A" class="letters-loading">
+                        A
+                    </span>
+                    <span data-text-preloader="N" class="letters-loading">
+                        N
+                    </span>
+                    <span data-text-preloader="D" class="letters-loading">
+                        D
+                    </span>
+                </div>
+                <p class="text-center">Loading</p>
+            </div>
+            <div class="loader">
+                <div class="row">
+                    <div class="col-3 loader-section section-left">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-left">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-right">
+                        <div class="bg"></div>
+                    </div>
+                    <div class="col-3 loader-section section-right">
+                        <div class="bg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--<< Mouse Cursor Start >>-->  
+        <div class="mouse-cursor cursor-outer"></div>
+        <div class="mouse-cursor cursor-inner"></div>
+
+        <!-- Offcanvas Area Start -->
+        <div class="fix-area">
+            <div class="offcanvas__info">
+                <div class="offcanvas__wrapper">
+                    <div class="offcanvas__content">
+                        <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
+                            <div class="offcanvas__logo">
+                                <a href="{{ route('home') }}">
+                                    <img src="{{ asset('images/logo_header.png') }}" alt="logo-img">
+                                </a>
+                            </div>
+                            <div class="offcanvas__close">
+                                <button>
+                                <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="d-none d-lg-block">
+                            Ne summo dictas pertinacia nam. Illum cetero vocent ei vim, case regione signiferumque vim te. Ex mea quem munere lobortis. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.
+                        </p>
+                        <div class="mobile-menu fix mb-3"></div>
+                        <div class="offcanvas__contact">
+                            <h4>Contact Info</h4>
+                            <ul>
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon">
+                                        <i class="fal fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                        <a target="_blank" href="#">Main Street, Melbourne, Australia</a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon mr-15">
+                                        <i class="fal fa-envelope"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                         <a href="mailto:info@example.com"><span class="mailto:info@azent.com">info@example.com</span></a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon mr-15">
+                                        <i class="fal fa-clock"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                        <a target="_blank" href="#">Mod-friday, 09am -05pm</a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <div class="offcanvas__contact-icon mr-15">
+                                        <i class="far fa-phone"></i>
+                                    </div>
+                                    <div class="offcanvas__contact-text">
+                                        <a href="tel:+11002345909">+11002345909</a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="header-button mt-4">
+                                <a href="{{ route('contact') }}" class="theme-btn text-center">
+                                    <span>Contact Us<i class="fas fa-chevron-right"></i></span>
+                                </a>
+                            </div>
+                            <div class="social-icon d-flex align-items-center">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="offcanvas__overlay"></div>
+
+        @include('partials.header-top')
+
+        <!-- Header Area Start -->
+        <header class="header-section-3">
+            <div id="header-sticky" class="header-3">
+                <div class="container-fluid">
+                    <div class="mega-menu-wrapper">
+                        <div class="header-main style-2">
+                            <div class="logo">
+                                <a href="{{ route('home') }}" class="header-logo">
+                                    <img src="{{ asset('images/logo_header.png') }}" alt="logo-img">
+                                </a>
+                            </div>
+                            <div class="header-left">
+                                <div class="mean__menu-wrapper">
+                                    <div class="main-menu">
+                                        <nav id="mobile-menu">
+                                            <ul>
+                                                <li class="has-dropdown active menu-thumb">
+                                                    <a href="{{ route('home') }}">
+                                                    Home 
+                                                    <i class="fas fa-angle-down"></i>
+                                                    </a>
+                                                    <ul class="submenu has-home-menu">
+                                                        <li class="border-none">
+                                                            <div class="row g-4">
+                                                                <div class="col-lg-3 home-menu">
+                                                                    <div class="home-menu-thumb">
+                                                                        <img src="{{ asset('visaland-html/assets/img/header/home-1.jpg') }}" alt="img">
+                                                                        <div class="demo-button">
+                                                                            <a href="{{ route('home') }}" class="theme-btn">
+                                                                                <span>Multi Page</span>
+                                                                            </a>
+                                                                            <a href="{{ route('home') }}" class="theme-btn">
+                                                                                <span>One Page</span>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="home-menu-content text-center">
+                                                                        <h4 class="home-menu-title">
+                                                                            Home 01
+                                                                        </h4>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3  home-menu">
+                                                                    <div class="home-menu-thumb mb-15">
+                                                                        <img src="{{ asset('visaland-html/assets/img/header/home-2.jpg') }}" alt="img">
+                                                                        <div class="demo-button">
+                                                                            <a href="{{ route('home') }}" class="theme-btn">
+                                                                                <span>Multi Page</span>
+                                                                            </a>
+                                                                            <a href="{{ route('home') }}" class="theme-btn">
+                                                                                <span>One Page</span>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="home-menu-content text-center">
+                                                                        <h4 class="home-menu-title">
+                                                                            Home 02
+                                                                        </h4>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 home-menu">
+                                                                    <div class="home-menu-thumb mb-15">
+                                                                        <img src="{{ asset('visaland-html/assets/img/header/home-3.jpg') }}" alt="img">
+                                                                        <div class="demo-button">
+                                                                            <a href="{{ route('home') }}" class="theme-btn">
+                                                                                <span>Multi Page</span>
+                                                                            </a>
+                                                                            <a href="{{ route('home') }}" class="theme-btn">
+                                                                                <span>One Page</span>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="home-menu-content text-center">
+                                                                        <h4 class="home-menu-title">
+                                                                            Home 03
+                                                                        </h4>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 home-menu">
+                                                                    <div class="home-menu-thumb mb-15">
+                                                                        <img src="{{ asset('visaland-html/assets/img/header/home-4.jpg') }}" alt="img">
+                                                                        <div class="demo-button">
+                                                                            <a href="{{ route('home') }}" class="theme-btn">
+                                                                                <span>Multi Page</span>
+                                                                            </a>
+                                                                            <a href="{{ route('home') }}" class="theme-btn">
+                                                                                <span>One Page</span>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="home-menu-content text-center">
+                                                                        <h4 class="home-menu-title">
+                                                                            Home 04
+                                                                        </h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="has-dropdown active d-lg-none">
+                                                    <a href="{{ route('team') }}" class="border-none">
+                                                    Home
+                                                    <i class="fas fa-angle-down"></i>
+                                                    </a>
+                                                    <ul class="submenu">
+                                                        <li><a href="{{ route('home') }}">Home 01</a></li>
+                                                        <li><a href="{{ route('home') }}">Home 02</a></li>
+                                                        <li><a href="{{ route('home') }}">Home 03</a></li>
+                                                        <li><a href="{{ route('home') }}">Home 04</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('about') }}">About</a>
+                                                </li>
+                                                @include('partials.nav-pages-services')
+
+                                                @include('partials.nav-pages-solutions')
+                                                <li>
+                                                    <a href="{{ route('news') }}">
+                                                        Blog
+                                                        <i class="fas fa-angle-down"></i>
+                                                    </a>
+                                                    <ul class="submenu">
+                                                        <li><a href="{{ route('news.grid') }}">Blog Grid</a></li>
+                                                        <li><a href="{{ route('news') }}">Blog Standard </a></li>
+                                                        <li><a href="{{ route('news.details') }}">Blog Details</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('contact') }}">Contact</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header-right d-flex justify-content-end align-items-center">
+                                <div class="header-button">
+                                    <a href="{{ route('contact') }}" class="theme-btn">
+                                        <span>
+                                            contact us
+                                            <i class="fas fa-chevron-right"></i>
+                                        </span>
+                                     </a>
+                                </div>
+                                <div class="header__hamburger d-xl-block my-auto">
+                                    <div class="sidebar__toggle">
+                                        <div class="header-bar">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!--<< Breadcrumb Section Start >>-->
+        <div class="breadcrumb-wrapper section-padding bg-cover" style="background-image: url('{{ asset('visaland-html/assets/img/breadcrumb.jpg') }}');">
+            <div class="container">
+                <div class="page-heading">
+                    <h1 class="wow fadeInUp" data-wow-delay=".3s">{{ $service['name'] }}</h1>
+                    <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
+                        <li>
+                            <a href="{{ route('home') }}">
+                            Home Page
+                            </a>
+                        </li>
+                        <li>
+                            <i class="fal fa-minus"></i>
+                        </li>
+                        <li>
+                            <a href="{{ route('service') }}">Services</a>
+                        </li>
+                        <li>
+                            <i class="fal fa-minus"></i>
+                        </li>
+                        <li>
+                            {{ $service['name'] }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--<< Service Details Section Start >>--> 
+        <section class="visa-details-section fix section-padding emca-solution-visa-layout">
+            <div class="container">
+                <div class="visa-details-wrapper">
+                    <div class="row g-5">
+                        <div class="col-lg-4 order-2 order-md-1 align-self-lg-start">
+                            <div class="visa-sidebar">
+                                @php
+                                    $sidebarBenefits = $service['sidebar_benefits'] ?? null;
+                                    $sidebarTitle = $sidebarBenefits['title'] ?? 'Key Benefits of ' . $service['name'];
+                                    $sidebarIntro = $sidebarBenefits['intro'] ?? $service['description'];
+                                    $sidebarItems = $sidebarBenefits['items'] ?? array_map(
+                                        fn ($item) => ['title' => $item['title'], 'text' => $item['description']],
+                                        array_slice($service['key_services']['items'] ?? [], 0, 8)
+                                    );
+                                @endphp
+                                <div class="visa-widget-categories emca-benefits-categories">
+                                    <h4 class="wid-title">{{ $sidebarTitle }}</h4>
+                                    <p class="emca-benefits-intro">{{ $sidebarIntro }}</p>
+                                    @if (!empty($sidebarItems))
+                                    <ul id="serviceBenefitsList">
+                                        @foreach ($sidebarItems as $i => $item)
+                                        @php
+                                            $benefitId = 'benefit-' . $slug . '-' . ($i + 1);
+                                        @endphp
+                                        <li class="emca-benefit-item wow fadeInUp" data-wow-delay="{{ number_format($i * 0.1 + 0.2, 1) }}s">
+                                            <div class="emca-benefit-card">
+                                                <a href="javascript:void(0)" class="emca-benefit-trigger collapsed" data-bs-toggle="collapse" data-bs-target="#{{ $benefitId }}" aria-expanded="false" aria-controls="{{ $benefitId }}">
+                                                    {{ $item['title'] }}
+                                                    <span><i class="fas fa-chevron-right"></i></span>
+                                                </a>
+                                                <div id="{{ $benefitId }}" class="collapse emca-benefit-panel" data-bs-parent="#serviceBenefitsList">
+                                                    <div class="emca-benefit-panel-inner">
+                                                        {{ $item['text'] }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        @endforeach
+                                    </ul>
+                                    @endif
+                                </div>
+                                <div class="emca-sidebar-faq mt-2">
+                                    <div class="faq-accordion">
+                                        @php
+                                            $faqItems = $service['faq']['items'] ?? [];
+                                            $faqTitle = $service['faq']['title'] ?? 'Frequently Asked Questions';
+                                            $faqIntro = $service['faq']['intro'] ?? null;
+                                        @endphp
+                                        <h4 class="wid-title">{{ $faqTitle }}</h4>
+                                        @if (!empty($faqIntro))
+                                        <p class="mt-2">{{ $faqIntro }}</p>
+                                        @endif
+                                        <div class="faq-content">
+                                            <div class="accordion mt-3" id="accordion-{{ $slug }}">
+                                            @if (!empty($faqItems))
+                                                @foreach ($faqItems as $index => $faq)
+                                                @php
+                                                    $faqId = 'faq-' . $slug . '-' . ($index + 1);
+                                                @endphp
+                                                <div class="accordion-item wow fadeInUp" data-wow-delay=".3s">
+                                                    <h4 class="accordion-header">
+                                                        <button class="accordion-button {{ $index === 0 ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ $faqId }}" aria-expanded="{{ $index === 0 ? 'true' : 'false' }}" aria-controls="{{ $faqId }}">
+                                                            {{ $faq['question'] }}
+                                                        </button>
+                                                    </h4>
+                                                    <div id="{{ $faqId }}" class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}" data-bs-parent="#accordion-{{ $slug }}">
+                                                        <div class="accordion-body">
+                                                            {{ $faq['answer'] }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @endforeach
+                                            @else
+                                                <div class="accordion-item wow fadeInUp" data-wow-delay=".3s">
+                                                    <h4 class="accordion-header">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-default-{{ $slug }}" aria-expanded="true" aria-controls="faq-default-{{ $slug }}">
+                                                            Need help choosing the right {{ strtolower($service['name']) }} service?
+                                                        </button>
+                                                    </h4>
+                                                    <div id="faq-default-{{ $slug }}" class="accordion-collapse collapse show" data-bs-parent="#accordion-{{ $slug }}">
+                                                        <div class="accordion-body">
+                                                            Contact {{ config('company.name') }} and our team will help you identify the best approach based on your goals, budget, and timeline.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @include('partials.need-help-sidebar', [
+                                    'title' => $service['name'],
+                                    'description' => 'Talk to ' . config('company.name') . ' for expert support and tailored ICT solutions.',
+                                ])
+                                <a href="{{ route('contact') }}" class="theme-btn w-100 text-center">
+                                    <span><i class="fas fa-play-circle me-3"></i> request a quote</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 order-1 order-md-2 align-self-lg-start">
+                            <div class="service-details-items">
+                                <div class="details-image">
+                                    <img src="{{ asset($service['image']) }}" alt="{{ $service['name'] }}">
+                                </div>
+                                <div class="details-content">
+                                    <h2 class="title-anim">{{ $service['name'] }} Overview</h2>
+                                    @if (!empty($service['overview']))
+                                        @foreach ($service['overview'] as $paragraph)
+                                        <p class="mt-3">{{ $paragraph }}</p>
+                                        @endforeach
+                                    @else
+                                    <p class="mt-3">
+                                        {{ $service['description'] }}
+                                    </p>
+                                    <p class="mt-3">
+                                        {{ config('company.legal_name') }} delivers professional {{ strtolower($service['name']) }} services to help individuals, institutions, and businesses across Tanzania and East Africa thrive in the digital era.
+                                    </p>
+                                    @endif
+                                    @if (!empty($service['highlights']))
+                                    <div class="row g-3 emca-service-highlights-row mt-4">
+                                        @foreach ($service['highlights'] as $highlight)
+                                        <div class="col-md-4">
+                                            <div class="icon-box h-100">
+                                                <div class="icon">
+                                                    <i class="fas fa-check-circle"></i>
+                                                </div>
+                                                <h6>{{ $highlight }}</h6>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    @endif
+                                    @if (!empty($service['development_process']))
+                                    @php
+                                        $processItems = $service['development_process']['items'];
+                                        $processSplit = (int) ceil(count($processItems) / 2);
+                                        $processColumns = [
+                                            array_slice($processItems, 0, $processSplit),
+                                            array_slice($processItems, $processSplit),
+                                        ];
+                                    @endphp
+                                    <h3 class="mt-4">{{ $service['development_process']['title'] }}</h3>
+                                    @if (!empty($service['development_process']['intro']))
+                                    <p class="mt-3">{{ $service['development_process']['intro'] }}</p>
+                                    @endif
+                                    <div class="row g-3 emca-process-benefits-row mt-4">
+                                        @foreach ($processColumns as $colIndex => $columnItems)
+                                        @if (!empty($columnItems))
+                                        <div class="col-md-6">
+                                            <div class="emca-benefits-categories emca-process-benefits h-100">
+                                                <ul id="developmentProcessList-{{ $slug }}-{{ $colIndex }}">
+                                                    @foreach ($columnItems as $item)
+                                                    @php
+                                                        $processId = 'process-' . $slug . '-' . ($item['step'] ?? $loop->iteration);
+                                                    @endphp
+                                                    <li class="emca-benefit-item wow fadeInUp" data-wow-delay="{{ number_format($loop->index * 0.1 + 0.2, 1) }}s">
+                                                        <div class="emca-benefit-card">
+                                                            <a href="javascript:void(0)" class="emca-benefit-trigger collapsed" data-bs-toggle="collapse" data-bs-target="#{{ $processId }}" aria-expanded="false" aria-controls="{{ $processId }}">
+                                                                {{ $item['step'] ?? $loop->iteration }}. {{ $item['title'] }}
+                                                                <span><i class="fas fa-chevron-right"></i></span>
+                                                            </a>
+                                                            <div id="{{ $processId }}" class="collapse emca-benefit-panel" data-bs-parent="#developmentProcessList-{{ $slug }}-{{ $colIndex }}">
+                                                                <div class="emca-benefit-panel-inner">
+                                                                    {{ $item['description'] }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        @endif
+                                        @endforeach
+                                    </div>
+                                    @endif
+                                    @if (!empty($service['key_services']))
+                                    <h3 class="mt-4">{{ $service['key_services']['title'] }}</h3>
+                                    @if (!empty($service['key_services']['intro']))
+                                    <p class="mt-3">{{ $service['key_services']['intro'] }}</p>
+                                    @endif
+                                    @php
+                                        $keyServiceItems = $service['key_services']['items'];
+                                        $keyServiceLayout = $service['key_services']['layout'] ?? 'accordion';
+                                    @endphp
+                                    @if ($keyServiceLayout === 'cards')
+                                    <div class="row g-4 emca-module-details-list mt-4">
+                                        @foreach ($keyServiceItems as $item)
+                                        <div class="col-md-6 wow fadeInUp" data-wow-delay="{{ number_format($loop->index * 0.1 + 0.2, 1) }}s">
+                                            <div class="emca-module-detail-item h-100">
+                                                <h4>{{ $item['title'] }}</h4>
+                                                <p>{{ $item['description'] }}</p>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    @else
+                                    @php
+                                        $keyServicesExpanded = !empty($service['key_services']['expanded']);
+                                        $keyServiceSplit = (int) ceil(count($keyServiceItems) / 2);
+                                        $keyServiceColumns = [
+                                            array_slice($keyServiceItems, 0, $keyServiceSplit),
+                                            array_slice($keyServiceItems, $keyServiceSplit),
+                                        ];
+                                    @endphp
+                                    <div class="row g-3 emca-process-benefits-row mt-4">
+                                        @foreach ($keyServiceColumns as $colIndex => $columnItems)
+                                        @if (!empty($columnItems))
+                                        <div class="col-md-6">
+                                            <div class="emca-benefits-categories emca-process-benefits h-100">
+                                                <ul id="keyServicesList-{{ $slug }}-{{ $colIndex }}">
+                                                    @foreach ($columnItems as $item)
+                                                    @php
+                                                        $keyServiceId = 'key-service-' . $slug . '-' . $colIndex . '-' . $loop->iteration;
+                                                    @endphp
+                                                    <li class="emca-benefit-item wow fadeInUp" data-wow-delay="{{ number_format($loop->index * 0.1 + 0.2, 1) }}s">
+                                                        <div class="emca-benefit-card{{ $keyServicesExpanded ? ' emca-benefit-card-expanded' : '' }}">
+                                                            <a href="javascript:void(0)" class="emca-benefit-trigger{{ $keyServicesExpanded ? '' : ' collapsed' }}" data-bs-toggle="collapse" data-bs-target="#{{ $keyServiceId }}" aria-expanded="{{ $keyServicesExpanded ? 'true' : 'false' }}" aria-controls="{{ $keyServiceId }}">
+                                                                {{ $item['title'] }}
+                                                                <span><i class="fas fa-chevron-right"></i></span>
+                                                            </a>
+                                                            <div id="{{ $keyServiceId }}" class="collapse{{ $keyServicesExpanded ? ' show' : '' }} emca-benefit-panel"@if(!$keyServicesExpanded) data-bs-parent="#keyServicesList-{{ $slug }}-{{ $colIndex }}"@endif>
+                                                                <div class="emca-benefit-panel-inner">
+                                                                    {{ $item['description'] }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        @endif
+                                        @endforeach
+                                    </div>
+                                    @endif
+                                    @elseif (empty($service['development_process']))
+                                    <h3 class="mt-5">Our Service Approach</h3>
+                                    <p class="mt-3"> 
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat qui ducimus illum modi perspiciatis
+                                        accusamus soluta perferendis delectus rem.Lorem ipsum dolor sit amet delectus rem.Lorem ipsum dolor sit amet.
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="single-icon-items">
+                                                <div class="icon-box">
+                                                    <div class="icon">
+                                                        <i class="fas fa-check-circle"></i>
+                                                    </div>
+                                                    <h6>Entering & Leaving From Country</h6>
+                                                </div>
+                                                <div class="icon-box">
+                                                    <div class="icon">
+                                                        <i class="fas fa-check-circle"></i>
+                                                    </div>
+                                                    <h6>Settling In Country</h6>
+                                                </div>
+                                                <div class="icon-box">
+                                                    <div class="icon">
+                                                        <i class="fas fa-check-circle"></i>
+                                                    </div>
+                                                    <h6>Documents & Payments</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="single-icon-items">
+                                                <div class="icon-box">
+                                                    <div class="icon">
+                                                        <i class="fas fa-check-circle"></i>
+                                                    </div>
+                                                    <h6>Receive Your Visa</h6>
+                                                </div>
+                                                <div class="icon-box">
+                                                    <div class="icon">
+                                                        <i class="fas fa-check-circle"></i>
+                                                    </div>
+                                                    <h6>Quick & Easy Process</h6>
+                                                </div>
+                                                <div class="icon-box">
+                                                    <div class="icon">
+                                                        <i class="fas fa-check-circle"></i>
+                                                    </div>
+                                                    <h6>Country Citizenship</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endif
+                                    @if (!empty($service['platforms']))
+                                    <h3 class="mt-4">{{ $service['platforms']['title'] }}</h3>
+                                    @if (!empty($service['platforms']['intro']))
+                                    <p class="mt-3">{{ $service['platforms']['intro'] }}</p>
+                                    @endif
+                                    <div class="row g-3 emca-platforms-grid mt-4">
+                                        @foreach ($service['platforms']['items'] as $platform)
+                                        <div class="col-6 col-md-4">
+                                            <div class="emca-platform-item h-100">
+                                                <i class="{{ $platform['icon'] ?? 'fas fa-share-alt' }}"></i>
+                                                <span>{{ $platform['name'] }}</span>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    @endif
+                                    @if (!empty($service['website_types']))
+                                    <h3 class="mt-4">{{ $service['website_types']['title'] }}</h3>
+                                    @if (!empty($service['website_types']['intro']))
+                                    <p class="mt-3">{{ $service['website_types']['intro'] }}</p>
+                                    @endif
+                                    <div class="row g-4 emca-module-details-list mt-4">
+                                        @foreach ($service['website_types']['items'] as $item)
+                                        <div class="col-md-6">
+                                            <div class="emca-module-detail-item h-100">
+                                                <h4>{{ $item['title'] }}</h4>
+                                                <p>{{ $item['description'] }}</p>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    @endif
+                                    @if (!empty($service['software_types']))
+                                    <h3 class="mt-4">{{ $service['software_types']['title'] }}</h3>
+                                    @if (!empty($service['software_types']['intro']))
+                                    <p class="mt-3">{{ $service['software_types']['intro'] }}</p>
+                                    @endif
+                                    <div class="row g-4 emca-module-details-list mt-4">
+                                        @foreach ($service['software_types']['items'] as $item)
+                                        <div class="col-md-6">
+                                            <div class="emca-module-detail-item h-100">
+                                                <h4>{{ $item['title'] }}</h4>
+                                                <p>{{ $item['description'] }}</p>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--<< Footer Section Start >>-->
+        <footer class="footer-section footer-bg">
+            <div class="arrow-shape-1 float-bob-x">
+                <img src="{{ asset('visaland-html/assets/img/footer/arrow-shape-1.png') }}" alt="shape-img">
+            </div>
+            <div class="container">
+                <div class="contact-info-area-5">
+                    <div class="contact-info-items wow fadeInUp" data-wow-delay=".3s">
+                        <div class="icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23.7891 1.81641H16.7578C13.3658 1.81641 10.6055 4.5767 10.6055 7.96875C10.6055 11.063 12.9015 13.631 15.8789 14.0585V16.7578C15.8788 16.9317 15.9303 17.1016 16.0268 17.2462C16.1234 17.3907 16.2607 17.5033 16.4214 17.5697C16.7456 17.705 17.1258 17.6325 17.3793 17.3792L20.6374 14.1211H23.7891C27.1811 14.1211 30 11.3608 30 7.96875C30 4.5767 27.1811 1.81641 23.7891 1.81641ZM16.7578 8.84754C16.2723 8.84754 15.8789 8.45402 15.8789 7.96863C15.8789 7.48324 16.2723 7.08973 16.7578 7.08973C17.2432 7.08973 17.6367 7.48324 17.6367 7.96863C17.6367 8.45402 17.2432 8.84754 16.7578 8.84754ZM20.2734 8.84754C19.7879 8.84754 19.3945 8.45402 19.3945 7.96863C19.3945 7.48324 19.7879 7.08973 20.2734 7.08973C20.7588 7.08973 21.1523 7.48324 21.1523 7.96863C21.1523 8.45402 20.7588 8.84754 20.2734 8.84754ZM23.7891 8.84754C23.3036 8.84754 22.9102 8.45402 22.9102 7.96863C22.9102 7.48324 23.3036 7.08973 23.7891 7.08973C24.2745 7.08973 24.668 7.48324 24.668 7.96863C24.668 8.45402 24.2745 8.84754 23.7891 8.84754Z" fill="#E20935"/>
+                                <path d="M19.7461 28.1836C21.2 28.1836 22.3828 27.0008 22.3828 25.5469V22.0312C22.3828 21.6527 22.1408 21.3171 21.782 21.1978L16.5209 19.44C16.2634 19.3533 15.9819 19.3928 15.7553 19.5421L13.5186 21.033C11.1496 19.9035 8.33871 17.0925 7.20914 14.7236L8.7 12.4868C8.77415 12.3754 8.82189 12.2485 8.83958 12.1158C8.85728 11.9831 8.84447 11.8482 8.80213 11.7212L7.04432 6.46014C6.98611 6.28516 6.87428 6.13295 6.72469 6.02512C6.5751 5.91728 6.39534 5.85929 6.21094 5.85938H2.63672C1.18277 5.85938 0 7.02979 0 8.48373C0 18.61 9.6198 28.1836 19.7461 28.1836Z" fill="#E20935"/>
+                            </svg>                                        
+                        </div>
+                        <div class="content">
+                            <p>Call Us 7/24</p>
+                            <h3>
+                                <a href="tel:+17189044450">+1718-904-4450</a>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="contact-info-items wow fadeInUp" data-wow-delay=".5s">
+                        <div class="icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.6493 10.8272C12.8019 10.914 12.9755 10.9569 13.1509 10.9509C13.3307 10.9344 13.5048 10.8798 13.6618 10.7906L24.9212 4.22062C24.6765 3.79416 24.324 3.43955 23.8989 3.19239C23.4739 2.94523 22.9913 2.81422 22.4996 2.8125H3.74965C3.25782 2.81406 2.77505 2.94499 2.34983 3.19216C1.92461 3.43932 1.57191 3.79402 1.32715 4.22062L12.6493 10.8272Z" fill="#E20935"/>
+                                <path d="M25.3125 6.15918V12.6748C24.4104 12.3501 23.4587 12.1852 22.5 12.1873C20.2633 12.1908 18.1192 13.0808 16.5376 14.6624C14.956 16.244 14.066 18.3881 14.0625 20.6248C14.0623 20.9382 14.0811 21.2512 14.1188 21.5623H3.75C3.00476 21.5601 2.29069 21.263 1.76372 20.7361C1.23676 20.2091 0.939726 19.495 0.9375 18.7498V6.15918L11.7094 12.4498C12.1434 12.6872 12.6303 12.8116 13.125 12.8116C13.6197 12.8116 14.1066 12.6872 14.5406 12.4498L25.3125 6.15918Z" fill="#E20935"/>
+                                <path d="M22.5 14.0625C20.7595 14.0625 19.0903 14.7539 17.8596 15.9846C16.6289 17.2153 15.9375 18.8845 15.9375 20.625C15.9375 22.3655 16.6289 24.0347 17.8596 25.2654C19.0903 26.4961 20.7595 27.1875 22.5 27.1875C22.7486 27.1875 22.9871 27.0887 23.1629 26.9129C23.3387 26.7371 23.4375 26.4986 23.4375 26.25C23.4375 26.0014 23.3387 25.7629 23.1629 25.5871C22.9871 25.4113 22.7486 25.3125 22.5 25.3125C21.5729 25.3125 20.6666 25.0376 19.8958 24.5225C19.1249 24.0074 18.5241 23.2754 18.1693 22.4188C17.8145 21.5623 17.7217 20.6198 17.9026 19.7105C18.0834 18.8012 18.5299 17.966 19.1854 17.3104C19.841 16.6549 20.6762 16.2084 21.5855 16.0276C22.4948 15.8467 23.4373 15.9395 24.2938 16.2943C25.1504 16.6491 25.8824 17.2499 26.3975 18.0208C26.9126 18.7916 27.1875 19.6979 27.1875 20.625V21.5625C27.1875 21.8111 27.0887 22.0496 26.9129 22.2254C26.7371 22.4012 26.4986 22.5 26.25 22.5C26.0014 22.5 25.7629 22.4012 25.5871 22.2254C25.4113 22.0496 25.3125 21.8111 25.3125 21.5625V20.625C25.3125 20.0687 25.1476 19.525 24.8385 19.0625C24.5295 18.5999 24.0902 18.2395 23.5763 18.0266C23.0624 17.8137 22.4969 17.758 21.9513 17.8665C21.4057 17.9751 20.9046 18.2429 20.5113 18.6363C20.1179 19.0296 19.8501 19.5307 19.7415 20.0763C19.633 20.6219 19.6887 21.1874 19.9016 21.7013C20.1145 22.2152 20.4749 22.6545 20.9375 22.9635C21.4 23.2726 21.9437 23.4375 22.5 23.4375C22.9843 23.4344 23.4594 23.3048 23.8781 23.0616C24.2022 23.578 24.6856 23.9748 25.2552 24.1921C25.8248 24.4094 26.4496 24.4353 27.0353 24.266C27.621 24.0967 28.1356 23.7412 28.5013 23.2535C28.867 22.7657 29.064 22.1721 29.0625 21.5625V20.625C29.0605 18.8851 28.3685 17.2171 27.1382 15.9868C25.9079 14.7565 24.2399 14.0645 22.5 14.0625ZM22.5 21.5625C22.3146 21.5625 22.1333 21.5075 21.9792 21.4045C21.825 21.3015 21.7048 21.1551 21.6339 20.9838C21.5629 20.8125 21.5443 20.624 21.5805 20.4421C21.6167 20.2602 21.706 20.0932 21.8371 19.9621C21.9682 19.831 22.1352 19.7417 22.3171 19.7055C22.499 19.6693 22.6875 19.6879 22.8588 19.7589C23.0301 19.8298 23.1765 19.95 23.2795 20.1042C23.3825 20.2583 23.4375 20.4396 23.4375 20.625C23.4375 20.8736 23.3387 21.1121 23.1629 21.2879C22.9871 21.4637 22.7486 21.5625 22.5 21.5625Z" fill="#E20935"/>
+                            </svg>
+                                                                        
+                        </div>
+                        <div class="content">
+                            <p>Make a Quote</p>
+                            <h3>
+                                <a href="mailto:example@gmail.com">example@gmail.com</a>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="contact-info-items wow fadeInUp" data-wow-delay=".7s">
+                        <div class="icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M16 1.66699C11.036 1.66699 7 5.73899 7 10.7617C7 12.463 7.74933 14.5737 8.84 16.679C11.2413 21.315 15.2413 25.9843 15.2413 25.9843C15.3352 26.0937 15.4516 26.1814 15.5826 26.2416C15.7135 26.3017 15.8559 26.3328 16 26.3328C16.1441 26.3328 16.2865 26.3017 16.4174 26.2416C16.5484 26.1814 16.6648 26.0937 16.7587 25.9843C16.7587 25.9843 20.7587 21.315 23.16 16.679C24.2507 14.5737 25 12.463 25 10.7617C25 5.73899 20.964 1.66699 16 1.66699ZM16 7.00033C15.0447 7.02609 14.1371 7.4237 13.4705 8.10853C12.8039 8.79335 12.4309 9.7113 12.4309 10.667C12.4309 11.6227 12.8039 12.5406 13.4705 13.2255C14.1371 13.9103 15.0447 14.3079 16 14.3337C16.9553 14.3079 17.8629 13.9103 18.5295 13.2255C19.1961 12.5406 19.5691 11.6227 19.5691 10.667C19.5691 9.7113 19.1961 8.79335 18.5295 8.10853C17.8629 7.4237 16.9553 7.02609 16 7.00033Z" fill="#E20935"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M22.3783 23.1693C23.4623 23.4946 24.3557 23.8973 24.973 24.3693C25.373 24.6733 25.6663 24.9706 25.6663 25.3333C25.6663 25.5466 25.545 25.74 25.3743 25.9333C25.0917 26.252 24.6717 26.5386 24.1517 26.8053C22.3143 27.7453 19.3437 28.3333 15.9997 28.3333C12.6557 28.3333 9.68501 27.7453 7.84767 26.8053C7.32767 26.5386 6.90767 26.252 6.62501 25.9333C6.45434 25.74 6.33301 25.5466 6.33301 25.3333C6.33301 24.9706 6.62634 24.6733 7.02634 24.3693C7.64367 23.8973 8.53701 23.4946 9.62101 23.1693C9.87509 23.0929 10.0884 22.9187 10.2141 22.6851C10.3397 22.4514 10.3674 22.1774 10.291 21.9233C10.2146 21.6692 10.0404 21.4559 9.80677 21.3302C9.5731 21.2046 9.29909 21.1769 9.04501 21.2533C7.39434 21.7506 6.11167 22.432 5.34101 23.1853C4.66367 23.8453 4.33301 24.584 4.33301 25.3333C4.33301 26.2693 4.86234 27.2026 5.93834 27.9813C7.82634 29.3466 11.6183 30.3333 15.9997 30.3333C20.381 30.3333 24.173 29.3466 26.061 27.9813C27.137 27.2026 27.6663 26.2693 27.6663 25.3333C27.6663 24.584 27.3357 23.8453 26.6583 23.1853C25.8877 22.432 24.605 21.7506 22.9543 21.2533C22.8285 21.2155 22.6965 21.2028 22.5658 21.216C22.4351 21.2292 22.3083 21.268 22.1926 21.3302C22.0769 21.3925 21.9746 21.4769 21.8915 21.5786C21.8084 21.6804 21.7462 21.7975 21.7083 21.9233C21.6705 22.0491 21.6578 22.1811 21.6711 22.3118C21.6843 22.4425 21.7231 22.5694 21.7853 22.6851C21.8475 22.8008 21.9319 22.9031 22.0337 22.9862C22.1354 23.0692 22.2525 23.1315 22.3783 23.1693Z" fill="#E20935"/>
+                            </svg>                     
+                        </div>
+                        <div class="content">
+                            <p>Location</p>
+                            <h3>
+                                734 H, Bryan Burlington, NC 27215 
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-widgets-wrapper">
+                <div class="arrow-shape-2 float-bob-x">
+                    <img src="{{ asset('visaland-html/assets/img/footer/arrow-shape-2.png') }}" alt="shape-img">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-3 col-sm-6 col-md-6 col-lg-3 wow fadeInUp" data-wow-delay=".2s">
+                            <div class="single-footer-widget">
+                                <div class="widget-head">
+                                    <a href="{{ route('home') }}">
+                                    <img src="{{ asset('images/logo_header.png') }}" alt="logo-img">
+                                    </a>
+                                </div>
+                                <div class="footer-content">
+                                    <p>
+                                        Quis autem veumure repreh volu
+                                        tate velit esse niholestiae conseua
+                                        veillum dolorem eum fugiat voluta.
+                                    </p>
+                                    <div class="social-icon d-flex align-items-center">
+                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-vimeo-v"></i></a>
+                                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 ps-lg-5 col-sm-6 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay=".4s">
+                            <div class="single-footer-widget">
+                                <div class="widget-head">
+                                    <h5>Services</h5>
+                                </div>
+                                <ul class="list-items">
+                                    <li>
+                                        <a href="{{ route('service.details') }}">
+                                            <i class="far fa-chevron-double-right"></i> 
+                                            Canada Visa
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('service.details') }}">
+                                            <i class="far fa-chevron-double-right"></i> 
+                                            Japan Visa
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('service.details') }}">
+                                            <i class="far fa-chevron-double-right"></i> 
+                                            Spain Visa
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('service.details') }}">
+                                            <i class="far fa-chevron-double-right"></i> 
+                                            Germany Visa
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('service.details') }}">
+                                            <i class="far fa-chevron-double-right"></i> 
+                                            Italy Visa
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-sm-6 ps-lg-5 col-md-6 col-lg-4 wow fadeInUp" data-wow-delay=".6s">
+                            <div class="single-footer-widget">
+                                <div class="widget-head">
+                                    <h5>Instagram</h5>
+                                </div>
+                                <div class="footer-gallery">
+                                    <div class="gallery-wrap">
+                                        <div class="gallery-item">
+                                            <div class="thumb">
+                                                <a href="{{ asset('visaland-html/assets/img/footer/gallery-1.jpg') }}" class="img-popup">
+                                                    <img src="{{ asset('visaland-html/assets/img/footer/gallery-1.jpg') }}" alt="gallery-img">
+                                                    <div class="icon">
+                                                        <i class="far fa-plus"></i>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="thumb">
+                                                <a href="{{ asset('visaland-html/assets/img/footer/gallery-2.jpg') }}" class="img-popup">
+                                                    <img src="{{ asset('visaland-html/assets/img/footer/gallery-2.jpg') }}" alt="gallery-img">
+                                                    <div class="icon">
+                                                        <i class="far fa-plus"></i>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="thumb">
+                                                <a href="{{ asset('visaland-html/assets/img/footer/gallery-3.jpg') }}" class="img-popup">
+                                                    <img src="{{ asset('visaland-html/assets/img/footer/gallery-3.jpg') }}" alt="gallery-img">
+                                                    <div class="icon">
+                                                        <i class="far fa-plus"></i>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="gallery-item">
+                                            <div class="thumb">
+                                                <a href="{{ asset('visaland-html/assets/img/footer/gallery-4.jpg') }}" class="img-popup">
+                                                    <img src="{{ asset('visaland-html/assets/img/footer/gallery-4.jpg') }}" alt="gallery-img">
+                                                    <div class="icon">
+                                                        <i class="far fa-plus"></i>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="thumb">
+                                                <a href="{{ asset('visaland-html/assets/img/footer/gallery-5.jpg') }}" class="img-popup">
+                                                    <img src="{{ asset('visaland-html/assets/img/footer/gallery-5.jpg') }}" alt="gallery-img">
+                                                    <div class="icon">
+                                                        <i class="far fa-plus"></i>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="thumb">
+                                                <a href="{{ asset('visaland-html/assets/img/footer/gallery-6.jpg') }}" class="img-popup">
+                                                    <img src="{{ asset('visaland-html/assets/img/footer/gallery-6.jpg') }}" alt="gallery-img">
+                                                    <div class="icon">
+                                                        <i class="far fa-plus"></i>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       <div class="col-xl-4 ps-xl-5 col-sm-6 col-md-3 col-lg-4 wow fadeInUp" data-wow-delay=".8s">
+                            <div class="single-footer-widget ml-30">
+                                <div class="widget-head">
+                                    <h5>Newsletters</h5>
+                                </div>
+                                <div class="footer-content">
+                                    <p>
+                                        Sing Up For News & Get 30% Off
+                                        Your Next Course.
+                                    </p>
+                                    <div class="footer-input">
+                                        <input type="email" id="email11" placeholder="Your Email Address">
+                                        <button class="theme-btn" type="submit">
+                                            <span>Subscribe Now</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="footer-wrapper d-flex align-items-center justify-content-between">
+                        <p class="wow fadeInLeft color-2" data-wow-delay=".3s">
+                            Copyright © 2024 <a href="{{ route('home') }}">Modinatheme</a>. All Rights Reserved.
+                        </p>
+                        <ul class="footer-menu wow fadeInRight" data-wow-delay=".5s">
+                            <li>
+                                <a href="{{ route('about') }}">
+                                    Company
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('contact') }}">
+                                    Support
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('contact') }}">
+                                    Privacy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('faq') }}">
+                                Faqs
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+       
+     <!--<< All JS Plugins >>-->
+     <script src="{{ asset('visaland-html/assets/js/jquery-3.7.1.min.js') }}"></script>
+     <!--<< Viewport Js >>-->
+     <script src="{{ asset('visaland-html/assets/js/viewport.jquery.js') }}"></script>
+     <!--<< Bootstrap Js >>-->
+     <script src="{{ asset('visaland-html/assets/js/bootstrap.bundle.min.js') }}"></script>
+     <!--<< Gsap Js >>-->
+     <script src="{{ asset('visaland-html/assets/js/gsap/gsap.js') }}"></script>
+     <!--<< Gsap Scroll Trigger Js >>-->
+     <script src="{{ asset('visaland-html/assets/js/gsap/gsap-scroll-trigger.js') }}"></script>
+     <!--<< Gsap Split Text Js >>-->
+     <script src="{{ asset('visaland-html/assets/js/gsap/gsap-split-text.js') }}"></script>
+     <!--<< Nice Select Js >>-->
+     <script src="{{ asset('visaland-html/assets/js/jquery.nice-select.min.js') }}"></script>
+     <!--<< Waypoints Js >>-->
+     <script src="{{ asset('visaland-html/assets/js/jquery.waypoints.js') }}"></script>
+     <!--<< Counterup Js >>-->
+     <script src="{{ asset('visaland-html/assets/js/jquery.counterup.min.js') }}"></script>
+     <!--<< Slick Js >>-->
+     <script src="{{ asset('visaland-html/assets/js/slick.min.js') }}"></script>
+     <!--<< Swiper Slider Js >>-->
+     <script src="{{ asset('visaland-html/assets/js/swiper-bundle.min.js') }}"></script>
+     <!--<< Slick Animation Js >>-->
+     <script src="{{ asset('visaland-html/assets/js/slick-animation.min.js') }}"></script>
+     <!--<< MeanMenu Js >>-->
+     <script src="{{ asset('visaland-html/assets/js/jquery.meanmenu.min.js') }}"></script>
+     <!--<< Magnific Popup Js >>-->
+     <script src="{{ asset('visaland-html/assets/js/jquery.magnific-popup.min.js') }}"></script>
+     <!--<< Wow Animation Js >>-->
+     <script src="{{ asset('visaland-html/assets/js/wow.min.js') }}"></script>
+     <!--<< Circle Progress Js >>-->
+     <script src="{{ asset('visaland-html/assets/js/circle-progress.js') }}"></script>
+     <!--<< Main.js >>-->
+     <script src="{{ asset('visaland-html/assets/js/main.js') }}"></script>
+    </body>
+</html>
