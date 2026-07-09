@@ -43,133 +43,13 @@
             </svg>
         </div>
 
-        <!-- Preloader Start -->
-        <div id="preloader" class="preloader">
-            <div class="animation-preloader">
-                <div class="spinner">                
-                </div>
-                <div class="txt-loading">
-                    <span data-text-preloader="V" class="letters-loading">
-                        V
-                    </span>
-                    <span data-text-preloader="I" class="letters-loading">
-                        I
-                    </span>
-                    <span data-text-preloader="S" class="letters-loading">
-                        S
-                    </span>
-                    <span data-text-preloader="A" class="letters-loading">
-                        A
-                    </span>
-                    <span data-text-preloader="L" class="letters-loading">
-                        L
-                    </span>
-                    <span data-text-preloader="A" class="letters-loading">
-                        A
-                    </span>
-                    <span data-text-preloader="N" class="letters-loading">
-                        N
-                    </span>
-                    <span data-text-preloader="D" class="letters-loading">
-                        D
-                    </span>
-                </div>
-                <p class="text-center">Loading</p>
-            </div>
-            <div class="loader">
-                <div class="row">
-                    <div class="col-3 loader-section section-left">
-                        <div class="bg"></div>
-                    </div>
-                    <div class="col-3 loader-section section-left">
-                        <div class="bg"></div>
-                    </div>
-                    <div class="col-3 loader-section section-right">
-                        <div class="bg"></div>
-                    </div>
-                    <div class="col-3 loader-section section-right">
-                        <div class="bg"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @include('partials.preloader')
 
         <!--<< Mouse Cursor Start >>-->  
         <div class="mouse-cursor cursor-outer"></div>
         <div class="mouse-cursor cursor-inner"></div>
 
-        <!-- Offcanvas Area Start -->
-        <div class="fix-area">
-            <div class="offcanvas__info">
-                <div class="offcanvas__wrapper">
-                    <div class="offcanvas__content">
-                        <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
-                            <div class="offcanvas__logo">
-                                <a href="{{ route('home') }}">
-                                    <img src="{{ asset('images/logo_header.png') }}" alt="logo-img">
-                                </a>
-                            </div>
-                            <div class="offcanvas__close">
-                                <button>
-                                <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="mobile-menu fix mb-3"></div>
-                        <div class="offcanvas__contact">
-                            <h4>Contact Info</h4>
-                            <ul>
-                                <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon">
-                                        <i class="fal fa-map-marker-alt"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                        <a target="_blank" href="#">Main Street, Melbourne, Australia</a>
-                                    </div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon mr-15">
-                                        <i class="fal fa-envelope"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                         <a href="mailto:info@example.com"><span class="mailto:info@azent.com">info@example.com</span></a>
-                                    </div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon mr-15">
-                                        <i class="fal fa-clock"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                        <a target="_blank" href="#">Mod-friday, 09am -05pm</a>
-                                    </div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon mr-15">
-                                        <i class="far fa-phone"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                        <a href="tel:+11002345909">+11002345909</a>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="header-button mt-4">
-                                <a href="{{ route('contact') }}" class="theme-btn text-center">
-                                    <span>Contact Us<i class="fas fa-chevron-right"></i></span>
-                                </a>
-                            </div>
-                            <div class="social-icon d-flex align-items-center">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="offcanvas__overlay"></div>
+        @include('partials.offcanvas')
 
         @include('partials.header-top')
 
@@ -291,17 +171,7 @@
                                                 @include('partials.nav-pages-services')
 
                                                 @include('partials.nav-pages-solutions')
-                                                <li>
-                                                    <a href="{{ route('news') }}">
-                                                        Blog
-                                                        <i class="fas fa-angle-down"></i>
-                                                    </a>
-                                                    <ul class="submenu">
-                                                        <li><a href="{{ route('news.grid') }}">Blog Grid</a></li>
-                                                        <li><a href="{{ route('news') }}">Blog Standard </a></li>
-                                                        <li><a href="{{ route('news.details') }}">Blog Details</a></li>
-                                                    </ul>
-                                                </li>
+                                                @include('partials.nav-blog')
                                                 <li>
                                                     <a href="{{ route('contact') }}">Contact</a>
                                                 </li>
@@ -311,17 +181,6 @@
                                 </div>
                             </div>
                             <div class="header-right d-flex justify-content-end align-items-center">
-                                <div class="contact-info">
-                                    <div class="icon">
-                                        <img src="{{ asset('visaland-html/assets/img/call.png') }}" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <p>Phone:</p>
-                                        <h6>
-                                            <a href="tel:+23645689622">+236 (456) 896 22</a>
-                                        </h6>
-                                    </div>
-                                </div>
                                 <div class="header-button">
                                     <a href="{{ route('contact') }}" class="link-btn">
                                         <span>Get A Quote</span>
@@ -362,114 +221,7 @@
                 </div>
                 <div class="swiper hero-slider">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="shape-image" data-animation="fadeInLeft" data-delay="2.1s">
-                                <img src="{{ asset('visaland-html/assets/img/hero/object1.png') }}" alt="shape-img">
-                            </div>
-                            <div class="shape-image-2 fadeInRight animated" data-animation="fadeInRight" data-delay="2.3s">
-                                <img src="{{ asset('visaland-html/assets/img/hero/right-shape.png') }}" alt="shape-img">
-                            </div>
-                            <div class="hero-image bg-cover" style="background-image: url('{{ asset('visaland-html/assets/img/hero/hero-1.jpg') }}');"></div>
-                            <div class="container">
-                                <div class="row g-4">
-                                    <div class="col-lg-8">
-                                        <div class="hero-content">
-                                            <h6 data-animation="slideInRight" data-duration="2s" data-delay=".3s">Your Most Trusted Partners</h6>
-                                            <h1 data-animation="slideInRight" data-duration="2s" data-delay=".5s">
-                                                Immigration & <br>  Visa Consulting <br>  Here...
-                                            </h1>
-                                            <p data-animation="slideInRight" data-duration="2s" data-delay=".7s">
-                                                Transmds is the world’s driving worldwide coordinations supplier we uphold <br> industry and exchange  the worldwide trade of merchandi
-                                            </p>
-                                            <div class="hero-button">
-                                                <a href="{{ route('home') }}" class="theme-btn theme-color-2" data-animation="slideInRight" data-duration="2s" data-delay=".9s"><span>Learn More <i class="fas fa-chevron-right"></i></span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="shape-image" data-animation="fadeInLeft" data-delay="2.1s">
-                                <img src="{{ asset('visaland-html/assets/img/hero/object1.png') }}" alt="shape-img">
-                            </div>
-                            <div class="shape-image-2 fadeInRight animated" data-animation="fadeInRight" data-delay="2.3s">
-                                <img src="{{ asset('visaland-html/assets/img/hero/right-shape.png') }}" alt="shape-img">
-                            </div>
-                            <div class="hero-image bg-cover" style="background-image: url('{{ asset('visaland-html/assets/img/hero/hero-2.jpg') }}');"></div>
-                            <div class="container">
-                                <div class="row g-4">
-                                    <div class="col-lg-8">
-                                        <div class="hero-content">
-                                            <h6 data-animation="slideInRight" data-duration="2s" data-delay=".3s">Your Most Trusted Partners</h6>
-                                            <h1 data-animation="slideInRight" data-duration="2s" data-delay=".5s">
-                                                Immigration & <br>  Visa Consulting <br>  Here...
-                                            </h1>
-                                            <p data-animation="slideInRight" data-duration="2s" data-delay=".7s">
-                                                Transmds is the world’s driving worldwide coordinations supplier we uphold <br> industry and exchange  the worldwide trade of merchandi
-                                            </p>
-                                            <div class="hero-button">
-                                                <a href="{{ route('home') }}" class="theme-btn theme-color-2" data-animation="slideInRight" data-duration="2s" data-delay=".9s"><span>Learn More <i class="fas fa-chevron-right"></i></span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="shape-image" data-animation="fadeInLeft" data-delay="2.1s">
-                                <img src="{{ asset('visaland-html/assets/img/hero/object1.png') }}" alt="shape-img">
-                            </div>
-                            <div class="shape-image-2 fadeInRight animated" data-animation="fadeInRight" data-delay="2.3s">
-                                <img src="{{ asset('visaland-html/assets/img/hero/right-shape.png') }}" alt="shape-img">
-                            </div>
-                            <div class="hero-image bg-cover" style="background-image: url('{{ asset('visaland-html/assets/img/hero/hero-3.jpg') }}');"></div>
-                            <div class="container">
-                                <div class="row g-4">
-                                    <div class="col-lg-8">
-                                        <div class="hero-content">
-                                            <h6 data-animation="slideInRight" data-duration="2s" data-delay=".3s">Your Most Trusted Partners</h6>
-                                            <h1 data-animation="slideInRight" data-duration="2s" data-delay=".5s">
-                                                Immigration & <br>  Visa Consulting <br>  Here...
-                                            </h1>
-                                            <p data-animation="slideInRight" data-duration="2s" data-delay=".7s">
-                                                Transmds is the world’s driving worldwide coordinations supplier we uphold <br> industry and exchange  the worldwide trade of merchandi
-                                            </p>
-                                            <div class="hero-button">
-                                                <a href="{{ route('home') }}" class="theme-btn theme-color-2" data-animation="slideInRight" data-duration="2s" data-delay=".9s"><span>Learn More <i class="fas fa-chevron-right"></i></span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="shape-image" data-animation="fadeInLeft" data-delay="2.1s">
-                                <img src="{{ asset('visaland-html/assets/img/hero/object1.png') }}" alt="shape-img">
-                            </div>
-                            <div class="shape-image-2 fadeInRight animated" data-animation="fadeInRight" data-delay="2.3s">
-                                <img src="{{ asset('visaland-html/assets/img/hero/right-shape.png') }}" alt="shape-img">
-                            </div>
-                            <div class="hero-image bg-cover" style="background-image: url('{{ asset('visaland-html/assets/img/hero/hero-2.jpg') }}');"></div>
-                            <div class="container">
-                                <div class="row g-4">
-                                    <div class="col-lg-8">
-                                        <div class="hero-content">
-                                            <h6 data-animation="slideInRight" data-duration="2s" data-delay=".3s">Your Most Trusted Partners</h6>
-                                            <h1 data-animation="slideInRight" data-duration="2s" data-delay=".5s">
-                                                Immigration & <br>  Visa Consulting <br>  Here...
-                                            </h1>
-                                            <p data-animation="slideInRight" data-duration="2s" data-delay=".7s">
-                                                Transmds is the world’s driving worldwide coordinations supplier we uphold <br> industry and exchange  the worldwide trade of merchandi
-                                            </p>
-                                            <div class="hero-button">
-                                                <a href="{{ route('home') }}" class="theme-btn theme-color-2" data-animation="slideInRight" data-duration="2s" data-delay=".9s"><span>Learn More <i class="fas fa-chevron-right"></i></span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @include('partials.hero-slides')
                     </div>
                 </div>
             </section>
@@ -685,119 +437,7 @@
     
             @include('partials.live-solutions-section')
     
-            <!--<< Team Section Start >>-->
-            <section class="team-section section-padding">
-                <div class="container">
-                    <div class="section-title text-center">
-                        <span class="wow fadeInUp">Our Expert Team</span>
-                        <h2 class="title-anim">
-                            Meet our Creative architecture team <br> for your dream home
-                        </h2>
-                    </div>
-                   <div class="row">
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                            <div class="team-box-items style-2">
-                                <div class="team-image">
-                                    <img src="{{ asset('visaland-html/assets/img/team/01.jpg') }}" alt="Caroline Shija">
-                                    <ul class="social-icon d-grid justify-content-center align-items-center">
-                                        <li>
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="team-content">
-                                    <h3><a href="{{ route('team.details') }}">Caroline Shija</a></h3>
-                                    <p>Managing Director</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                            <div class="team-box-items">
-                                <div class="team-image">
-                                    <img src="{{ asset('visaland-html/assets/img/team/02.jpg') }}" alt="Mariana Swai">
-                                    <ul class="social-icon d-grid justify-content-center align-items-center">
-                                        <li>
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="team-content">
-                                    <h3><a href="{{ route('team.details') }}">Mariana Swai</a></h3>
-                                    <p>Accountant</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".7s">
-                            <div class="team-box-items style-2">
-                                <div class="team-image">
-                                    <img src="{{ asset('images/often.jpg') }}" alt="Ofeni Mwakapola">
-                                    <ul class="social-icon d-grid justify-content-center align-items-center">
-                                        <li>
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="team-content">
-                                    <h3><a href="{{ route('team.details') }}">Ofeni Mwakapola</a></h3>
-                                    <p>Developer</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".9s">
-                            <div class="team-box-items">
-                                <div class="team-image">
-                                    <img src="{{ asset('visaland-html/assets/img/team/04.jpg') }}" alt="Leonard Kingoye">
-                                    <ul class="social-icon d-grid justify-content-center align-items-center">
-                                        <li>
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="team-content">
-                                    <h3><a href="{{ route('team.details') }}">Leonard Kingoye</a></h3>
-                                    <p>Graphics Designer</p>
-                                </div>
-                            </div>
-                        </div>
-                   </div>
-                </div>
-            </section>
+            @include('partials.expert-team-section')
     
             <!--<<Choose us section Start >>-->
             <section class="choose-us-section emca-choose-us-section section-padding pt-0">
@@ -853,19 +493,37 @@
                                     <div class="row g-4">
                                         <div class="col-lg-7 wow fadeInUp" data-wow-delay=".3s">
                                             <div class="choose-image-1">
-                                                <img src="{{ asset('visaland-html/assets/img/choose-us/01.jpg') }}" alt="img">
+                                                <img src="{{ asset('images/why4.jpg') }}" alt="Why choose EmCa Technologies">
                                             </div>
                                         </div>
                                         <div class="col-lg-5">
-                                            <div class="choose-image-2 bg-cover wow fadeInUp" data-wow-delay=".3s" style="background-image: url('{{ asset('visaland-html/assets/img/choose-us/02.jpg') }}');"></div>
+                                            <div class="choose-image-2 bg-cover wow fadeInUp" data-wow-delay=".3s" style="background-image: url('{{ asset('images/why2.jpg') }}');"></div>
                                             <div class="choose-image-3 wow fadeInUp" data-wow-delay=".5s">
-                                                <img src="{{ asset('visaland-html/assets/img/choose-us/03.jpg') }}" alt="img">
+                                                <img src="{{ asset('images/why3.jpg') }}" alt="Why choose EmCa Technologies">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="choose-box">
-                                        <h3>850+ Successful <br> Projects</h3>
-                                        <img src="{{ asset('visaland-html/assets/img/about/client.png') }}" alt="author-img">
+                                    <div class="circle-shape emca-projects-circle">
+                                        <div class="emca-circle-ring emca-circle-ring--outer text-circle" aria-hidden="true">
+                                            <svg viewBox="0 0 200 200" class="emca-circle-svg" role="img" aria-hidden="true">
+                                                <defs>
+                                                    <path id="emcaProjectsCirclePath" fill="none" d="M 100, 100 m -84, 0 a 84, 84 0 1, 1 168, 0 a 84, 84 0 1, 1 -168, 0"/>
+                                                </defs>
+                                                <text class="emca-circle-svg-text">
+                                                    <textPath href="#emcaProjectsCirclePath" startOffset="0%">
+                                                        SUCCESSFUL PROJECTS • EmCa TECHONOLOGIES •
+                                                    </textPath>
+                                                </text>
+                                            </svg>
+                                        </div>
+                                        <div class="emca-circle-core">
+                                            <div class="emca-circle-core__shine" aria-hidden="true"></div>
+                                            <div class="about-title">
+                                                <h2>50+</h2>
+                                                <p>Successful <br> Projects</p>
+                                            </div>
+                                        </div>
+                                        <div class="emca-circle-ring emca-circle-ring--dots text-circle-reverse" aria-hidden="true"></div>
                                     </div>
                                 </div>
                             </div>
@@ -950,86 +608,7 @@
                         </h2>
                     </div>
                     <div class="testimonial-carousel-active">
-                        <div class="testimonial-card-items">
-                            <div class="author-items">
-                                <div class="author-image testimonial-person-icon">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="author-content">
-                                    <h5>John Mwangi</h5>
-                                    <span>CEO, Tech Solutions</span>
-                                    <span class="emca-testimonial-client">Client</span>
-                                </div>
-                            </div>
-                            <p>Excellent service and professional team. Highly recommended!</p>
-                            <div class="star">
-                                <span class="fas fa-star"></span>
-                                <span class="fas fa-star"></span>
-                                <span class="fas fa-star"></span>
-                                <span class="fas fa-star"></span>
-                                <span class="fas fa-star"></span>
-                            </div>
-                        </div>
-                        <div class="testimonial-card-items">
-                            <div class="author-items">
-                                <div class="author-image testimonial-person-icon">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="author-content">
-                                    <h5>Sarah Kimathi</h5>
-                                    <span>Director, Business Innovations</span>
-                                    <span class="emca-testimonial-client">Client</span>
-                                </div>
-                            </div>
-                            <p>Outstanding work and great support. Exceeded our expectations!</p>
-                            <div class="star">
-                                <span class="fas fa-star"></span>
-                                <span class="fas fa-star"></span>
-                                <span class="fas fa-star"></span>
-                                <span class="fas fa-star"></span>
-                                <span class="fas fa-star"></span>
-                            </div>
-                        </div>
-                        <div class="testimonial-card-items">
-                            <div class="author-items">
-                                <div class="author-image testimonial-person-icon">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="author-content">
-                                    <h5>David Ochieng</h5>
-                                    <span>Manager, Digital Services</span>
-                                    <span class="emca-testimonial-client">Client</span>
-                                </div>
-                            </div>
-                            <p>Professional service and reliable solutions. Great value for money!</p>
-                            <div class="star">
-                                <span class="fas fa-star"></span>
-                                <span class="fas fa-star"></span>
-                                <span class="fas fa-star"></span>
-                                <span class="fas fa-star"></span>
-                                <span class="fas fa-star"></span>
-                            </div>
-                        </div>
-                        <div class="testimonial-card-items">
-                            <div class="author-items">
-                                <div class="author-image testimonial-person-icon">
-                                    <i class="fas fa-user"></i>
-                                </div>
-                                <div class="author-content">
-                                    <h5>Shikon Islam</h5>
-                                    <span>Graphics Designer</span>
-                                    <span class="emca-testimonial-client">Client</span>
-                                </div>
-                            </div>
-                            <p>Amazing graphics and branding. Our business looks professional and stands out!</p>
-                            <div class="star">
-                                <span class="fas fa-star"></span>
-                                <span class="fas fa-star"></span>
-                                <span class="fas fa-star"></span>
-                                <span class="fas fa-star"></span>
-                                <span class="fas fa-star"></span>
-                            </div>
-                        </div>
+                        @include('partials.testimonials-carousel', ['testimonials' => $testimonials ?? collect()])
                     </div>
                 </div>
             </section>
@@ -1070,7 +649,7 @@
                             <img src="{{ asset('visaland-html/assets/img/linepng.png') }}" alt="img">
                         </div>
                         <div class="row">
-                            <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
+                            <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".2s">
                                 <div class="work-process-items text-center">
                                     <div class="icon">
                                         <i class="fas fa-laptop-code"></i>
@@ -1086,7 +665,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
+                            <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".4s">
                                 <div class="work-process-items text-center">
                                     <div class="content style-2">
                                         <h4>Request A Meeting</h4>
@@ -1102,7 +681,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".6s">
+                            <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".6s">
                                 <div class="work-process-items text-center">
                                     <div class="icon">
                                         <i class="fas fa-file-invoice-dollar"></i>
@@ -1118,7 +697,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".8s">
+                            <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".8s">
                                 <div class="work-process-items text-center">
                                     <div class="content style-2">
                                         <h4>Receive Your Service</h4>
@@ -1147,95 +726,13 @@
                         <h2 class="title-anim">Read Our Latest News & Blog</h2>
                     </div>
                     <div class="row">
-                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                            <div class="news-box-items">
-                                <div class="news-image">
-                                    <img src="{{ asset('visaland-html/assets/img/news/01.jpg') }}" alt="img">
-                                    <img src="{{ asset('visaland-html/assets/img/news/01.jpg') }}" alt="img">
-                                    <h6 class="date">26 <span>Nov</span></h6>
-                                </div>
-                                <div class="news-content">
-                                    <ul class="post-date">
-                                        <li>
-                                            <i class="far fa-user-circle"></i>
-                                            Shikhon .H
-                                        </li>
-                                        <li>
-                                            <i class="fal fa-comments"></i>
-                                            Comments (03)
-                                        </li>
-                                    </ul>
-                                    <h3><a href="{{ route('news.details') }}">Navigating Borders Ultimate Guide to Visa Success</a></h3>
-                                    <p>
-                                        Transmds is the world’s driving worldwide coordinations supplier
-                                        we uphold.
-                                    </p>
-                                    <a href="{{ route('news.details') }}" class="link-btn">
-                                        <span>Read More</span> <i class="fas fa-chevron-right"></i>
-                                    </a>
-                                </div>
+                        @include('partials.home-news-section', ['latestPosts' => $latestPosts ?? collect()])
+                        @if(empty($latestPosts) || $latestPosts->isEmpty())
+                            <div class="col-12 text-center">
+                                <p class="text-muted">Blog posts coming soon. Check back for updates from EmCa Technologies.</p>
                             </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                            <div class="news-box-items">
-                                <div class="news-image">
-                                    <img src="{{ asset('visaland-html/assets/img/news/02.jpg') }}" alt="img">
-                                    <img src="{{ asset('visaland-html/assets/img/news/02.jpg') }}" alt="img">
-                                    <h6 class="date">11 <span>Dec</span></h6>
-                                </div>
-                                <div class="news-content">
-                                    <ul class="post-date">
-                                        <li>
-                                            <i class="far fa-user-circle"></i>
-                                            Shikhon .H
-                                        </li>
-                                        <li>
-                                            <i class="fal fa-comments"></i>
-                                            Comments (03)
-                                        </li>
-                                    </ul>
-                                    <h3><a href="{{ route('news.details') }}">Unlocking Opportunities The Visa Journey Unveiled</a></h3>
-                                    <p>
-                                        Transmds is the world’s driving worldwide coordinations supplier
-                                        we uphold.
-                                    </p>
-                                    <a href="{{ route('news.details') }}" class="link-btn">
-                                        <span>Read More</span> <i class="fas fa-chevron-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
-                            <div class="news-box-items">
-                                <div class="news-image">
-                                    <img src="{{ asset('visaland-html/assets/img/news/09.jpg') }}" alt="img">
-                                    <img src="{{ asset('visaland-html/assets/img/news/09.jpg') }}" alt="img">
-                                    <h6 class="date">27 <span>Sep</span></h6>
-                                </div>
-                                <div class="news-content">
-                                    <ul class="post-date">
-                                        <li>
-                                            <i class="far fa-user-circle"></i>
-                                            Shikhon .H
-                                        </li>
-                                        <li>
-                                            <i class="fal fa-comments"></i>
-                                            Comments (03)
-                                        </li>
-                                    </ul>
-                                    <h3><a href="{{ route('news.details') }}">Navigating Borders Ultimate Guide to Visa Success</a></h3>
-                                    <p>
-                                        Transmds is the world’s driving worldwide coordinations supplier
-                                        we uphold.
-                                    </p>
-                                    <a href="{{ route('news.details') }}" class="link-btn">
-                                        <span>Read More</span> <i class="fas fa-chevron-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        @endif
                     </div>
-                </div>
             </section>
     
             <!--<< Brand Section Start >>-->
@@ -1265,217 +762,7 @@
                 </div>
             </div>
     
-            <!--<< Footer Section Start >>-->
-            <footer class="footer-section footer-bg">
-                <div class="container">
-                    <div class="footer-widgets-wrapper">
-                        <div class="row">
-                            <div class="col-xl-3 col-sm-6 col-md-6 col-lg-3 wow fadeInUp" data-wow-delay=".2s">
-                                <div class="single-footer-widget">
-                                    <div class="widget-head">
-                                        <a href="{{ route('home') }}">
-                                        <img src="{{ asset('images/logo_header.png') }}" alt="logo-img">
-                                        </a>
-                                    </div>
-                                    <div class="footer-content">
-                                        <p>
-                                            We believe it has the power to do <br>
-                                            amazing things.
-                                        </p>
-                                        <a href="mailto:info@example.com" class="link">info@example.com</a>
-                                        <div class="social-icon d-flex align-items-center">
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
-                                            <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-2 ps-lg-5 col-sm-6 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay=".4s">
-                                <div class="single-footer-widget">
-                                    <div class="widget-head">
-                                        <h5>Explore</h5>
-                                    </div>
-                                    <ul class="list-items">
-                                        <li>
-                                            <a href="{{ route('about') }}"> 
-                                                About
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('team') }}">
-                                                Meet Experts
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('news.details') }}">
-                                                News & Media
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('service.details') }}">
-                                                Projects
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('contact') }}">
-                                                Contact
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-xl-2 ps-lg-4 col-sm-6 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay=".6s">
-                                <div class="single-footer-widget">
-                                    <div class="widget-head">
-                                        <h5>Visa</h5>
-                                    </div>
-                                    <ul class="list-items">
-                                        <li>
-                                            <a href="{{ route('service.details') }}">
-                                                Work Visa
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('service.details') }}">
-                                                Students Visa
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('service.details') }}">
-                                                Business Visa
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('service.details') }}">
-                                                Family Visa
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('service.details') }}">
-                                                Travel Visa
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-xl-2 col-sm-6 col-md-6 col-lg-3 wow fadeInUp" data-wow-delay=".8s">
-                                <div class="single-footer-widget">
-                                    <div class="widget-head">
-                                        <h5>Address:</h5>
-                                    </div>
-                                    <div class="footer-address-text">
-                                        <p>
-                                            570 8th Ave, New York,NY 10018
-                                            United States
-                                        </p>
-                                        <h5>Hours:</h5>
-                                        <p>
-                                            9.30am – 6.30pm <br>
-                                            Monday to Friday
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 ps-xl-5 col-sm-6 col-md-6 col-lg-4 wow fadeInUp" data-wow-delay=".9s">
-                                <div class="single-footer-widget">
-                                    <div class="widget-head">
-                                        <h5>Instagram</h5>
-                                    </div>
-                                    <div class="footer-gallery">
-                                        <div class="gallery-wrap">
-                                            <div class="gallery-item">
-                                                <div class="thumb">
-                                                    <a href="{{ asset('visaland-html/assets/img/footer/gallery-1.jpg') }}" class="img-popup">
-                                                        <img src="{{ asset('visaland-html/assets/img/footer/gallery-1.jpg') }}" alt="gallery-img">
-                                                        <div class="icon">
-                                                            <i class="far fa-plus"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="thumb">
-                                                    <a href="{{ asset('visaland-html/assets/img/footer/gallery-2.jpg') }}" class="img-popup">
-                                                        <img src="{{ asset('visaland-html/assets/img/footer/gallery-2.jpg') }}" alt="gallery-img">
-                                                        <div class="icon">
-                                                            <i class="far fa-plus"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="thumb">
-                                                    <a href="{{ asset('visaland-html/assets/img/footer/gallery-3.jpg') }}" class="img-popup">
-                                                        <img src="{{ asset('visaland-html/assets/img/footer/gallery-3.jpg') }}" alt="gallery-img">
-                                                        <div class="icon">
-                                                            <i class="far fa-plus"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="gallery-item">
-                                                <div class="thumb">
-                                                    <a href="{{ asset('visaland-html/assets/img/footer/gallery-4.jpg') }}" class="img-popup">
-                                                        <img src="{{ asset('visaland-html/assets/img/footer/gallery-4.jpg') }}" alt="gallery-img">
-                                                        <div class="icon">
-                                                            <i class="far fa-plus"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="thumb">
-                                                    <a href="{{ asset('visaland-html/assets/img/footer/gallery-5.jpg') }}" class="img-popup">
-                                                        <img src="{{ asset('visaland-html/assets/img/footer/gallery-5.jpg') }}" alt="gallery-img">
-                                                        <div class="icon">
-                                                            <i class="far fa-plus"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="thumb">
-                                                    <a href="{{ asset('visaland-html/assets/img/footer/gallery-6.jpg') }}" class="img-popup">
-                                                        <img src="{{ asset('visaland-html/assets/img/footer/gallery-6.jpg') }}" alt="gallery-img">
-                                                        <div class="icon">
-                                                            <i class="far fa-plus"></i>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <div class="container">
-                        <div class="footer-wrapper d-flex align-items-center justify-content-between">
-                            <p class="wow fadeInLeft color-2" data-wow-delay=".3s">
-                                Copyright © 2024 <a href="{{ route('home') }}">Modinatheme</a>. All Rights Reserved.
-                            </p>
-                            <ul class="footer-menu wow fadeInRight" data-wow-delay=".5s">
-                                <li>
-                                    <a href="{{ route('about') }}">
-                                        Company
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('contact') }}">
-                                        Support
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('contact') }}">
-                                        Privacy
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('faq') }}">
-                                    Faqs
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            @include('partials.footer')
 
        
 

@@ -2,16 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use App\Models\TeamMember;
+use App\Models\Testimonial;
+
 class PageController extends Controller
 {
     public function home()
     {
-        return view('pages.index');
+        return view('pages.index', [
+            'testimonials' => Testimonial::active()->get(),
+            'latestPosts' => Post::published()->latest('published_at')->limit(3)->get(),
+        ]);
     }
 
     public function about()
     {
-        return view('pages.about');
+        return view('pages.about', [
+            'testimonials' => Testimonial::active()->get(),
+        ]);
     }
 
     public function contact()
@@ -40,27 +49,46 @@ class PageController extends Controller
 
     public function team()
     {
-        return view('pages.team');
+        return view('pages.team', [
+            'members' => TeamMember::active()->get(),
+        ]);
     }
 
-    public function teamDetails()
+    public function teamDetails(string $slug)
     {
-        return view('pages.team-details');
+        $member = TeamMember::active()->where('slug', $slug)->first();
+
+        if (! $member) {
+            abort(404);
+        }
+
+        return view('pages.team-details', [
+            'member' => $this->formatTeamMember($member),
+            'slug' => $slug,
+        ]);
     }
 
     public function news()
     {
-        return view('pages.news');
+        $posts = Post::published()->latest('published_at')->paginate(9);
+
+        return view('pages.blogs', [
+            'latestPosts' => $posts,
+        ]);
     }
 
-    public function newsGrid()
+    public function newsDetails(string $slug)
     {
-        return view('pages.news-grid');
-    }
+        $post = Post::published()->where('slug', $slug)->firstOrFail();
 
-    public function newsDetails()
-    {
-        return view('pages.news-details');
+        return view('pages.blog-details', [
+            'post' => $post,
+            'recentPosts' => Post::published()
+                ->where('id', '!=', $post->id)
+                ->latest('published_at')
+                ->limit(3)
+                ->get(),
+        ]);
     }
 
     public function faq()
@@ -101,7 +129,7 @@ class PageController extends Controller
             abort(404);
         }
 
-        $view = 'pages.solutions.' . $slug;
+        $view = 'pages.solutions.'.$slug;
 
         if (! view()->exists($view)) {
             abort(404);
@@ -111,5 +139,21 @@ class PageController extends Controller
             'solution' => $solutions[$slug],
             'slug' => $slug,
         ]);
+    }
+
+    private function formatTeamMember(TeamMember $member): array
+    {
+        return [
+            'name' => $member->name,
+            'role' => $member->role,
+            'image' => $member->imageUrl(),
+            'email' => $member->email,
+            'mobile' => $member->mobile,
+            'style' => $member->style,
+            'delay' => $member->delay,
+            'bio' => $member->bio ?? [],
+            'social' => $member->social ?? [],
+            'cv' => $member->cvUrl(),
+        ];
     }
 }

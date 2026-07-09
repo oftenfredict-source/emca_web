@@ -101,6 +101,7 @@ return [
             ],
         ],
         'image' => 'images/ict consultancy.jpg',
+        'banner' => 'images/consultancy.jpg',
     ],
     'graphics-design' => [
         'name' => 'Graphics Design',
@@ -202,6 +203,7 @@ return [
             ],
         ],
         'image' => 'images/graphics design2.jpg',
+        'banner' => 'images/Graphics Design.jpg',
     ],
     'social-media-management' => [
         'name' => 'Social Media Management',
@@ -314,6 +316,7 @@ return [
             ],
         ],
         'image' => 'images/social media.jpg',
+        'banner' => 'images/Social Media Management.jpg',
     ],
     'web-development' => [
         'name' => 'Web Development',
@@ -442,6 +445,7 @@ return [
             ],
         ],
         'image' => 'images/web development.jpg',
+        'banner' => 'images/Web Development1.jpg',
     ],
     'software-development' => [
         'name' => 'Software Development',
@@ -590,6 +594,7 @@ return [
             ],
         ],
         'image' => 'images/software development.jpg',
+        'banner' => 'images/Software Development1.jpg',
     ],
     'ict-infrastructure' => [
         'name' => 'ICT Infrastructure',
@@ -690,5 +695,6 @@ return [
             ],
         ],
         'image' => 'images/ict infrastructure.jpg',
+        'banner' => 'images/ICT Infrastructure1.jpg',
     ],
 ];
