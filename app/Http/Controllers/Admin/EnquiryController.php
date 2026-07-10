@@ -29,8 +29,14 @@ class EnquiryController extends Controller
 
         $enquiries = $query->paginate(15)->withQueryString();
         $statuses = Enquiry::statuses();
+        $counts = [
+            'total' => Enquiry::count(),
+            'new' => Enquiry::where('status', Enquiry::STATUS_NEW)->count(),
+            'read' => Enquiry::where('status', Enquiry::STATUS_READ)->count(),
+            'replied' => Enquiry::where('status', Enquiry::STATUS_REPLIED)->count(),
+        ];
 
-        return view('admin.enquiries.index', compact('enquiries', 'statuses'));
+        return view('admin.enquiries.index', compact('enquiries', 'statuses', 'counts'));
     }
 
     public function show(Enquiry $enquiry): View

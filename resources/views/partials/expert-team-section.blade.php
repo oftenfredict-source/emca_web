@@ -2,7 +2,7 @@
     use App\Models\TeamMember;
 
     $isTeamPage = ($layout ?? '') === 'team-page';
-    $contentClass = $isTeamPage ? 'team-content text-center box-shadow' : 'team-content';
+    $contentClass = 'team-content text-center'.($isTeamPage ? ' box-shadow' : '');
     $membersPerRow = 4;
 
     $teamCollection = isset($members) && $members->isNotEmpty()
@@ -42,7 +42,7 @@
                             <div class="team-image">
                                 <img src="{{ $member->imageUrl() }}" alt="{{ $member->name }}">
                                 <ul class="social-icon d-grid justify-content-center align-items-center">
-                                    <li><a href="mailto:{{ $member->email }}" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+                                    <li><a href="mailto:{{ $member->resolvedEmail() }}" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
                                     <li><a href="{{ $member->social['instagram'] ?? '#' }}" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
                                     <li><a href="{{ $member->social['facebook'] ?? '#' }}" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
                                     @if ($isSystemDeveloper)

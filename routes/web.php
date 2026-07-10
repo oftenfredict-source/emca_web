@@ -16,16 +16,17 @@ Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::post('/contact', [EnquiryController::class, 'store'])->name('contact.store');
 Route::get('/service', [PageController::class, 'service'])->name('service');
-Route::get('/service/details', fn () => redirect()->route('services.show', 'ict-consultancy'))->name('service.details');
-Route::get('/service/details/{slug}', [PageController::class, 'serviceDetails'])->name('services.show');
+Route::get('/service/details', fn () => redirect()->route('services.show', 'ict-consultancy', 301))->name('service.details');
+Route::get('/service/details/{slug}', function (string $slug) {
+    return redirect()->route('services.show', $slug, 301);
+});
+Route::get('/service/{slug}', [PageController::class, 'serviceDetails'])->name('services.show');
 Route::get('/team', [PageController::class, 'team'])->name('team');
-Route::get('/team/details', function () {
-    $firstSlug = \App\Models\TeamMember::active()->value('slug')
-        ?? array_key_first(config('team.members'));
-
-    return redirect()->route('team.details', $firstSlug);
-})->name('team.details.index');
-Route::get('/team/details/{slug}', [PageController::class, 'teamDetails'])->name('team.details');
+Route::get('/team/{slug}', [PageController::class, 'teamDetails'])->name('team.details');
+Route::redirect('/team/details', '/team', 301);
+Route::get('/team/details/{slug}', function (string $slug) {
+    return redirect()->route('team.details', $slug, 301);
+});
 Route::redirect('/news/grid', '/news', 301);
 
 Route::get('/news', [PageController::class, 'news'])->name('news');
@@ -53,6 +54,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('guest')->group(function () {
         Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
         Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
+        Route::get('/login/verify', [AuthController::class, 'showVerifyOtp'])->name('login.verify');
+        Route::post('/login/verify', [AuthController::class, 'verifyOtp'])->name('login.verify.submit');
+        Route::post('/login/verify/resend', [AuthController::class, 'resendOtp'])->name('login.verify.resend');
     });
 
     Route::middleware(['auth', 'admin'])->group(function () {

@@ -14,8 +14,11 @@ class PostController extends Controller
     public function index(): View
     {
         $posts = Post::latest()->paginate(10);
+        $totalCount = Post::count();
+        $publishedCount = Post::where('is_published', true)->count();
+        $draftCount = Post::where('is_published', false)->count();
 
-        return view('admin.posts.index', compact('posts'));
+        return view('admin.posts.index', compact('posts', 'totalCount', 'publishedCount', 'draftCount'));
     }
 
     public function create(): View

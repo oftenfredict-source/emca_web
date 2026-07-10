@@ -9,9 +9,8 @@
         <meta name="author" content="modinatheme">
         <meta name="description" content="{{ $service['name'] }} — {{ config('company.name') }}">
         <!-- ======== Page title ============ -->
-        <title>{{ $service['title'] }} - {{ config('company.legal_name') }}</title>
-        <!--<< Favcion >>-->
-        <link rel="shortcut icon" href="{{ asset('visaland-html/assets/img/favicon.svg') }}">
+        <title>{{ $service['title'] }} - {{ config('company.site_title', 'EmCa Techonologies') }}</title>
+        @include('partials.favicon')
         <!--<< Bootstrap min.css >>-->
         <link rel="stylesheet" href="{{ asset('visaland-html/assets/css/bootstrap.min.css') }}">
         <!--<< Font Awesome.css >>-->
@@ -69,112 +68,7 @@
                                     <div class="main-menu">
                                         <nav id="mobile-menu">
                                             <ul>
-                                                <li class="has-dropdown active menu-thumb">
-                                                    <a href="{{ route('home') }}">
-                                                    Home 
-                                                    <i class="fas fa-angle-down"></i>
-                                                    </a>
-                                                    <ul class="submenu has-home-menu">
-                                                        <li class="border-none">
-                                                            <div class="row g-4">
-                                                                <div class="col-lg-3 home-menu">
-                                                                    <div class="home-menu-thumb">
-                                                                        <img src="{{ asset('visaland-html/assets/img/header/home-1.jpg') }}" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="home-menu-content text-center">
-                                                                        <h4 class="home-menu-title">
-                                                                            Home 01
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3  home-menu">
-                                                                    <div class="home-menu-thumb mb-15">
-                                                                        <img src="{{ asset('visaland-html/assets/img/header/home-2.jpg') }}" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="home-menu-content text-center">
-                                                                        <h4 class="home-menu-title">
-                                                                            Home 02
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 home-menu">
-                                                                    <div class="home-menu-thumb mb-15">
-                                                                        <img src="{{ asset('visaland-html/assets/img/header/home-3.jpg') }}" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="home-menu-content text-center">
-                                                                        <h4 class="home-menu-title">
-                                                                            Home 03
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 home-menu">
-                                                                    <div class="home-menu-thumb mb-15">
-                                                                        <img src="{{ asset('visaland-html/assets/img/header/home-4.jpg') }}" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="home-menu-content text-center">
-                                                                        <h4 class="home-menu-title">
-                                                                            Home 04
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="has-dropdown active d-lg-none">
-                                                    <a href="{{ route('team') }}" class="border-none">
-                                                    Home
-                                                    <i class="fas fa-angle-down"></i>
-                                                    </a>
-                                                    <ul class="submenu">
-                                                        <li><a href="{{ route('home') }}">Home 01</a></li>
-                                                        <li><a href="{{ route('home') }}">Home 02</a></li>
-                                                        <li><a href="{{ route('home') }}">Home 03</a></li>
-                                                        <li><a href="{{ route('home') }}">Home 04</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="{{ route('about') }}">About</a>
-                                                </li>
-                                                @include('partials.nav-pages-services')
-
-                                                @include('partials.nav-pages-solutions')
-                                                @include('partials.nav-blog')
-                                                <li>
-                                                    <a href="{{ route('contact') }}">Contact</a>
-                                                </li>
+                                                @include('partials.main-nav-menu')
                                             </ul>
                                         </nav>
                                     </div>
@@ -349,7 +243,7 @@
                                         {{ $service['description'] }}
                                     </p>
                                     <p class="mt-3">
-                                        {{ config('company.legal_name') }} delivers professional {{ strtolower($service['name']) }} services to help individuals, institutions, and businesses across Tanzania and East Africa thrive in the digital era.
+                                        {{ config('company.site_title', 'EmCa Techonologies') }} delivers professional {{ strtolower($service['name']) }} services to help individuals, institutions, and businesses across Tanzania and East Africa thrive in the digital era.
                                     </p>
                                     @endif
                                     @if (!empty($service['highlights']))

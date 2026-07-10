@@ -9,9 +9,8 @@
         <meta name="author" content="modinatheme">
         <meta name="description" content="Immigration and Visa Consulting Html Template">
         <!-- ======== Page title ============ -->
-        <title>Solutions - {{ config('company.name', 'EmCa Techonologies LTD') }}</title>
-        <!--<< Favcion >>-->
-        <link rel="shortcut icon" href="{{ asset('visaland-html/assets/img/favicon.svg') }}">
+        <title>Solutions - {{ config('company.site_title', 'EmCa Techonologies') }}</title>
+        @include('partials.favicon')
         <!--<< Bootstrap min.css >>-->
         <link rel="stylesheet" href="{{ asset('visaland-html/assets/css/bootstrap.min.css') }}">
         <!--<< Font Awesome.css >>-->
@@ -69,112 +68,7 @@
                                     <div class="main-menu">
                                         <nav id="mobile-menu">
                                             <ul>
-                                                <li class="has-dropdown active menu-thumb">
-                                                    <a href="{{ route('home') }}">
-                                                    Home 
-                                                    <i class="fas fa-angle-down"></i>
-                                                    </a>
-                                                    <ul class="submenu has-home-menu">
-                                                        <li class="border-none">
-                                                            <div class="row g-4">
-                                                                <div class="col-lg-3 home-menu">
-                                                                    <div class="home-menu-thumb">
-                                                                        <img src="{{ asset('visaland-html/assets/img/header/home-1.jpg') }}" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="home-menu-content text-center">
-                                                                        <h4 class="home-menu-title">
-                                                                            Home 01
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3  home-menu">
-                                                                    <div class="home-menu-thumb mb-15">
-                                                                        <img src="{{ asset('visaland-html/assets/img/header/home-2.jpg') }}" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="home-menu-content text-center">
-                                                                        <h4 class="home-menu-title">
-                                                                            Home 02
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 home-menu">
-                                                                    <div class="home-menu-thumb mb-15">
-                                                                        <img src="{{ asset('visaland-html/assets/img/header/home-3.jpg') }}" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="home-menu-content text-center">
-                                                                        <h4 class="home-menu-title">
-                                                                            Home 03
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 home-menu">
-                                                                    <div class="home-menu-thumb mb-15">
-                                                                        <img src="{{ asset('visaland-html/assets/img/header/home-4.jpg') }}" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="home-menu-content text-center">
-                                                                        <h4 class="home-menu-title">
-                                                                            Home 04
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="has-dropdown active d-lg-none">
-                                                    <a href="{{ route('team') }}" class="border-none">
-                                                    Home
-                                                    <i class="fas fa-angle-down"></i>
-                                                    </a>
-                                                    <ul class="submenu">
-                                                        <li><a href="{{ route('home') }}">Home 01</a></li>
-                                                        <li><a href="{{ route('home') }}">Home 02</a></li>
-                                                        <li><a href="{{ route('home') }}">Home 03</a></li>
-                                                        <li><a href="{{ route('home') }}">Home 04</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="{{ route('about') }}">About</a>
-                                                </li>
-                                                @include('partials.nav-pages-services')
-
-                                                @include('partials.nav-pages-solutions')
-                                                @include('partials.nav-blog')
-                                                <li>
-                                                    <a href="{{ route('contact') }}">Contact</a>
-                                                </li>
+                                                @include('partials.main-nav-menu')
                                             </ul>
                                         </nav>
                                     </div>
@@ -262,7 +156,7 @@
             </section>
     
             <!--<< Cta Contact Section Start >>--> 
-            <section class="cta-banner-contact-section fix section-padding bg-cover" style="background-image: url('{{ asset('visaland-html/assets/img/contact-bg.jpg') }}');">
+            <section class="cta-banner-contact-section fix section-padding bg-cover" style="background-image: url('{{ asset('images/Business Operations.jpg') }}');">
                 <div class="container">
                     <div class="cta-banner-concat-wrapper">
                         <h2 class="title-anim">Ready to Streamline Your <br> Business Operations?</h2>
@@ -272,88 +166,6 @@
                                 <i class="fas fa-chevron-right"></i>
                             </span>
                          </a>
-                    </div>
-                </div>
-            </section>
-    
-            <!--<< Contact Section Start >>-->
-            <section class="contact-section-one fix">
-                <div class="container">
-                    <div class="contact-wrapper">
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6">
-                                <div class="contact-left">
-                                    <div class="contact-bg bg-cover" style="background-image: url('{{ asset('visaland-html/assets/img/contact/01.jpg') }}');"></div>
-                                    <div class="contact-shape" style="background-image: url(assets/img/contact/bg-shape.png);"></div>
-                                    <div class="section-title">
-                                        <span class="text-white wow fadeInUp">Contact us</span>
-                                        <h2 class="text-white title-anim">Get a Call Back</h2>
-                                    </div>
-                                    <form action="#" id="contact-form" method="POST" class="mt-4 mt-md-0">
-                                        <div class="row g-3">
-                                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
-                                                <div class="form-clt">
-                                                    <input type="text" name="name" id="name" placeholder="First Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
-                                                <div class="form-clt">
-                                                    <input type="text" name="email" id="email" placeholder="Email Address">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
-                                                <div class="form-clt">
-                                                    <input type="text" name="phone" id="phone" placeholder="Phone Number">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
-                                                <div class="form-clt">
-                                                    <div class="nice-select open" tabindex="0">
-                                                       <span class="current">
-                                                         Choose Services
-                                                       </span>
-                                                       <ul class="list">
-                                                          <li data-value="1" class="option selected focus">
-                                                             Default sorting
-                                                       </li>
-                                                       <li data-value="1" class="option">
-                                                          Sort by popularity
-                                                       </li>
-                                                       <li data-value="1" class="option">
-                                                          Sort by average rating
-                                                       </li>
-                                                       <li data-value="1" class="option">
-                                                          Sort by latest
-                                                       </li>
-                                                    </ul>
-                                                    </div>
-                                                 </div>
-                                            </div>
-                                            <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
-                                                <div class="form-clt">
-                                                    <textarea name="message" id="message" placeholder="Write Your Message"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12 wow fadeInUp" data-wow-delay=".5s">
-                                                <button type="submit" class="theme-btn">
-                                                   <span>
-                                                    Send Us Messages
-                                                    <i class="fas fa-chevron-right"></i>
-                                                   </span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6">
-                                <div class="contact-right">
-                                    <div class="google-map-box">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6678.7619084840835!2d144.9618311901502!3d-37.81450084255415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642b4758afc1d%3A0x3119cc820fdfc62e!2sEnvato!5e0!3m2!1sen!2sbd!4v1641984054261!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>

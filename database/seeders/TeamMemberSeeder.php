@@ -13,7 +13,7 @@ class TeamMemberSeeder extends Seeder
         $order = 1;
 
         foreach ($members as $slug => $member) {
-            TeamMember::updateOrCreate(
+            TeamMember::firstOrCreate(
                 ['slug' => $slug],
                 [
                     'name' => $member['name'],
@@ -27,9 +27,11 @@ class TeamMemberSeeder extends Seeder
                     'style' => $member['style'],
                     'delay' => $member['delay'],
                     'is_active' => true,
-                    'sort_order' => $order++,
+                    'sort_order' => $order,
                 ]
             );
+
+            $order++;
         }
     }
 }

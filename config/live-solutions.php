@@ -6,7 +6,7 @@ return [
         'category' => 'Education',
         'description' => 'School management system',
         'icon' => 'fa-graduation-cap',
-        'url' => '/solutions/shulexpert',
+        'url' => 'https://shulexpert.com/',
         'live' => true,
     ],
     'mauzolink' => [
@@ -14,7 +14,7 @@ return [
         'category' => 'Retail',
         'description' => 'POS and inventory management system',
         'icon' => 'fa-shopping-cart',
-        'url' => '/solutions/mauzolink',
+        'url' => 'https://mauzolink.co.tz/',
         'live' => true,
     ],
     'wauminilink' => [
@@ -22,7 +22,7 @@ return [
         'category' => 'Religious',
         'description' => 'Church management system',
         'icon' => 'fa-church',
-        'url' => '/solutions/wauminilink',
+        'url' => 'https://wauminilink.co.tz/',
         'live' => true,
     ],
     'primeland-hotel' => [
@@ -30,7 +30,7 @@ return [
         'category' => 'Hotel',
         'description' => 'Hotel management system',
         'icon' => 'fa-hotel',
-        'url' => '#',
+        'url' => 'https://primelandhotel.com/',
         'live' => true,
     ],
     'sam-hostel' => [
@@ -38,7 +38,7 @@ return [
         'category' => 'Hostel',
         'description' => 'Hostel management system',
         'icon' => 'fa-home',
-        'url' => '#',
+        'url' => 'https://samhostels.com/',
         'live' => true,
     ],
     'tz-pure-nature' => [
@@ -46,7 +46,7 @@ return [
         'category' => 'Tourism',
         'description' => 'Materuni Waterfall Booking System',
         'icon' => 'fa-globe-africa',
-        'url' => '#',
+        'url' => 'https://booking.tanzaniapurenatureandtravel.com/',
         'live' => true,
     ],
 ];

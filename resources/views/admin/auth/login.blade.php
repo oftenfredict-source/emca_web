@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login - EmCa</title>
+    @include('partials.favicon')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     @include('admin.partials.theme')
     <style>
@@ -40,6 +41,10 @@
                 <h3 class="fw-bold">EmCa Admin</h3>
                 <p class="text-muted">Sign in to manage your website</p>
             </div>
+
+            @if(session('status'))
+                <div class="alert alert-success">{{ session('status') }}</div>
+            @endif
 
             @if($errors->any())
                 <div class="alert alert-danger">

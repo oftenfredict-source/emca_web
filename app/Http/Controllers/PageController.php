@@ -147,13 +147,14 @@ class PageController extends Controller
             'name' => $member->name,
             'role' => $member->role,
             'image' => $member->imageUrl(),
-            'email' => $member->email,
-            'mobile' => $member->mobile,
+            'email' => $member->resolvedEmail(),
+            'mobile' => $member->resolvedMobile(),
             'style' => $member->style,
             'delay' => $member->delay,
             'bio' => $member->bio ?? [],
             'social' => $member->social ?? [],
             'cv' => $member->cvUrl(),
+            'has_cv' => $member->hasCv(),
         ];
     }
 }

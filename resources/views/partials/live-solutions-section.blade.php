@@ -30,7 +30,7 @@
                                     Live
                                 </span>
                             @endif
-                            <a href="{{ in_array($slug, array_keys(config('solutions')), true) ? route('solutions.show', $slug) : $item['url'] }}" class="emca-live-visit-link" @if(($item['url'] ?? '#') === '#' && !in_array($slug, array_keys(config('solutions')), true)) aria-disabled="true" @endif>
+                            <a href="{{ $item['url'] }}" class="emca-live-visit-link" target="_blank" rel="noopener noreferrer">
                                 Visit Site
                                 <i class="fas fa-arrow-right"></i>
                             </a>

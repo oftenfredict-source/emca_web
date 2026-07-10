@@ -15,8 +15,11 @@ class TeamMemberController extends Controller
     public function index(): View
     {
         $members = TeamMember::orderBy('sort_order')->paginate(10);
+        $totalCount = TeamMember::count();
+        $activeCount = TeamMember::where('is_active', true)->count();
+        $withCvCount = TeamMember::orderBy('sort_order')->get()->filter->hasCv()->count();
 
-        return view('admin.team-members.index', compact('members'));
+        return view('admin.team-members.index', compact('members', 'totalCount', 'activeCount', 'withCvCount'));
     }
 
     public function edit(TeamMember $teamMember): View

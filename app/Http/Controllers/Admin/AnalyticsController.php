@@ -37,8 +37,6 @@ class AnalyticsController extends Controller
             ->orderBy('date')
             ->get();
 
-        $recentViews = PageView::latest('created_at')->limit(20)->get();
-
         return view('admin.analytics.index', compact(
             'totalViews',
             'viewsToday',
@@ -47,8 +45,7 @@ class AnalyticsController extends Controller
             'uniqueVisitorsToday',
             'uniqueVisitorsWeek',
             'topPages',
-            'dailyViews',
-            'recentViews'
+            'dailyViews'
         ));
     }
 }

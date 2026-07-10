@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class TeamMember extends Model
 {
@@ -45,9 +47,27 @@ class TeamMember extends Model
         return $query->where('is_active', true)->orderBy('sort_order');
     }
 
+    public function resolvedEmail(): string
+    {
+        if (filled($this->email)) {
+            return (string) $this->email;
+        }
+
+        return (string) config('team.members.'.$this->slug.'.email', '');
+    }
+
+    public function resolvedMobile(): string
+    {
+        if (filled($this->mobile)) {
+            return (string) $this->mobile;
+        }
+
+        return (string) config('team.members.'.$this->slug.'.mobile', '');
+    }
+
     public function hasCv(): bool
     {
-        return filled($this->cv_path);
+        return $this->resolveCvPath() !== null;
     }
 
     public function imageUrl(): string
@@ -63,16 +83,48 @@ class TeamMember extends Model
         return asset('storage/'.$this->image);
     }
 
-    public function cvUrl(): ?string
+    public function cvUrl(): string
     {
-        if (! $this->cv_path) {
-            return null;
+        $resolved = $this->resolveCvPath();
+
+        if (! $resolved) {
+            return '#';
         }
 
-        if (file_exists(public_path($this->cv_path))) {
-            return asset($this->cv_path);
+        return $resolved['url'];
+    }
+
+    /**
+     * @return array{url: string, path: string}|null
+     */
+    public function resolveCvPath(): ?array
+    {
+        $candidates = array_values(array_filter([
+            $this->cv_path,
+            $this->slug ? 'cv/'.$this->slug.'.pdf' : null,
+            $this->slug ? 'cv/'.Str::slug($this->name).'-cv.pdf' : null,
+        ]));
+
+        foreach ($candidates as $path) {
+            $path = ltrim(str_replace('\\', '/', $path), '/');
+
+            // Legacy files stored directly in public/cv
+            if (is_file(public_path($path))) {
+                return [
+                    'path' => $path,
+                    'url' => asset($path),
+                ];
+            }
+
+            // Admin uploads stored on the public disk (storage/app/public)
+            if (Storage::disk('public')->exists($path)) {
+                return [
+                    'path' => $path,
+                    'url' => asset('storage/'.$path),
+                ];
+            }
         }
 
-        return asset('storage/'.$this->cv_path);
+        return null;
     }
 }

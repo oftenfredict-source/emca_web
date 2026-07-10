@@ -1,7 +1,7 @@
 <!--<< Footer Section Start >>-->
 <footer class="footer-section footer-bg emca-footer">
     <div class="emca-footer-video-wrap" aria-hidden="true">
-        <video class="emca-footer-video" autoplay muted loop playsinline preload="metadata">
+        <video class="emca-footer-video" autoplay muted loop playsinline preload="auto">
             <source src="{{ asset('images/footer.mp4') }}" type="video/mp4">
         </video>
         <div class="emca-footer-video-overlay"></div>
@@ -119,7 +119,7 @@
                         <div class="footer-content emca-footer-social">
                             <p>Connect with us on social media for updates, tips, and company news.</p>
                             <div class="social-icon emca-footer-social-grid">
-                                @foreach (config('company.social_links') as $social)
+                                @foreach (collect(config('company.social_links'))->filter(fn ($social) => ($social['url'] ?? '#') !== '#') as $social)
                                     <a href="{{ $social['url'] }}" class="emca-social-btn emca-social-{{ $social['key'] }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $social['label'] }}">
                                         <i class="{{ $social['icon'] }}"></i>
                                     </a>

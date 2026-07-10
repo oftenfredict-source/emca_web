@@ -14,8 +14,10 @@ class TestimonialController extends Controller
     public function index(): View
     {
         $testimonials = Testimonial::orderBy('sort_order')->paginate(10);
+        $activeCount = Testimonial::where('is_active', true)->count();
+        $totalCount = Testimonial::count();
 
-        return view('admin.testimonials.index', compact('testimonials'));
+        return view('admin.testimonials.index', compact('testimonials', 'activeCount', 'totalCount'));
     }
 
     public function create(): View

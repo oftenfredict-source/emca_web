@@ -61,10 +61,11 @@
                         </a>
                     </div>
                     <div class="social-icon d-flex align-items-center">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        @foreach (collect(config('company.social_links'))->whereIn('key', ['facebook', 'youtube', 'instagram', 'tiktok']) as $social)
+                            <a href="{{ $social['url'] }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $social['label'] }}">
+                                <i class="{{ $social['icon'] }}"></i>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
             </div>

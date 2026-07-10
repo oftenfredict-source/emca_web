@@ -9,9 +9,8 @@
         <meta name="author" content="modinatheme">
         <meta name="description" content="EmCa Techonologies LTD — leading Tanzanian ICT firm providing technology services and solutions across Tanzania and East Africa.">
         <!-- ======== Page title ============ -->
-        <title>About Us - {{ config('company.legal_name') }}</title>
-        <!--<< Favcion >>-->
-        <link rel="shortcut icon" href="{{ asset('visaland-html/assets/img/favicon.svg') }}">
+        <title>About Us - {{ config('company.site_title', 'EmCa Techonologies') }}</title>
+        @include('partials.favicon')
         <!--<< Bootstrap min.css >>-->
         <link rel="stylesheet" href="{{ asset('visaland-html/assets/css/bootstrap.min.css') }}">
         <!--<< Font Awesome.css >>-->
@@ -69,112 +68,7 @@
                                     <div class="main-menu">
                                         <nav id="mobile-menu">
                                             <ul>
-                                                <li class="has-dropdown active menu-thumb">
-                                                    <a href="{{ route('home') }}">
-                                                    Home 
-                                                    <i class="fas fa-angle-down"></i>
-                                                    </a>
-                                                    <ul class="submenu has-home-menu">
-                                                        <li class="border-none">
-                                                            <div class="row g-4">
-                                                                <div class="col-lg-3 home-menu">
-                                                                    <div class="home-menu-thumb">
-                                                                        <img src="{{ asset('visaland-html/assets/img/header/home-1.jpg') }}" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="home-menu-content text-center">
-                                                                        <h4 class="home-menu-title">
-                                                                            Home 01
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3  home-menu">
-                                                                    <div class="home-menu-thumb mb-15">
-                                                                        <img src="{{ asset('visaland-html/assets/img/header/home-2.jpg') }}" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="home-menu-content text-center">
-                                                                        <h4 class="home-menu-title">
-                                                                            Home 02
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 home-menu">
-                                                                    <div class="home-menu-thumb mb-15">
-                                                                        <img src="{{ asset('visaland-html/assets/img/header/home-3.jpg') }}" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="home-menu-content text-center">
-                                                                        <h4 class="home-menu-title">
-                                                                            Home 03
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-3 home-menu">
-                                                                    <div class="home-menu-thumb mb-15">
-                                                                        <img src="{{ asset('visaland-html/assets/img/header/home-4.jpg') }}" alt="img">
-                                                                        <div class="demo-button">
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>Multi Page</span>
-                                                                            </a>
-                                                                            <a href="{{ route('home') }}" class="theme-btn">
-                                                                                <span>One Page</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="home-menu-content text-center">
-                                                                        <h4 class="home-menu-title">
-                                                                            Home 04
-                                                                        </h4>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="has-dropdown active d-lg-none">
-                                                    <a href="{{ route('team') }}" class="border-none">
-                                                    Home
-                                                    <i class="fas fa-angle-down"></i>
-                                                    </a>
-                                                    <ul class="submenu">
-                                                        <li><a href="{{ route('home') }}">Home 01</a></li>
-                                                        <li><a href="{{ route('home') }}">Home 02</a></li>
-                                                        <li><a href="{{ route('home') }}">Home 03</a></li>
-                                                        <li><a href="{{ route('home') }}">Home 04</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="{{ route('about') }}">About</a>
-                                                </li>
-                                                @include('partials.nav-pages-services')
-
-                                                @include('partials.nav-pages-solutions')
-                                                @include('partials.nav-blog')
-                                                <li>
-                                                    <a href="{{ route('contact') }}">Contact</a>
-                                                </li>
+                                                @include('partials.main-nav-menu')
                                             </ul>
                                         </nav>
                                     </div>
@@ -253,7 +147,7 @@
                                 </h2>
                             </div>
                             <p class="mt-4 mt-md-0 wow fadeInUp" data-wow-delay=".5s">
-                                {{ config('company.legal_name') }} is a leading Tanzanian ICT firm that provides cutting-edge technology services and solutions to clients across the country and the East African region.
+                                {{ config('company.site_title', 'EmCa Techonologies') }} is a leading Tanzanian ICT firm that provides cutting-edge technology services and solutions to clients across the country and the East African region.
                             </p>
                             <p class="mt-3 wow fadeInUp" data-wow-delay=".55s">
                                 Founded with a clear purpose: to provide reliable, modern, and affordable ICT services and solutions tailored to enable individuals, institutions, and businesses of all sizes to thrive in the digital era.
@@ -445,112 +339,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    
-    <!--<< Team Section Start >>-->
-    <section class="team-section section-padding section-bg-3">
-        <div class="container">
-            <div class="section-title text-center">
-                <span class="wow fadeInUp">Our Expert Team</span>
-                <h2 class="text-white title-anim">
-                    Meet our Creative architecture team <br> for your dream home
-                </h2>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                    <div class="single-team-items">
-                        <div class="team-image">
-                            <img src="{{ asset('visaland-html/assets/img/team/01.jpg') }}" alt="team-img">
-                            <div class="social-profile">
-                                <span class="plus-btn"><i class="fas fa-share-alt"></i></span>
-                                <ul>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="team-content text-center">
-                            <h5>
-                                <a href="{{ route('team.details.index') }}">Salman Ahmed</a>
-                            </h5>
-                            <p>CEO & Founder</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                    <div class="single-team-items">
-                        <div class="team-image">
-                            <img src="{{ asset('visaland-html/assets/img/team/02.jpg') }}" alt="team-img">
-                            <div class="social-profile">
-                                <span class="plus-btn"><i class="fas fa-share-alt"></i></span>
-                                <ul>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="team-content text-center">
-                            <h5>
-                                <a href="{{ route('team.details.index') }}">Sonsil Macron</a>
-                            </h5>
-                            <p>CEO & Founder</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".6s">
-                    <div class="single-team-items">
-                        <div class="team-image">
-                            <img src="{{ asset('visaland-html/assets/img/team/03.jpg') }}" alt="team-img">
-                            <div class="social-profile">
-                                <span class="plus-btn"><i class="fas fa-share-alt"></i></span>
-                                <ul>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="team-content text-center">
-                            <h5>
-                                <a href="{{ route('team.details.index') }}">Kawser Ahmed</a>
-                            </h5>
-                            <p>CEO & Founder</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".8s">
-                    <div class="single-team-items">
-                        <div class="team-image">
-                            <img src="{{ asset('visaland-html/assets/img/team/04.jpg') }}" alt="team-img">
-                            <div class="social-profile">
-                                <span class="plus-btn"><i class="fas fa-share-alt"></i></span>
-                                <ul>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="team-content text-center">
-                            <h5>
-                                <a href="{{ route('team.details.index') }}">Sara Albert</a>
-                            </h5>
-                            <p>Consultant</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="team-button wow fadeInUp" data-wow-delay=".4s">
-                <a href="{{ route('team') }}" class="theme-btn mt-5 hover-white">
-                    <span>
-                        Explore more team
-                        <i class="fas fa-chevron-right"></i>
-                    </span>
-                </a>
             </div>
         </div>
     </section>

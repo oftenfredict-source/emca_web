@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Admin') - EmCa Admin</title>
+    @include('partials.favicon')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     @include('admin.partials.theme')
@@ -18,7 +19,8 @@
 <body>
     <aside class="admin-sidebar">
         <div class="brand">
-            <i class="bi bi-shield-lock"></i> EmCa Admin
+            <img src="{{ asset('images/logo_header.png') }}" alt="EmCa" class="admin-brand-logo">
+            <span>EmCa Admin</span>
         </div>
         <nav class="nav flex-column py-2">
             <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">

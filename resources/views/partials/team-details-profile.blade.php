@@ -58,13 +58,11 @@
                         @endforeach
                     </div>
 
-                    @if (! empty($member['cv']))
-                        <a href="{{ $member['cv'] }}" class="theme-btn emca-team-details-cv wow fadeInUp" data-wow-delay=".3s" download>
-                            <span>
-                                Download CV
-                                <i class="far fa-file-alt"></i>
-                            </span>
-                        </a>
+                    @if (! empty($member['has_cv']))
+                        @include('partials.team-cv-button', [
+                            'url' => $member['cv'],
+                            'class' => 'emca-team-details-cv wow fadeInUp',
+                        ])
                     @endif
                 </div>
             </div>
