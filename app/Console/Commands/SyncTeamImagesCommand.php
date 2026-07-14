@@ -35,11 +35,13 @@ class SyncTeamImagesCommand extends Command
             $this->info("Normalized {$legacy} legacy team image path(s).");
         }
 
-        $copied = PublicUpload::syncDirectory('images/team');
-        $this->info("Copied {$copied} team image file(s) into web-visible upload roots.");
+        $copiedImages = PublicUpload::syncDirectory('images/team');
+        $copiedCvs = PublicUpload::syncDirectory('cv');
+        $this->info("Copied {$copiedImages} team image file(s) into web-visible upload roots.");
+        $this->info("Copied {$copiedCvs} CV file(s) into web-visible upload roots.");
 
         if (! filled(env('PUBLIC_UPLOAD_ROOT')) && ! filled($_SERVER['DOCUMENT_ROOT'] ?? null)) {
-            $this->warn('Tip: on cPanel/Bluehost set PUBLIC_UPLOAD_ROOT to your public_html absolute path in .env');
+            $this->warn('Tip: on cPanel/Bluehost set PUBLIC_UPLOAD_ROOT=/home/xxdgbomy/public_html in .env');
         }
 
         return self::SUCCESS;

@@ -89,16 +89,44 @@ class TeamMemberController extends Controller
         }
 
         if ($request->hasFile('cv')) {
-            if ($teamMember->cv_path) {
-                Storage::disk('public')->delete($teamMember->cv_path);
+            $this->deleteStoredCv($teamMember->cv_path);
+
+            $extension = strtolower($request->file('cv')->getClientOriginalExtension() ?: 'pdf');
+            $filename = Str::slug($data['name']).'-cv.'.$extension;
+
+            try {
+                $update['cv_path'] = PublicUpload::storeUploadedFile(
+                    $request->file('cv'),
+                    'cv',
+                    $filename
+                );
+            } catch (\Throwable $exception) {
+                return back()
+                    ->withErrors(['cv' => 'Could not save the CV on the server. Check folder permissions for cv/ and PUBLIC_UPLOAD_ROOT.'])
+                    ->withInput();
             }
-            $filename = Str::slug($data['name']).'-cv.'.$request->file('cv')->getClientOriginalExtension();
-            $update['cv_path'] = $request->file('cv')->storeAs('cv', $filename, 'public');
         }
 
         $teamMember->update($update);
 
         return redirect()->route('admin.team-members.index')->with('success', 'Team member updated successfully.');
+    }
+
+    private function deleteStoredCv(?string $path): void
+    {
+        if (! filled($path)) {
+            return;
+        }
+
+        $path = ltrim(str_replace('\\', '/', $path), '/');
+
+        if (str_starts_with($path, 'cv/')) {
+            PublicUpload::delete($path);
+        }
+
+        if (Storage::disk('public')->exists($path)) {
+            Storage::disk('public')->delete($path);
+        }
     }
 
     private function deleteStoredTeamImage(?string $path): void

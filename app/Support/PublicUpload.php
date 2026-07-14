@@ -68,6 +68,38 @@ class PublicUpload
     }
 
     /**
+     * Whether a relative public file exists in any known web root.
+     */
+    public static function exists(string $relativePath): bool
+    {
+        return self::absolutePath($relativePath) !== null;
+    }
+
+    /**
+     * Absolute filesystem path for a relative public file, if found.
+     */
+    public static function absolutePath(string $relativePath): ?string
+    {
+        $relativePath = ltrim(str_replace('\\', '/', $relativePath), '/');
+        $directory = trim(dirname($relativePath), '.');
+        $filename = basename($relativePath);
+
+        if ($directory === '.' || $directory === '\\') {
+            $directory = '';
+        }
+
+        foreach (self::targetDirectories($directory) as $dir) {
+            $fullPath = rtrim($dir, '/\\').DIRECTORY_SEPARATOR.$filename;
+
+            if (is_file($fullPath)) {
+                return $fullPath;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Copy local public/images/team files into the configured web root.
      *
      * @return int number of files copied

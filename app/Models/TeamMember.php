@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Support\PublicUpload;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -129,22 +130,23 @@ class TeamMember extends Model
     {
         $candidates = array_values(array_filter([
             $this->cv_path,
+            $this->normalizeLegacyCvPath($this->cv_path),
             $this->slug ? 'cv/'.$this->slug.'.pdf' : null,
             $this->slug ? 'cv/'.Str::slug($this->name).'-cv.pdf' : null,
         ]));
 
-        foreach ($candidates as $path) {
+        foreach (array_unique($candidates) as $path) {
             $path = ltrim(str_replace('\\', '/', $path), '/');
 
-            // Legacy files stored directly in public/cv
-            if (is_file(public_path($path))) {
+            // Prefer web-visible public/cv (and public_html/cv on shared hosting).
+            if (PublicUpload::exists($path) || is_file(public_path($path))) {
                 return [
                     'path' => $path,
                     'url' => asset($path),
                 ];
             }
 
-            // Admin uploads stored on the public disk (storage/app/public)
+            // Legacy admin uploads on the storage public disk.
             if (Storage::disk('public')->exists($path)) {
                 return [
                     'path' => $path,
@@ -154,5 +156,20 @@ class TeamMember extends Model
         }
 
         return null;
+    }
+
+    private function normalizeLegacyCvPath(?string $path): ?string
+    {
+        if (! filled($path)) {
+            return null;
+        }
+
+        $path = ltrim(str_replace('\\', '/', $path), '/');
+
+        if (str_starts_with($path, 'storage/cv/')) {
+            return 'cv/'.substr($path, strlen('storage/cv/'));
+        }
+
+        return $path;
     }
 }

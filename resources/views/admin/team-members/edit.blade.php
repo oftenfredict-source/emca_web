@@ -125,9 +125,15 @@
                         <div class="col-md-6">
                             <label class="form-label">CV (PDF, DOC, DOCX)</label>
                             <input type="file" name="cv" class="form-control" accept=".pdf,.doc,.docx">
+                            <small class="text-muted d-block">Uploads go to public/cv so they work on live hosting.</small>
                             @if($teamMember->hasCv())
-                                <small class="text-success"><i class="bi bi-check-circle"></i> CV attached: {{ basename($teamMember->cv_path ?: $teamMember->slug.'.pdf') }}</small>
+                                <small class="text-success d-block"><i class="bi bi-check-circle"></i> CV attached:
+                                    <a href="{{ $teamMember->cvUrl() }}" target="_blank" rel="noopener">{{ basename($teamMember->resolveCvPath()['path'] ?? 'download') }}</a>
+                                </small>
                             @endif
+                            @error('cv')
+                                <div class="text-danger small">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col-md-4">
                             <label class="form-label">Sort Order</label>
