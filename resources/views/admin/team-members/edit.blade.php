@@ -57,6 +57,17 @@
 
                 <form action="{{ route('admin.team-members.update', $teamMember) }}" method="POST" enctype="multipart/form-data">
                     @csrf @method('PUT')
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul class="mb-0">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label class="form-label">Name *</label>
@@ -103,9 +114,13 @@
                         <div class="col-md-6">
                             <label class="form-label">Profile Photo</label>
                             <input type="file" name="image" class="form-control" accept="image/*">
+                            <small class="text-muted d-block">JPG, PNG, WEBP up to 5MB. Uploads go to public/images/team/</small>
                             @if($teamMember->image)
                                 <small class="text-muted">Current: {{ basename($teamMember->image) }}</small>
                             @endif
+                            @error('image')
+                                <div class="text-danger small">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">CV (PDF, DOC, DOCX)</label>

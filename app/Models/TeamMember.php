@@ -76,11 +76,25 @@ class TeamMember extends Model
             return asset('visaland-html/assets/img/team/01.jpg');
         }
 
-        if (str_starts_with($this->image, 'visaland-html/') || str_starts_with($this->image, 'images/')) {
-            return asset($this->image);
+        $path = ltrim(str_replace('\\', '/', $this->image), '/');
+
+        if (str_starts_with($path, 'visaland-html/') || str_starts_with($path, 'images/')) {
+            $url = asset($path);
+        } elseif (str_starts_with($path, 'team/') && is_file(public_path('images/'.$path))) {
+            // Legacy DB paths after migrating files into public/images/team.
+            $url = asset('images/'.$path);
+        } elseif (is_file(public_path($path))) {
+            $url = asset($path);
+        } elseif (Storage::disk('public')->exists($path)) {
+            // Legacy admin uploads that still live on the public disk.
+            $url = asset('storage/'.$path);
+        } else {
+            $url = asset($path);
         }
 
-        return asset('storage/'.$this->image);
+        $version = optional($this->updated_at)->getTimestamp() ?: time();
+
+        return $url.(str_contains($url, '?') ? '&' : '?').'v='.$version;
     }
 
     public function cvUrl(): string

@@ -35,7 +35,7 @@ class TeamMemberController extends Controller
             'email' => ['nullable', 'email', 'max:255'],
             'mobile' => ['nullable', 'string', 'max:50'],
             'bio' => ['nullable', 'string'],
-            'image' => ['nullable', 'image', 'max:2048'],
+            'image' => ['nullable', 'image', 'max:5120'],
             'cv' => ['nullable', 'file', 'mimes:pdf,doc,docx', 'max:5120'],
             'is_active' => ['sometimes', 'boolean'],
             'sort_order' => ['nullable', 'integer', 'min:0'],
@@ -69,10 +69,18 @@ class TeamMemberController extends Controller
         ];
 
         if ($request->hasFile('image')) {
-            if ($teamMember->image && ! str_starts_with($teamMember->image, 'visaland-html/') && ! str_starts_with($teamMember->image, 'images/')) {
-                Storage::disk('public')->delete($teamMember->image);
+            $this->deleteStoredTeamImage($teamMember->image);
+
+            $extension = strtolower($request->file('image')->getClientOriginalExtension() ?: 'jpg');
+            $filename = Str::slug($data['name']).'-'.Str::lower(Str::random(8)).'.'.$extension;
+            $directory = public_path('images/team');
+
+            if (! is_dir($directory)) {
+                mkdir($directory, 0755, true);
             }
-            $update['image'] = $request->file('image')->store('team', 'public');
+
+            $request->file('image')->move($directory, $filename);
+            $update['image'] = 'images/team/'.$filename;
         }
 
         if ($request->hasFile('cv')) {
@@ -86,5 +94,34 @@ class TeamMemberController extends Controller
         $teamMember->update($update);
 
         return redirect()->route('admin.team-members.index')->with('success', 'Team member updated successfully.');
+    }
+
+    private function deleteStoredTeamImage(?string $path): void
+    {
+        if (! filled($path)) {
+            return;
+        }
+
+        $path = ltrim(str_replace('\\', '/', $path), '/');
+
+        // Seeded/static assets under public/images (except images/team uploads) stay untouched.
+        if (str_starts_with($path, 'images/') && ! str_starts_with($path, 'images/team/')) {
+            return;
+        }
+
+        if (str_starts_with($path, 'visaland-html/')) {
+            return;
+        }
+
+        if (str_starts_with($path, 'images/team/') && is_file(public_path($path))) {
+            @unlink(public_path($path));
+
+            return;
+        }
+
+        // Legacy storage/app/public/team uploads.
+        if (Storage::disk('public')->exists($path)) {
+            Storage::disk('public')->delete($path);
+        }
     }
 }
