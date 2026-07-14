@@ -76,18 +76,14 @@ class TeamMember extends Model
             return asset('visaland-html/assets/img/team/01.jpg');
         }
 
-        $path = ltrim(str_replace('\\', '/', $this->image), '/');
+        $path = $this->normalizedImagePath();
 
         if (str_starts_with($path, 'visaland-html/') || str_starts_with($path, 'images/')) {
             $url = asset($path);
-        } elseif (str_starts_with($path, 'team/') && is_file(public_path('images/'.$path))) {
-            // Legacy DB paths after migrating files into public/images/team.
-            $url = asset('images/'.$path);
+        } elseif (Storage::disk('public')->exists($path)) {
+            $url = asset('storage/'.$path);
         } elseif (is_file(public_path($path))) {
             $url = asset($path);
-        } elseif (Storage::disk('public')->exists($path)) {
-            // Legacy admin uploads that still live on the public disk.
-            $url = asset('storage/'.$path);
         } else {
             $url = asset($path);
         }
@@ -95,6 +91,24 @@ class TeamMember extends Model
         $version = optional($this->updated_at)->getTimestamp() ?: time();
 
         return $url.(str_contains($url, '?') ? '&' : '?').'v='.$version;
+    }
+
+    /**
+     * Convert legacy storage upload paths into public web paths.
+     */
+    public function normalizedImagePath(): string
+    {
+        $path = ltrim(str_replace('\\', '/', (string) $this->image), '/');
+
+        if (str_starts_with($path, 'storage/team/')) {
+            return 'images/team/'.substr($path, strlen('storage/team/'));
+        }
+
+        if (str_starts_with($path, 'team/')) {
+            return 'images/'.$path;
+        }
+
+        return $path;
     }
 
     public function cvUrl(): string

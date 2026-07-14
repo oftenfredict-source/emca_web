@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\TeamMember;
+use App\Support\PublicUpload;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -73,14 +74,18 @@ class TeamMemberController extends Controller
 
             $extension = strtolower($request->file('image')->getClientOriginalExtension() ?: 'jpg');
             $filename = Str::slug($data['name']).'-'.Str::lower(Str::random(8)).'.'.$extension;
-            $directory = public_path('images/team');
 
-            if (! is_dir($directory)) {
-                mkdir($directory, 0755, true);
+            try {
+                $update['image'] = PublicUpload::storeUploadedFile(
+                    $request->file('image'),
+                    'images/team',
+                    $filename
+                );
+            } catch (\Throwable $exception) {
+                return back()
+                    ->withErrors(['image' => 'Could not save the profile photo on the server. Check folder permissions for images/team and PUBLIC_UPLOAD_ROOT.'])
+                    ->withInput();
             }
-
-            $request->file('image')->move($directory, $filename);
-            $update['image'] = 'images/team/'.$filename;
         }
 
         if ($request->hasFile('cv')) {
@@ -113,8 +118,8 @@ class TeamMemberController extends Controller
             return;
         }
 
-        if (str_starts_with($path, 'images/team/') && is_file(public_path($path))) {
-            @unlink(public_path($path));
+        if (str_starts_with($path, 'images/team/')) {
+            PublicUpload::delete($path);
 
             return;
         }
