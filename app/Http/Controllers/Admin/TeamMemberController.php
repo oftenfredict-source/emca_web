@@ -39,7 +39,17 @@ class TeamMemberController extends Controller
             'cv' => ['nullable', 'file', 'mimes:pdf,doc,docx', 'max:5120'],
             'is_active' => ['sometimes', 'boolean'],
             'sort_order' => ['nullable', 'integer', 'min:0'],
+            'social.instagram' => ['nullable', 'string', 'max:500'],
+            'social.facebook' => ['nullable', 'string', 'max:500'],
+            'social.linkedin' => ['nullable', 'string', 'max:500'],
         ]);
+
+        $socialInput = $data['social'] ?? [];
+        $normalizeSocialUrl = static function (?string $url): string {
+            $url = trim((string) $url);
+
+            return $url !== '' ? $url : '#';
+        };
 
         $update = [
             'name' => $data['name'],
@@ -49,6 +59,11 @@ class TeamMemberController extends Controller
             'bio' => filled($data['bio'] ?? null)
                 ? array_values(array_filter(array_map('trim', explode("\n", $data['bio']))))
                 : [],
+            'social' => [
+                'instagram' => $normalizeSocialUrl($socialInput['instagram'] ?? null),
+                'facebook' => $normalizeSocialUrl($socialInput['facebook'] ?? null),
+                'linkedin' => $normalizeSocialUrl($socialInput['linkedin'] ?? null),
+            ],
             'is_active' => $request->boolean('is_active', true),
             'sort_order' => $data['sort_order'] ?? 0,
         ];

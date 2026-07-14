@@ -3,7 +3,7 @@
         [
             'image' => 'images/Banner_hero1.jpg',
             'tagline' => 'EmCa Techonologies LTD',
-            'title' => "Leading ICT Solutions <br> in Tanzania & <br> East Africa",
+            'title' => "Leading ICT Solutions <br> in Tanzania & <br> Worldwide",
             'text' => 'Reliable, modern, and affordable technology services for schools, <br> businesses, and institutions ready to thrive in the digital era.',
             'btn_label' => 'Learn More',
             'btn_url' => route('about'),

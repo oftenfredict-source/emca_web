@@ -28,7 +28,7 @@
     <div class="single-blog-post">
         <div class="post-content">
             <h2>No blog posts yet</h2>
-            <p>Check back soon for news and updates from EmCa Technologies.</p>
+            <p>Check back soon for news and updates from EmCa Techonologies.</p>
         </div>
     </div>
 @endif

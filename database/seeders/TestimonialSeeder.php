@@ -34,7 +34,7 @@ class TestimonialSeeder extends Seeder
             [
                 'name' => 'Peter R',
                 'role' => 'Business Owner',
-                'content' => 'MauzoLink has simplified the way we manage our sales and daily business operations. Tracking products, sales records, and reports is now faster and more accurate. Thanks EmCa Technologies.',
+                'content' => 'MauzoLink has simplified the way we manage our sales and daily business operations. Tracking products, sales records, and reports is now faster and more accurate. Thanks EmCa Techonologies.',
                 'rating' => 5,
                 'sort_order' => 4,
             ],

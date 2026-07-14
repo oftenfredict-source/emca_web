@@ -8,7 +8,7 @@
         <div>
             <p class="admin-dash-eyebrow">Team Member</p>
             <h1 class="admin-dash-title">{{ $teamMember->name }}</h1>
-            <p class="admin-dash-subtitle">Update profile details, photo, and CV for this team member.</p>
+            <p class="admin-dash-subtitle">Update profile details, photo, social links, and CV for this team member.</p>
         </div>
         <div class="admin-dash-hero-actions">
             <a href="{{ route('admin.team-members.index') }}" class="btn btn-outline-light btn-sm">
@@ -78,6 +78,28 @@
                             <label class="form-label">Bio (one paragraph per line)</label>
                             <textarea name="bio" class="form-control" rows="5">{{ old('bio', implode("\n", $teamMember->bio ?? [])) }}</textarea>
                         </div>
+
+                        <div class="col-12">
+                            <hr class="my-1">
+                            <h3 class="h6 mb-1">Social media links</h3>
+                            <p class="text-muted small mb-3">Paste full profile URLs. Leave blank if not available.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label"><i class="bi bi-instagram"></i> Instagram</label>
+                            <input type="text" name="social[instagram]" class="form-control" placeholder="https://instagram.com/..."
+                                value="{{ old('social.instagram', (($teamMember->social['instagram'] ?? '') === '#' ? '' : ($teamMember->social['instagram'] ?? ''))) }}">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label"><i class="bi bi-facebook"></i> Facebook</label>
+                            <input type="text" name="social[facebook]" class="form-control" placeholder="https://facebook.com/..."
+                                value="{{ old('social.facebook', (($teamMember->social['facebook'] ?? '') === '#' ? '' : ($teamMember->social['facebook'] ?? ''))) }}">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label"><i class="bi bi-linkedin"></i> LinkedIn</label>
+                            <input type="text" name="social[linkedin]" class="form-control" placeholder="https://linkedin.com/in/..."
+                                value="{{ old('social.linkedin', (($teamMember->social['linkedin'] ?? '') === '#' ? '' : ($teamMember->social['linkedin'] ?? ''))) }}">
+                        </div>
+
                         <div class="col-md-6">
                             <label class="form-label">Profile Photo</label>
                             <input type="file" name="image" class="form-control" accept="image/*">

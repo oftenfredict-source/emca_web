@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="EmCa Techonologies">
-        <meta name="description" content="EmCa Techonologies — ICT solutions, software, and digital services in Tanzania and East Africa.">
+        <meta name="description" content="EmCa Techonologies — ICT solutions, software, and digital services in Tanzania and worldwide.">
         <!-- ======== Page title ============ -->
         <title>{{ config('company.site_title', 'EmCa Techonologies') }}</title>
         @include('partials.favicon')
@@ -142,11 +142,11 @@
                                     <div class="section-title">
                                         <span class="wow fadeInUp">About {{ config('company.name') }}</span>
                                         <h2 class="title-anim">
-                                            Leading ICT Solutions in Tanzania & East Africa
+                                            Leading ICT Solutions in Tanzania & Worldwide
                                         </h2>
                                     </div>
                                     <p class="mt-4 mt-md-0 wow fadeInUp" data-wow-delay=".5s">
-                                        {{ config('company.legal_name') }} is a leading Tanzanian ICT firm that provides cutting-edge technology services and solutions to clients across the country and the East African region.
+                                        {{ config('company.legal_name') }} is a leading Tanzanian ICT firm that provides cutting-edge technology services and solutions to clients across the country and worldwide.
                                     </p>
                                     <p class="mt-3 wow fadeInUp" data-wow-delay=".55s">
                                         Founded with a clear purpose: to provide reliable, modern, and affordable ICT services and solutions tailored to enable individuals, institutions, and businesses of all sizes to thrive in the digital era.
@@ -306,7 +306,7 @@
                                     <div class="content">
                                         <h3>Proven Track Record</h3>
                                         <p>
-                                            5+ years delivering trusted ICT services across Tanzania and East Africa.
+                                            5+ years delivering trusted ICT services across Tanzania and worldwide.
                                         </p>
                                     </div>
                                 </div>
@@ -387,13 +387,13 @@
                                     <div class="row g-4">
                                         <div class="col-lg-7 wow fadeInUp" data-wow-delay=".3s">
                                             <div class="choose-image-1">
-                                                <img src="{{ asset('images/why4.jpg') }}" alt="Why choose EmCa Technologies">
+                                                <img src="{{ asset('images/why4.jpg') }}" alt="Why choose EmCa Techonologies">
                                             </div>
                                         </div>
                                         <div class="col-lg-5">
                                             <div class="choose-image-2 bg-cover wow fadeInUp" data-wow-delay=".3s" style="background-image: url('{{ asset('images/why2.jpg') }}');"></div>
                                             <div class="choose-image-3 wow fadeInUp" data-wow-delay=".5s">
-                                                <img src="{{ asset('images/why3.jpg') }}" alt="Why choose EmCa Technologies">
+                                                <img src="{{ asset('images/why3.jpg') }}" alt="Why choose EmCa Techonologies">
                                             </div>
                                         </div>
                                     </div>
@@ -623,7 +623,7 @@
                         @include('partials.home-news-section', ['latestPosts' => $latestPosts ?? collect()])
                         @if(empty($latestPosts) || $latestPosts->isEmpty())
                             <div class="col-12 text-center">
-                                <p class="text-muted">Blog posts coming soon. Check back for updates from EmCa Technologies.</p>
+                                <p class="text-muted">Blog posts coming soon. Check back for updates from EmCa Techonologies.</p>
                             </div>
                         @endif
                     </div>

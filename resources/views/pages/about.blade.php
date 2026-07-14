@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="modinatheme">
-        <meta name="description" content="EmCa Techonologies LTD — leading Tanzanian ICT firm providing technology services and solutions across Tanzania and East Africa.">
+        <meta name="description" content="EmCa Techonologies LTD — leading Tanzanian ICT firm providing technology services and solutions across Tanzania and worldwide.">
         <!-- ======== Page title ============ -->
         <title>About Us - {{ config('company.site_title', 'EmCa Techonologies') }}</title>
         @include('partials.favicon')
@@ -143,11 +143,11 @@
                             <div class="section-title">
                                 <span class="wow fadeInUp">About {{ config('company.name') }}</span>
                                 <h2 class="title-anim">
-                                    Leading ICT Solutions in Tanzania & East Africa
+                                    Leading ICT Solutions in Tanzania & Worldwide
                                 </h2>
                             </div>
                             <p class="mt-4 mt-md-0 wow fadeInUp" data-wow-delay=".5s">
-                                {{ config('company.site_title', 'EmCa Techonologies') }} is a leading Tanzanian ICT firm that provides cutting-edge technology services and solutions to clients across the country and the East African region.
+                                {{ config('company.site_title', 'EmCa Techonologies') }} is a leading Tanzanian ICT firm that provides cutting-edge technology services and solutions to clients across the country and worldwide.
                             </p>
                             <p class="mt-3 wow fadeInUp" data-wow-delay=".55s">
                                 Founded with a clear purpose: to provide reliable, modern, and affordable ICT services and solutions tailored to enable individuals, institutions, and businesses of all sizes to thrive in the digital era.
@@ -167,7 +167,7 @@
                                     <div class="circle-bar" data-percent="99" data-duration="1000">
                                     </div>
                                     <div class="content">
-                                        <h6>Trusted Across East Africa</h6>
+                                        <h6>Trusted Worldwide</h6>
                                     </div>
                                 </div>
                             </div>
@@ -190,7 +190,7 @@
                         <div class="content">
                             <h3>Our Vision</h3>
                             <p>
-                                To become a leading provider of transformative and affordable ICT solutions that empower individuals, institutions, and businesses across Tanzania and the East African region.
+                                To become a leading provider of transformative and affordable ICT solutions that empower individuals, institutions, and businesses across Tanzania and worldwide.
                             </p>
                         </div>
                     </div>
@@ -275,7 +275,7 @@
                             <div class="section-title">
                                 <span class="text-white wow fadeInUp">Trusted ICT Partner</span>
                                 <h2 class="text-white title-anim emca-counter-title">
-                                    Empowering businesses across Tanzania & East Africa
+                                    Empowering businesses across Tanzania & Worldwide
                                 </h2>
                             </div>
                             <p class="mt-4 mt-md-0 text-white wow fadeInUp" data-wow-delay=".5s">

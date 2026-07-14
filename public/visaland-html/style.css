@@ -43,6 +43,42 @@ Main Style file-> assets/css/main.css
 }
 
 /* EmCa preloader branding */
+.preloader .animation-preloader .emca-preloader-spinner {
+    position: relative;
+    width: 9em;
+    height: 9em;
+    margin: 0 auto 3.5em auto;
+}
+
+.preloader .animation-preloader .emca-preloader-spinner .spinner {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.preloader .animation-preloader .emca-preloader-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    width: 52%;
+    height: auto;
+    max-height: 52%;
+    object-fit: contain;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+@media (max-width: 767px) {
+    .preloader .animation-preloader .emca-preloader-spinner {
+        width: 7.5em;
+        height: 7.5em;
+        margin: 0 auto 1.5em auto;
+    }
+}
+
 .preloader .animation-preloader .txt-loading.emca-txt-loading {
     font-size: 4.2em;
     font-family: var(--emca-font) !important;

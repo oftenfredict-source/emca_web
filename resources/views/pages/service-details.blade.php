@@ -243,7 +243,7 @@
                                         {{ $service['description'] }}
                                     </p>
                                     <p class="mt-3">
-                                        {{ config('company.site_title', 'EmCa Techonologies') }} delivers professional {{ strtolower($service['name']) }} services to help individuals, institutions, and businesses across Tanzania and East Africa thrive in the digital era.
+                                        {{ config('company.site_title', 'EmCa Techonologies') }} delivers professional {{ strtolower($service['name']) }} services to help individuals, institutions, and businesses across Tanzania and worldwide thrive in the digital era.
                                     </p>
                                     @endif
                                     @if (!empty($service['highlights']))

@@ -1,7 +1,3 @@
-@php
-    $isSystemDeveloper = stripos($member['role'], 'developer') !== false;
-@endphp
-
 <!-- Team Details Section Start -->
 <section class="emca-team-details-section section-padding">
     <div class="container">
@@ -34,11 +30,7 @@
                                     <a href="mailto:{{ $member['email'] }}" aria-label="Email"><i class="fas fa-envelope"></i></a>
                                     <a href="{{ $member['social']['instagram'] ?? '#' }}" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                                     <a href="{{ $member['social']['facebook'] ?? '#' }}" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                                    @if ($isSystemDeveloper)
-                                        <a href="{{ $member['social']['github'] ?? '#' }}" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                                    @else
-                                        <a href="{{ $member['social']['linkedin'] ?? '#' }}" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                                    @endif
+                                    <a href="{{ $member['social']['linkedin'] ?? '#' }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -47,14 +39,17 @@
                     <div class="emca-team-details-divider"></div>
 
                     <div class="emca-team-details-bio wow fadeInUp" data-wow-delay=".2s">
-                        @foreach ($member['bio'] as $index => $paragraph)
-                            <p>
-                                @if ($index === 0)
-                                    {!! str_replace(e($member['name']), '<strong>' . e($member['name']) . '</strong>', e($paragraph)) !!}
-                                @else
-                                    {{ $paragraph }}
-                                @endif
-                            </p>
+                        @foreach ($member['bio'] as $paragraph)
+                            @php
+                                $escaped = e($paragraph);
+                                // Prefer the full legal name in bio when present (e.g. Caroline Ceasar Shija).
+                                if (str_contains($paragraph, 'Caroline Ceasar Shija')) {
+                                    $escaped = str_replace('Caroline Ceasar Shija', '<strong>Caroline Ceasar Shija</strong>', $escaped);
+                                } else {
+                                    $escaped = str_replace(e($member['name']), '<strong>' . e($member['name']) . '</strong>', $escaped);
+                                }
+                            @endphp
+                            <p>{!! $escaped !!}</p>
                         @endforeach
                     </div>
 

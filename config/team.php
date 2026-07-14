@@ -11,9 +11,9 @@ return [
             'style' => 'style-2',
             'delay' => '.3s',
             'bio' => [
-                'Caroline Shija serves as Managing Director at EmCa Techonologies LTD, providing strategic leadership across the company\'s technology and digital solutions portfolio.',
-                'She oversees business operations, client partnerships, and service delivery, ensuring EmCa remains focused on practical, reliable solutions for schools, businesses, and institutions.',
-                'With a strong commitment to innovation and customer success, Caroline helps guide teams that build software, ICT infrastructure, and creative digital services.',
+                'Caroline Ceasar Shija is the Founder and Managing Director of EmCa Techonologies Limited, building Software as a Service platforms for SACCOS, schools, SMEs, and religious organizations across Tanzania.',
+                'Under her leadership, EmCa Techonologies has grown from zero proprietary systems to five live products SACCOSLink, ShuleXpert, WauminiLink, MauzoLink, and PangishaLink.',
+                'She also leads governance and Human Resource consultancy work for cooperative societies, including Moshi Rural Teachers SACCOS and Hai Rural Teachers SACCOS.',
             ],
             'social' => [
                 'instagram' => '#',
@@ -58,7 +58,7 @@ return [
             'social' => [
                 'instagram' => 'https://www.instagram.com/oftenfred_official?igsh=MWxwNnJ2OWd1ODJncQ==',
                 'facebook' => 'https://www.facebook.com/share/1Hx2bNQfkq/',
-                'github' => 'https://github.com/oftenfredict-source',
+                'linkedin' => '#',
             ],
             'cv' => 'cv/ofeni-mwakapola.pdf',
         ],
@@ -98,7 +98,7 @@ return [
             'social' => [
                 'instagram' => '#',
                 'facebook' => '#',
-                'github' => '#',
+                'linkedin' => '#',
             ],
             'cv' => 'cv/hassani-s-hassani.pdf',
         ],
@@ -138,7 +138,7 @@ return [
             'social' => [
                 'instagram' => '#',
                 'facebook' => '#',
-                'github' => '#',
+                'linkedin' => '#',
             ],
             'cv' => 'cv/issa-nassoro.pdf',
         ],
@@ -158,7 +158,7 @@ return [
             'social' => [
                 'instagram' => '#',
                 'facebook' => '#',
-                'github' => '#',
+                'linkedin' => '#',
             ],
             'cv' => 'cv/ashery-aron.pdf',
         ],
@@ -178,7 +178,7 @@ return [
             'social' => [
                 'instagram' => '#',
                 'facebook' => '#',
-                'github' => '#',
+                'linkedin' => '#',
             ],
             'cv' => 'cv/ally-h-ally.pdf',
         ],

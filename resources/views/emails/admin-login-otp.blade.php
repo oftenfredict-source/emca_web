@@ -10,6 +10,6 @@
     <p style="font-size: 28px; font-weight: bold; letter-spacing: 4px; color: #940000;">{{ $otp }}</p>
     <p>This code expires in {{ $expiryMinutes }} minutes.</p>
     <p>If you did not try to sign in, you can ignore this email.</p>
-    <p>EmCa Technologies</p>
+    <p>EmCa Techonologies</p>
 </body>
 </html>

@@ -71,7 +71,7 @@
                         </div>
                         <div class="footer-content">
                             <p>
-                                {{ config('company.legal_name') }} delivers reliable ICT services and software solutions for schools, businesses, and institutions across Tanzania and East Africa.
+                                {{ config('company.legal_name') }} delivers reliable ICT services and software solutions for schools, businesses, and institutions across Tanzania and worldwide.
                             </p>
                         </div>
                     </div>

@@ -35,7 +35,6 @@
                 @foreach ($teamCollection as $member)
                     @php
                         $slug = $member->slug;
-                        $isSystemDeveloper = stripos($member->role, 'developer') !== false;
                     @endphp
                     <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="{{ $member->delay }}">
                         <div class="team-box-items{{ ! empty($member->style) ? ' ' . $member->style : '' }}">
@@ -45,11 +44,7 @@
                                     <li><a href="mailto:{{ $member->resolvedEmail() }}" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
                                     <li><a href="{{ $member->social['instagram'] ?? '#' }}" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
                                     <li><a href="{{ $member->social['facebook'] ?? '#' }}" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                    @if ($isSystemDeveloper)
-                                        <li><a href="{{ $member->social['github'] ?? '#' }}" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
-                                    @else
-                                        <li><a href="{{ $member->social['linkedin'] ?? '#' }}" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-                                    @endif
+                                    <li><a href="{{ $member->social['linkedin'] ?? '#' }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
                                 </ul>
                             </div>
                             <div class="{{ $contentClass }}">
@@ -65,9 +60,6 @@
                 @endforeach
             @else
                 @foreach ($configMembers as $slug => $member)
-                    @php
-                        $isSystemDeveloper = stripos($member['role'], 'developer') !== false;
-                    @endphp
                     <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="{{ $member['delay'] }}">
                         <div class="team-box-items{{ ! empty($member['style']) ? ' ' . $member['style'] : '' }}">
                             <div class="team-image">
@@ -76,11 +68,7 @@
                                     <li><a href="mailto:{{ $member['email'] }}" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
                                     <li><a href="{{ $member['social']['instagram'] ?? '#' }}" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
                                     <li><a href="{{ $member['social']['facebook'] ?? '#' }}" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                    @if ($isSystemDeveloper)
-                                        <li><a href="{{ $member['social']['github'] ?? '#' }}" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
-                                    @else
-                                        <li><a href="{{ $member['social']['linkedin'] ?? '#' }}" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-                                    @endif
+                                    <li><a href="{{ $member['social']['linkedin'] ?? '#' }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
                                 </ul>
                             </div>
                             <div class="{{ $contentClass }}">
