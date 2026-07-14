@@ -58,7 +58,7 @@ class AuthController extends Controller
             $this->adminOtp->clear();
 
             return back()->withErrors([
-                'email' => 'We could not send the verification code. Please try again in a moment.',
+                'email' => 'We could not send the verification code by SMS or email. On the server, check SMS_API_* credentials (quote passwords with #) and set MAIL_MAILER to a real SMTP mailer — MAIL_MAILER=log does not deliver codes.',
             ])->onlyInput('email');
         }
 

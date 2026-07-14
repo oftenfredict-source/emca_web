@@ -7,7 +7,8 @@ return [
     'otp_max_attempts' => (int) env('ADMIN_OTP_MAX_ATTEMPTS', 5),
 
     'sms' => [
-        'base_url' => env('SMS_API_BASE_URL', 'https://messaging-service.co.tz/link/sms/v1/text/single'),
+        // Host root or full legacy link URL. API posting always uses /api/sms/v1/text/single.
+        'base_url' => env('SMS_API_BASE_URL', 'https://messaging-service.co.tz'),
         'username' => env('SMS_API_USERNAME'),
         'password' => env('SMS_API_PASSWORD'),
         'from' => env('SMS_API_FROM', 'EmCaTech'),

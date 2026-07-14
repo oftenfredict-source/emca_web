@@ -213,6 +213,16 @@ class AdminOtpService
             return false;
         }
 
+        // log/array mailers do not deliver to an inbox — never treat them as sent on live.
+        if (! $this->emailDeliversToInbox()) {
+            Log::warning('Admin OTP email skipped: MAIL_MAILER does not deliver to an inbox.', [
+                'mailer' => config('mail.default'),
+                'email' => $email,
+            ]);
+
+            return false;
+        }
+
         try {
             Mail::to($email)->send(new AdminLoginOtpMail($otp, $user->name, $expiryMinutes));
 
