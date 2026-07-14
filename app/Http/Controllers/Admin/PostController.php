@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Support\PublicUpload;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class PostController extends Controller
@@ -32,7 +34,13 @@ class PostController extends Controller
         $data['slug'] = Post::generateSlug($data['title']);
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('posts', 'public');
+            try {
+                $data['image'] = $this->storePostImage($request);
+            } catch (\Throwable $exception) {
+                return back()
+                    ->withErrors(['image' => 'Could not save the blog image. Check images/posts permissions and PUBLIC_UPLOAD_ROOT.'])
+                    ->withInput();
+            }
         }
 
         if ($data['is_published'] && empty($data['published_at'])) {
@@ -58,10 +66,15 @@ class PostController extends Controller
         }
 
         if ($request->hasFile('image')) {
-            if ($post->image) {
-                Storage::disk('public')->delete($post->image);
+            $this->deletePostImage($post->image);
+
+            try {
+                $data['image'] = $this->storePostImage($request);
+            } catch (\Throwable $exception) {
+                return back()
+                    ->withErrors(['image' => 'Could not save the blog image. Check images/posts permissions and PUBLIC_UPLOAD_ROOT.'])
+                    ->withInput();
             }
-            $data['image'] = $request->file('image')->store('posts', 'public');
         }
 
         if ($data['is_published'] && empty($data['published_at'])) {
@@ -79,13 +92,36 @@ class PostController extends Controller
 
     public function destroy(Post $post): RedirectResponse
     {
-        if ($post->image) {
-            Storage::disk('public')->delete($post->image);
-        }
-
+        $this->deletePostImage($post->image);
         $post->delete();
 
         return redirect()->route('admin.posts.index')->with('success', 'Blog post deleted.');
+    }
+
+    private function storePostImage(Request $request): string
+    {
+        $extension = strtolower($request->file('image')->getClientOriginalExtension() ?: 'jpg');
+        $filename = Str::slug(pathinfo($request->file('image')->getClientOriginalName(), PATHINFO_FILENAME));
+        $filename = ($filename !== '' ? $filename : 'post').'-'.Str::lower(Str::random(8)).'.'.$extension;
+
+        return PublicUpload::storeUploadedFile($request->file('image'), 'images/posts', $filename);
+    }
+
+    private function deletePostImage(?string $path): void
+    {
+        if (! filled($path)) {
+            return;
+        }
+
+        $path = ltrim(str_replace('\\', '/', $path), '/');
+
+        if (str_starts_with($path, 'images/posts/')) {
+            PublicUpload::delete($path);
+        }
+
+        if (str_starts_with($path, 'posts/') && Storage::disk('public')->exists($path)) {
+            Storage::disk('public')->delete($path);
+        }
     }
 
     private function validatedData(Request $request): array
@@ -95,7 +131,7 @@ class PostController extends Controller
             'excerpt' => ['nullable', 'string', 'max:500'],
             'content' => ['required', 'string'],
             'author' => ['nullable', 'string', 'max:255'],
-            'image' => ['nullable', 'image', 'max:2048'],
+            'image' => ['nullable', 'image', 'max:5120'],
             'is_published' => ['sometimes', 'boolean'],
             'published_at' => ['nullable', 'date'],
         ]) + [

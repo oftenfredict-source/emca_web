@@ -57,4 +57,24 @@ class Post extends Model
             ->whereNotNull('published_at')
             ->where('published_at', '<=', now());
     }
+
+    public function imageUrl(): ?string
+    {
+        if (! filled($this->image)) {
+            return null;
+        }
+
+        $path = ltrim(str_replace('\\', '/', (string) $this->image), '/');
+
+        if (str_starts_with($path, 'storage/posts/')) {
+            $path = 'images/posts/'.substr($path, strlen('storage/posts/'));
+        } elseif (str_starts_with($path, 'posts/')) {
+            $path = 'images/'.$path;
+        }
+
+        $url = asset($path);
+        $version = optional($this->updated_at)->getTimestamp() ?: time();
+
+        return $url.(str_contains($url, '?') ? '&' : '?').'v='.$version;
+    }
 }

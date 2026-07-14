@@ -8,8 +8,8 @@
                     <span><i class="fal fa-calendar-alt"></i>{{ $post->published_at->format('jS F Y') }}</span>
                 @endif
             </div>
-            @if($post->image)
-                <img src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->title }}" class="single-post-image my-4">
+            @if($post->imageUrl())
+                <img src="{{ $post->imageUrl() }}" alt="{{ $post->title }}" class="single-post-image my-4">
             @endif
             <div class="post-body">
                 {!! nl2br(e($post->content)) !!}

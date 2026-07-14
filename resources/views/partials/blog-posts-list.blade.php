@@ -1,9 +1,8 @@
 @if(isset($posts) && $posts->isNotEmpty())
     @foreach($posts as $index => $post)
         @php
-            $image = $post->image
-                ? asset('storage/'.$post->image)
-                : asset('visaland-html/assets/img/news/post-'.(($index % 3) + 1).'.jpg');
+            $image = $post->imageUrl()
+                ?: asset('visaland-html/assets/img/news/post-'.(($index % 3) + 1).'.jpg');
         @endphp
         <div class="single-blog-post">
             <div class="post-featured-thumb bg-cover" style="background-image: url('{{ $image }}');"></div>

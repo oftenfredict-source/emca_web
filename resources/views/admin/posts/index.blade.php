@@ -81,8 +81,8 @@
                             <td>
                                 <div class="admin-person">
                                     <div class="admin-person-avatar admin-post-thumb">
-                                        @if($post->image)
-                                            <img src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->title }}">
+                                        @if($post->imageUrl())
+                                            <img src="{{ $post->imageUrl() }}" alt="{{ $post->title }}">
                                         @else
                                             <i class="bi bi-image"></i>
                                         @endif

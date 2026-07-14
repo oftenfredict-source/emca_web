@@ -2,9 +2,8 @@
     <div class="popular-posts">
         @foreach($recentPosts as $recent)
             @php
-                $thumb = $recent->image
-                    ? asset('storage/'.$recent->image)
-                    : asset('visaland-html/assets/img/news/pp1.jpg');
+                $thumb = $recent->imageUrl()
+                    ?: asset('visaland-html/assets/img/news/pp1.jpg');
             @endphp
             <div class="single-post-item">
                 <div class="thumb bg-cover" style="background-image: url('{{ $thumb }}');"></div>

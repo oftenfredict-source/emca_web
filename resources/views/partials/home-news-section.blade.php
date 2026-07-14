@@ -4,9 +4,8 @@
             <div class="news-box-items">
                 <div class="news-image">
                     @php
-                        $image = $post->image
-                            ? asset('storage/'.$post->image)
-                            : asset('visaland-html/assets/img/news/0'.(($index % 3) + 1).'.jpg');
+                        $image = $post->imageUrl()
+                            ?: asset('visaland-html/assets/img/news/0'.(($index % 3) + 1).'.jpg');
                     @endphp
                     <img src="{{ $image }}" alt="{{ $post->title }}">
                     <img src="{{ $image }}" alt="{{ $post->title }}">

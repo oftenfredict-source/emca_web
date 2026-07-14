@@ -18,9 +18,16 @@
     <div class="col-md-6">
         <label class="form-label">Featured Image</label>
         <input type="file" name="image" class="form-control" accept="image/*">
-        @if(!empty($post?->image))
+        <small class="text-muted d-block">JPG/PNG up to 5MB. Saved to public/images/posts for live hosting.</small>
+        @if(!empty($post?->imageUrl()))
+            <div class="mt-2">
+                <img src="{{ $post->imageUrl() }}" alt="" style="max-height: 90px; border-radius: 8px;">
+            </div>
             <small class="text-muted">Current: {{ $post->image }}</small>
         @endif
+        @error('image')
+            <div class="text-danger small">{{ $message }}</div>
+        @enderror
     </div>
     <div class="col-md-3">
         <label class="form-label">Publish Date</label>
