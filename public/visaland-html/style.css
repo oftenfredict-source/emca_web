@@ -2251,11 +2251,12 @@ button,
 }
 
 /* Homepage server image banner below solutions */
-.emca-server-banner-section {
+.cta-banner-section.emca-server-banner-section {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
+    /* Avoid background-attachment: fixed — Chrome often renders it heavily pixelated on Windows DPI scaling */
+    background-attachment: scroll;
     overflow: visible;
 }
 
