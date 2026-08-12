@@ -623,6 +623,11 @@
     }
 
     function loader() {
+      var $preloader = $(".preloader");
+      if (!$preloader.length) {
+          return;
+      }
+
       var done = false;
 
       function hidePreloader() {
@@ -630,12 +635,11 @@
               return;
           }
           done = true;
-          var $preloader = $(".preloader");
           $preloader.addClass('loaded');
-          $preloader.fadeOut(300);
+          $preloader.fadeOut(200);
       }
 
-      // Cap at 1s so large live assets (video/images) do not keep the loader on screen
+      // Safety fallback if a page still renders the preloader markup
       setTimeout(hidePreloader, 1000);
       $(window).on('load', hidePreloader);
   }
