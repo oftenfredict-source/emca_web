@@ -8,7 +8,7 @@ return [
     'phone' => '+255 749 719 998',
     'address' => 'Ben Bella Street, Moshi Municipality',
     'address_line_2' => 'Opposite High Court of Tanzania',
-    'po_box' => 'P.O. Box 20, Moshi – Kilimanjaro',
+    'po_box' => 'P.O. Box 20, Moshi - Kilimanjaro',
     'postcode' => '25101',
     'location_description' => 'We are located opposite the High Court, near the Kilimanjaro Regional Commissioner\'s Office, Moshi Municipality.',
     'maps_url' => 'https://maps.google.com/?cid=3807362721384388336&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&hl=en&gl=FR&source=embed',

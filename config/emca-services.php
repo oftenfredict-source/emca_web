@@ -4,14 +4,14 @@ return [
     'ict-consultancy' => [
         'name' => 'ICT Consultancy',
         'title' => 'ICT Consultancy',
-        'description' => 'End-to-end ICT consultancy to future-proof your organization — from strategy and automation to infrastructure modernization.',
+        'description' => 'End-to-end ICT consultancy to future-proof your organization, from strategy and automation to infrastructure modernization.',
         'overview' => [
             'At EmCa Techonologies LTD, we provide end-to-end ICT consultancy services designed to future-proof your organization. Whether you\'re automating processes, building new systems, or modernizing your ICT infrastructure, we deliver the expertise, strategy, and technology you need to succeed.',
-            'We guide individuals, institutions, and businesses through every stage of their digital transformation — from initial needs assessment to implementation, capacity building, and long-term ICT governance support.',
+            'We guide individuals, institutions, and businesses through every stage of their digital transformation, from initial needs assessment to implementation, capacity building, and long-term ICT governance support.',
         ],
         'sidebar_benefits' => [
             'title' => 'Why Partner With Us',
-            'intro' => 'We guide individuals, institutions, and businesses through every stage of digital transformation — delivering expertise, strategy, and technology for lasting success.',
+            'intro' => 'We guide individuals, institutions, and businesses through every stage of digital transformation, delivering expertise, strategy, and technology for lasting success.',
             'items' => [
                 [
                     'title' => 'Future-Proof Your Organization',
@@ -19,7 +19,7 @@ return [
                 ],
                 [
                     'title' => 'End-to-End Support',
-                    'text' => 'From initial needs assessment through implementation and beyond — one trusted partner at every stage of your journey.',
+                    'text' => 'From initial needs assessment through implementation and beyond, one trusted partner at every stage of your journey.',
                 ],
                 [
                     'title' => 'Expert Strategy & Technology',
@@ -46,7 +46,7 @@ return [
             'items' => [
                 [
                     'title' => 'Digital Transformation & System Development',
-                    'description' => 'We help individuals, institutions, and businesses shift from manual processes to smart, automated systems that increase efficiency, transparency, and scalability — from needs assessment to system design and deployment.',
+                    'description' => 'We help individuals, institutions, and businesses shift from manual processes to smart, automated systems that increase efficiency, transparency, and scalability, from needs assessment to system design and deployment.',
                 ],
                 [
                     'title' => 'Digital Financial Solutions',
@@ -106,7 +106,7 @@ return [
     'graphics-design' => [
         'name' => 'Graphics Design',
         'title' => 'Graphics Design',
-        'description' => 'Memorable, consistent, and impactful visual design — from branding and marketing materials to digital campaigns that strengthen your identity.',
+        'description' => 'Memorable, consistent, and impactful visual design, from branding and marketing materials to digital campaigns that strengthen your identity.',
         'overview' => [
             'At EmCa Techonologies LTD, our graphic design team crafts memorable, consistent, and impactful visuals that speak directly to your audience. From branding to digital campaigns, we help organizations express their identity beautifully and effectively.',
             'We blend creativity with technology to design visual assets that are both timeless and strategic, enhancing your brand visibility across all platforms.',
@@ -133,7 +133,7 @@ return [
                 ],
                 [
                     'title' => 'From Branding to Campaigns',
-                    'text' => 'Full-spectrum design support — from brand identity kits to posters, social media graphics, and promotional campaigns.',
+                    'text' => 'Full-spectrum design support, from brand identity kits to posters, social media graphics, and promotional campaigns.',
                 ],
                 [
                     'title' => 'Tailored to Your Goals',
@@ -148,7 +148,7 @@ return [
             'items' => [
                 [
                     'title' => 'Branding & Identity Design',
-                    'description' => 'Create a visual identity that defines your business — from logos and stationery to complete brand kits that inspire recognition and trust.',
+                    'description' => 'Create a visual identity that defines your business, from logos and stationery to complete brand kits that inspire recognition and trust.',
                 ],
                 [
                     'title' => 'Marketing Materials',
@@ -156,7 +156,7 @@ return [
                 ],
                 [
                     'title' => 'Digital Graphics & Content',
-                    'description' => 'From social media visuals to animated videos — we create dynamic digital content that communicates your story with creativity and precision.',
+                    'description' => 'From social media visuals to animated videos, we create dynamic digital content that communicates your story with creativity and precision.',
                 ],
                 [
                     'title' => 'Product & Packaging Design',
@@ -186,7 +186,7 @@ return [
                 ],
                 [
                     'question' => 'Can you design for both print and digital?',
-                    'answer' => 'Absolutely. We design for both online and offline use — from posters and brochures to social media graphics, web banners, and animated videos.',
+                    'answer' => 'Absolutely. We design for both online and offline use, from posters and brochures to social media graphics, web banners, and animated videos.',
                 ],
                 [
                     'question' => 'How does the design process work?',
@@ -208,7 +208,7 @@ return [
     'social-media-management' => [
         'name' => 'Social Media Management',
         'title' => 'Social Media Management',
-        'description' => 'Professional social media setup, branding, and management — making your business visible, interactive, and trusted across digital platforms.',
+        'description' => 'Professional social media setup, branding, and management, making your business visible, interactive, and trusted across digital platforms.',
         'overview' => [
             'At EmCa Techonologies LTD, we professionally set up and brand your social media accounts on platforms like Facebook, Instagram, YouTube, LinkedIn, and X (Twitter). Our goal is to make your business visible, interactive, and trusted across digital platforms through creative content and smart marketing strategies.',
         ],
@@ -253,7 +253,7 @@ return [
                 ],
                 [
                     'title' => 'Content Creation',
-                    'description' => 'We design custom graphics, short videos, and animations that highlight your brand, products, and services — tailored for maximum engagement.',
+                    'description' => 'We design custom graphics, short videos, and animations that highlight your brand, products, and services, tailored for maximum engagement.',
                 ],
                 [
                     'title' => 'Social Media Ads & Strategy',
@@ -291,7 +291,7 @@ return [
             'items' => [
                 [
                     'question' => 'Which social media platforms do you manage?',
-                    'answer' => 'We manage Facebook, Instagram, YouTube, LinkedIn, X (Twitter), and TikTok — setting up, branding, and maintaining profiles tailored to your business goals.',
+                    'answer' => 'We manage Facebook, Instagram, YouTube, LinkedIn, X (Twitter), and TikTok, setting up, branding, and maintaining profiles tailored to your business goals.',
                 ],
                 [
                     'question' => 'Do you set up new social media accounts?',
@@ -321,9 +321,9 @@ return [
     'web-development' => [
         'name' => 'Web Development',
         'title' => 'Web Development',
-        'description' => 'Complete web solutions — from design and development to hosting, SEO, and ongoing website management.',
+        'description' => 'Complete web solutions, from design and development to hosting, SEO, and ongoing website management.',
         'overview' => [
-            'We deliver complete web solutions — from design to deployment, hosting, and ongoing management.',
+            'We deliver complete web solutions, from design to deployment, hosting, and ongoing management.',
         ],
         'sidebar_benefits' => [
             'title' => 'Why Choose Our Web Team',
@@ -331,7 +331,7 @@ return [
             'items' => [
                 [
                     'title' => 'Complete Web Solutions',
-                    'text' => 'From custom design and development to hosting, integrations, and maintenance — everything under one roof.',
+                    'text' => 'From custom design and development to hosting, integrations, and maintenance, everything under one roof.',
                 ],
                 [
                     'title' => 'Modern & Responsive Design',
@@ -351,7 +351,7 @@ return [
                 ],
                 [
                     'title' => 'Built for Your Industry',
-                    'text' => 'Corporate sites, SACCOS portals, e-commerce stores, schools, hospitals, NGOs, and more — tailored to your sector.',
+                    'text' => 'Corporate sites, SACCOS portals, e-commerce stores, schools, hospitals, NGOs, and more, tailored to your sector.',
                 ],
             ],
         ],
@@ -382,7 +382,7 @@ return [
             'items' => [
                 [
                     'title' => 'Corporate Websites',
-                    'description' => 'For companies and institutions — professional websites that present your services, team, and brand story beautifully.',
+                    'description' => 'For companies and institutions, professional websites that present your services, team, and brand story beautifully.',
                 ],
                 [
                     'title' => 'SACCOS & Financial Institutions',
@@ -450,7 +450,7 @@ return [
     'software-development' => [
         'name' => 'Software Development',
         'title' => 'Software Development',
-        'description' => 'Professional software development for web, mobile, and desktop — helping organizations digitize operations with reliable, scalable, and secure systems.',
+        'description' => 'Professional software development for web, mobile, and desktop, helping organizations digitize operations with reliable, scalable, and secure systems.',
         'overview' => [
             'EmCa Techonologies LTD provides professional software development services that help organizations digitize their operations and streamline processes. We serve financial institutions, educational centers, healthcare facilities, cooperatives, and SMEs with reliable, scalable, and secure systems.',
         ],
@@ -481,7 +481,7 @@ return [
                 ],
                 [
                     'title' => 'Secure & Scalable',
-                    'text' => 'Systems designed with security, performance, and growth in mind — ready to scale with your organization.',
+                    'text' => 'Systems designed with security, performance, and growth in mind, ready to scale with your organization.',
                 ],
                 [
                     'title' => '24/7 Ongoing Support',
@@ -527,11 +527,11 @@ return [
         ],
         'software_types' => [
             'title' => 'Types of Software We Develop',
-            'intro' => 'Our development expertise covers diverse industries — building secure, scalable, and intelligent systems that power growth, efficiency, and innovation.',
+            'intro' => 'Our development expertise covers diverse industries, building secure, scalable, and intelligent systems that power growth, efficiency, and innovation.',
             'items' => [
                 [
                     'title' => 'Cooperative & Microfinance Systems',
-                    'description' => 'End-to-end management systems for both financial and non-financial cooperatives — covering member registration, loans, savings, and automated reporting modules.',
+                    'description' => 'End-to-end management systems for both financial and non-financial cooperatives, covering member registration, loans, savings, and automated reporting modules.',
                 ],
                 [
                     'title' => 'ERP Systems',
@@ -539,19 +539,19 @@ return [
                 ],
                 [
                     'title' => 'Point of Sale (POS) Systems',
-                    'description' => 'Comprehensive POS software for retail shops, restaurants, and SMEs — managing sales, stock, invoicing, and reports in real time for better business control.',
+                    'description' => 'Comprehensive POS software for retail shops, restaurants, and SMEs, managing sales, stock, invoicing, and reports in real time for better business control.',
                 ],
                 [
                     'title' => 'Office Management Systems',
-                    'description' => 'Smart systems like OfisiLink to manage all office operations — finance, HR, tasks, inventory, projects, and communication from one unified platform.',
+                    'description' => 'Smart systems like OfisiLink to manage all office operations, finance, HR, tasks, inventory, projects, and communication from one unified platform.',
                 ],
                 [
                     'title' => 'School & University Systems',
-                    'description' => 'Comprehensive systems for educational institutions — student registration, grading, timetables, fees, and e-learning management for modern digital classrooms.',
+                    'description' => 'Comprehensive systems for educational institutions, student registration, grading, timetables, fees, and e-learning management for modern digital classrooms.',
                 ],
                 [
                     'title' => 'Hospital & Clinic Systems',
-                    'description' => 'Healthcare software with modules for patient records, billing, pharmacy, appointments, and laboratory management — improving care and efficiency.',
+                    'description' => 'Healthcare software with modules for patient records, billing, pharmacy, appointments, and laboratory management, improving care and efficiency.',
                 ],
                 [
                     'title' => 'Booking & Reservation Platforms',
@@ -569,7 +569,7 @@ return [
             'items' => [
                 [
                     'question' => 'What types of software do you develop?',
-                    'answer' => 'We develop cooperative and microfinance systems, ERP, POS, office management, school and university systems, hospital software, booking platforms, and IoT integrations — for web, mobile, and desktop.',
+                    'answer' => 'We develop cooperative and microfinance systems, ERP, POS, office management, school and university systems, hospital software, booking platforms, and IoT integrations, for web, mobile, and desktop.',
                 ],
                 [
                     'question' => 'Do you integrate with banks and SMS gateways?',
@@ -596,10 +596,125 @@ return [
         'image' => 'images/software development.jpg',
         'banner' => 'images/Software Development1.jpg',
     ],
+    'tourism-digital-solutions' => [
+        'name' => 'Tourism Digital Solutions',
+        'title' => 'Tourism Digital Solutions',
+        'description' => 'Specialized digital tools for safari operators, tour companies, lodges, and destination brands, from guest planners to booking systems that convert browsers into bookings.',
+        'overview' => [
+            'At EmCa Techonologies LTD, we build Tourism Digital Solutions that help safari operators, tour companies, lodges, and destination brands serve guests better online. From interactive park explorers and migration trackers to budget calculators and attraction booking systems, we turn travel expertise into smart digital experiences.',
+            'Each tool can be delivered standalone or bundled into one branded Tourism Operator Panel, with admin dashboards, white-label branding, and training so your team launches with confidence.',
+        ],
+        'highlights' => [
+            'Built for safari, tours, lodges & attractions',
+            'Standalone tools or full Tourism Panel bundle',
+            'White-label branding & operator training',
+        ],
+        'sidebar_benefits' => [
+            'title' => 'Why Choose Our Tourism Tools',
+            'intro' => 'Practical digital tools designed for Tanzania’s tourism industry, helping operators engage guests, quote faster, and grow bookings.',
+            'items' => [
+                [
+                    'title' => 'Built for Tourism Operators',
+                    'text' => 'Purpose-built for safari companies, tour operators, lodges, and attraction sites, not generic software adapted later.',
+                ],
+                [
+                    'title' => 'Guest-Ready Experiences',
+                    'text' => 'Interactive maps, planners, and calculators that help travelers decide faster and trust your brand more.',
+                ],
+                [
+                    'title' => 'Standalone or Bundled',
+                    'text' => 'Start with one tool or integrate everything into a branded Tourism Panel with a shared admin dashboard.',
+                ],
+                [
+                    'title' => 'White-Label Branding',
+                    'text' => 'Present tools under your company identity so every guest experience strengthens your brand.',
+                ],
+                [
+                    'title' => 'Faster Quotes & Bookings',
+                    'text' => 'Automate budget estimates, packing lists, and attraction bookings to reduce manual follow-up work.',
+                ],
+                [
+                    'title' => 'Training & Launch Support',
+                    'text' => 'We configure, train your team, and support go-live so your tourism tools work from day one.',
+                ],
+            ],
+        ],
+        'key_services' => [
+            'title' => 'Our Tourism Digital Tools',
+            'intro' => 'Specialized software tools for safari operators, tour companies, lodges, and destination websites, delivered individually or as a complete Tourism Panel.',
+            'layout' => 'cards',
+            'items' => [
+                [
+                    'title' => 'Wildebeest Migration Tracker',
+                    'description' => 'Interactive map and calendar of Serengeti / Ngorongoro migration seasons with live-style updates that keep guests informed and engaged.',
+                ],
+                [
+                    'title' => 'Live Safari Budget Calculator',
+                    'description' => 'Dynamic quote tool covering park fees, days, group size, vehicle, and lodge options, so clients get instant, realistic estimates.',
+                ],
+                [
+                    'title' => 'Best Time to Visit Finder',
+                    'description' => 'Smart recommendation engine by park, wildlife interest, weather, and budget preferences to guide trip planning.',
+                ],
+                [
+                    'title' => 'Smart Safari Packing List',
+                    'description' => 'Personalized packing lists by season, trek type, altitude, and trip duration, ready for web or WhatsApp sharing.',
+                ],
+                [
+                    'title' => 'Kilimanjaro Route & Altitude Planner',
+                    'description' => 'Route comparison (Machame, Lemosho, Marangu, and more), day-by-day altitude profiles, and acclimatization tips for climbers.',
+                ],
+                [
+                    'title' => 'Interactive National Park Explorer',
+                    'description' => 'Explore parks such as Serengeti, Tarangire, and Nyerere with maps, highlights, wildlife info, and suggested itineraries.',
+                ],
+                [
+                    'title' => 'Tourism Tools Bundle (Full Panel)',
+                    'description' => 'All core tools integrated into one branded Tourism Panel with admin dashboard, white-label branding, and team training.',
+                ],
+                [
+                    'title' => 'Attraction & Experience Booking',
+                    'description' => 'Custom booking systems for waterfalls, attractions, and local experiences, as live on projects like Tz-Pure Nature.',
+                ],
+            ],
+        ],
+        'faq' => [
+            'title' => 'Frequently Asked Questions',
+            'intro' => 'Answers to common questions about our Tourism Digital Solutions.',
+            'items' => [
+                [
+                    'question' => 'Who are these tourism tools for?',
+                    'answer' => 'They are designed for safari operators, tour companies, lodges, destination websites, and attraction businesses that want digital tools to engage guests and convert enquiries into bookings.',
+                ],
+                [
+                    'question' => 'Can I buy one tool instead of the full panel?',
+                    'answer' => 'Yes. Each tool can be delivered standalone. You can start with what you need most and add more tools later, or choose the full Tourism Tools Bundle.',
+                ],
+                [
+                    'question' => 'Will the tools carry our company branding?',
+                    'answer' => 'Yes. White-label branding is available so guests experience the tools as part of your tour brand. Full branding is included in the Tourism Tools Bundle.',
+                ],
+                [
+                    'question' => 'Do you provide training after delivery?',
+                    'answer' => 'Yes. We set up the tools, train your team, and support launch so your staff can manage content, quotes, and bookings confidently.',
+                ],
+                [
+                    'question' => 'Can these tools connect to our website?',
+                    'answer' => 'Yes. Tools can be embedded or linked into your website and operator portal so guests access planners, calculators, and booking flows from your existing digital presence.',
+                ],
+                [
+                    'question' => 'How do we get started?',
+                    'answer' => 'Contact EmCa Techonologies for a free consultation. We review your tourism offer, recommend the right tools, and prepare a tailored quotation.',
+                ],
+            ],
+        ],
+        'image' => 'images/Tours.jpg',
+        'banner' => 'images/Tours.jpg',
+    ],
     'ict-infrastructure' => [
         'name' => 'ICT Infrastructure',
         'title' => 'ICT Infrastructure',
-        'description' => 'Complete ICT infrastructure and cloud solutions — design, supply, installation, and management for reliable, secure, and scalable technology environments.',
+        'description' => 'Complete ICT infrastructure and cloud solutions, design, supply, installation, and management for reliable, secure, and scalable technology environments.',
         'overview' => [
             'At EmCa Techonologies LTD, we design, supply, and manage complete ICT Infrastructure and Cloud solutions tailored to your organization\'s needs. Our goal is to ensure that your technology environment is reliable, secure, and ready to grow with your business.',
         ],
@@ -609,7 +724,7 @@ return [
             'items' => [
                 [
                     'title' => 'End-to-End Infrastructure',
-                    'text' => 'From equipment supply and cabling to servers, cloud hosting, and ongoing management — one complete solution.',
+                    'text' => 'From equipment supply and cabling to servers, cloud hosting, and ongoing management, one complete solution.',
                 ],
                 [
                     'title' => 'Reliable & Secure Systems',
@@ -617,7 +732,7 @@ return [
                 ],
                 [
                     'title' => 'Tailored to Your Needs',
-                    'text' => 'Every solution is customized to your budget, operations, and growth plans — no one-size-fits-all setups.',
+                    'text' => 'Every solution is customized to your budget, operations, and growth plans, no one-size-fits-all setups.',
                 ],
                 [
                     'title' => 'Seamless Connectivity',
@@ -629,7 +744,7 @@ return [
                 ],
                 [
                     'title' => 'Scalable for Growth',
-                    'text' => 'Infrastructure that expands with your business — from single offices to multi-site enterprise deployments.',
+                    'text' => 'Infrastructure that expands with your business, from single offices to multi-site enterprise deployments.',
                 ],
             ],
         ],

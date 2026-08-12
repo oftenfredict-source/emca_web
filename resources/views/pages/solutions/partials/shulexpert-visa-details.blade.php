@@ -7,17 +7,17 @@
                     <div class="visa-sidebar">
                         <div class="visa-widget-categories emca-benefits-categories">
                             <h4 class="wid-title">Key Benefits of ShuleXpert</h4>
-                            <p class="emca-benefits-intro">ShuleXpert enhances transparency, performance, and collaboration — creating a smarter learning environment for every school.</p>
+                            <p class="emca-benefits-intro">ShuleXpert enhances transparency, performance, and collaboration, creating a smarter learning environment for every school.</p>
                             <ul id="shulexpertBenefitsList">
                                 @foreach ([
-                                    ['id' => 'benefit1', 'title' => 'Automation & Efficiency', 'text' => 'Digitize daily school operations — saving time, reducing paperwork, and improving accuracy across all departments.'],
+                                    ['id' => 'benefit1', 'title' => 'Automation & Efficiency', 'text' => 'Digitize daily school operations, saving time, reducing paperwork, and improving accuracy across all departments.'],
                                     ['id' => 'benefit2', 'title' => 'Enhanced Collaboration', 'text' => 'Connect teachers, parents, and students through a shared communication and performance platform.'],
                                     ['id' => 'benefit3', 'title' => 'Data-Driven Decisions', 'text' => 'Real-time analytics and dashboards enable informed decisions on academics, finances, and staff performance.'],
                                     ['id' => 'benefit4', 'title' => 'Transparency & Accountability', 'text' => 'Ensure accurate fee tracking, grading, and attendance management for parents and administrators alike.'],
-                                    ['id' => 'benefit5', 'title' => 'Accessibility', 'text' => 'Access ShuleXpert anytime, anywhere — on web browsers or mobile devices, even with low internet connectivity.'],
+                                    ['id' => 'benefit5', 'title' => 'Accessibility', 'text' => 'Access ShuleXpert anytime, anywhere, on web browsers or mobile devices, even with low internet connectivity.'],
                                     ['id' => 'benefit6', 'title' => 'Support & Training', 'text' => 'Full system setup, user training, and ongoing support from ' . config('company.legal_name') . ' experts.'],
                                     ['id' => 'benefit7', 'title' => 'Customizable for Every School', 'text' => 'Designed to fit the structure and reporting standards of Pre, Primary, and Secondary Schools in Tanzania.'],
-                                    ['id' => 'benefit8', 'title' => 'Cloud or On-Premise', 'text' => 'Flexible hosting options for schools with different infrastructure capabilities — secure and scalable.'],
+                                    ['id' => 'benefit8', 'title' => 'Cloud or On-Premise', 'text' => 'Flexible hosting options for schools with different infrastructure capabilities, secure and scalable.'],
                                 ] as $i => $benefit)
                                 <li class="emca-benefit-item wow fadeInUp" data-wow-delay="{{ number_format($i * 0.1 + 0.2, 1) }}s">
                                     <div class="emca-benefit-card">
@@ -53,13 +53,13 @@
                                     <div class="accordion" id="shulexpertFaqAccordion">
                                         @foreach ([
                                             ['id' => 'faq1', 'q' => 'What is ShuleXpert?', 'a' => 'ShuleXpert is an integrated School Management System by ' . config('company.legal_name') . ' that helps schools manage students, staff, fees, academics, and communication in one platform.'],
-                                            ['id' => 'faq2', 'q' => 'Which school levels does it support?', 'a' => 'ShuleXpert is designed for Pre, Primary, and Secondary Schools in Tanzania — with flexible settings for each level\'s reporting standards.'],
+                                            ['id' => 'faq2', 'q' => 'Which school levels does it support?', 'a' => 'ShuleXpert is designed for Pre, Primary, and Secondary Schools in Tanzania, with flexible settings for each level\'s reporting standards.'],
                                             ['id' => 'faq3', 'q' => 'Does it manage fees and report cards?', 'a' => 'Yes. Automate fee billing, payments, and receipts while recording assessments, exams, and grades with instant report card generation.'],
                                             ['id' => 'faq4', 'q' => 'Is training and support included?', 'a' => 'Yes. ' . config('company.name') . ' provides system setup, user training, and ongoing technical support for your school team.'],
                                             ['id' => 'faq5', 'q' => 'Can parents access student progress?', 'a' => 'Yes. Parents can view attendance, grades, fee status, and announcements through the parent portal and SMS notifications.'],
                                             ['id' => 'faq6', 'q' => 'Does it work on mobile devices?', 'a' => 'Yes. ShuleXpert offers web and mobile access with Android and iOS apps for teachers, parents, and administrators.'],
                                             ['id' => 'faq7', 'q' => 'Is school data secure?', 'a' => 'ShuleXpert uses role-based access, secure backups, and encryption to protect sensitive student, staff, and financial records.'],
-                                            ['id' => 'faq8', 'q' => 'Can small schools use it?', 'a' => 'Yes. ShuleXpert scales from small private schools to large institutions — with cloud or on-premise hosting options.'],
+                                            ['id' => 'faq8', 'q' => 'Can small schools use it?', 'a' => 'Yes. ShuleXpert scales from small private schools to large institutions, with cloud or on-premise hosting options.'],
                                         ] as $i => $faq)
                                         <div class="accordion-item">
                                             <h4 class="accordion-header">
@@ -99,7 +99,7 @@
                                 ShuleXpert, developed by {{ config('company.legal_name') }}, is an integrated School Management System designed to meet the operational needs of Pre, Primary, and Secondary Schools in Tanzania.
                             </p>
                             <p class="mt-3">
-                                The system automates student records, attendance, academic performance, finance, communication, and staff management — ensuring accountability, transparency, and efficiency. It centralizes school operations, connects teachers, students, and parents, and simplifies reporting for school heads and education authorities.
+                                The system automates student records, attendance, academic performance, finance, communication, and staff management, ensuring accountability, transparency, and efficiency. It centralizes school operations, connects teachers, students, and parents, and simplifies reporting for school heads and education authorities.
                             </p>
 
                             <div class="row mt-4">

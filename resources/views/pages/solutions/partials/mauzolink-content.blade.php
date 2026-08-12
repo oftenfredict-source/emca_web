@@ -13,10 +13,10 @@
             <h2 class="title-anim">Point of Sale & Inventory Management</h2>
         </div>
         <p>
-            MauzoLink, developed by {{ config('company.legal_name') }}, is a modern Point of Sale and Inventory Management System tailored for retail shops, supermarkets, restaurants, bars, pharmacies, and SMEs. It automates sales processing, inventory tracking, supplier management, and financial reporting — improving accuracy, speed, and efficiency across your business.
+            MauzoLink, developed by {{ config('company.legal_name') }}, is a modern Point of Sale and Inventory Management System tailored for retail shops, supermarkets, restaurants, bars, pharmacies, and SMEs. It automates sales processing, inventory tracking, supplier management, and financial reporting, improving accuracy, speed, and efficiency across your business.
         </p>
         <p class="mb-0">
-            The system connects your sales counters, storerooms, and management dashboards in real time — giving you full control of your business performance. Whether you manage a single outlet or multiple branches, MauzoLink helps you track every sale, monitor stock movements, and boost profitability effortlessly.
+            The system connects your sales counters, storerooms, and management dashboards in real time, giving you full control of your business performance. Whether you manage a single outlet or multiple branches, MauzoLink helps you track every sale, monitor stock movements, and boost profitability effortlessly.
         </p>
     </div>
 
@@ -85,7 +85,7 @@
             <span class="wow fadeInUp">Platform Modules</span>
             <h2 class="title-anim wow fadeInUp" data-wow-delay=".1s">Core Functional Modules</h2>
             <p class="emca-block-intro wow fadeInUp" data-wow-delay=".2s">
-                Connected tools that link your counters, storerooms, and management team — keeping sales, stock, and finances in sync.
+                Connected tools that link your counters, storerooms, and management team, keeping sales, stock, and finances in sync.
             </p>
         </div>
         <div class="row g-4">
@@ -121,8 +121,8 @@
         <div class="col-lg-6">
             <div class="emca-highlight-content">
                 <span class="highlight-label">Why Businesses Choose MauzoLink</span>
-                <h3>Every Sale, Every Stock Item — Under Control</h3>
-                <p>From the sales counter to the storeroom and management office — MauzoLink keeps your entire operation connected and visible in real time.</p>
+                <h3>Every Sale, Every Stock Item, Under Control</h3>
+                <p>From the sales counter to the storeroom and management office, MauzoLink keeps your entire operation connected and visible in real time.</p>
                 <ul class="emca-check-list">
                     <li><i class="fas fa-check-circle"></i>Track every sale as it happens</li>
                     <li><i class="fas fa-check-circle"></i>Monitor stock movements across outlets</li>
@@ -138,12 +138,12 @@
             <span class="wow fadeInUp">Advantages</span>
             <h2 class="title-anim wow fadeInUp" data-wow-delay=".1s">Key Benefits of MauzoLink</h2>
             <p class="emca-block-intro wow fadeInUp" data-wow-delay=".2s">
-                Improved speed, accuracy, and profitability — giving you full control whether you run one shop or many branches.
+                Improved speed, accuracy, and profitability, giving you full control whether you run one shop or many branches.
             </p>
         </div>
         <div class="row g-4">
             @foreach ([
-                ['icon' => 'fa-bolt', 'accent' => 'blue', 'title' => 'Speed & Accuracy', 'text' => 'Automate sales and inventory processes — reducing errors and saving time at every transaction.'],
+                ['icon' => 'fa-bolt', 'accent' => 'blue', 'title' => 'Speed & Accuracy', 'text' => 'Automate sales and inventory processes, reducing errors and saving time at every transaction.'],
                 ['icon' => 'fa-eye', 'accent' => 'green', 'title' => 'Real-Time Visibility', 'text' => 'See live sales, stock levels, and branch performance from anywhere, anytime.'],
                 ['icon' => 'fa-chart-pie', 'accent' => 'orange', 'title' => 'Better Profitability', 'text' => 'Identify top products, control costs, and make data-driven decisions to grow revenue.'],
                 ['icon' => 'fa-expand-arrows-alt', 'accent' => 'red', 'title' => 'Scalable Growth', 'text' => 'Start with one outlet and expand to multiple branches without changing systems.'],

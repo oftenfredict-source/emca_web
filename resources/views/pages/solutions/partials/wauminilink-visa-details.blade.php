@@ -10,13 +10,13 @@
                             <p class="emca-benefits-intro">WauminiLink simplifies church administration, enhances accountability, and strengthens fellowship through digital transformation.</p>
                             <ul id="wauminiBenefitsList">
                                 @foreach ([
-                                    ['id' => 'benefit1', 'title' => 'Faith-Based Digital Management', 'text' => 'Brings order, transparency, and digital efficiency to every aspect of church operations — from tithes to attendance.'],
+                                    ['id' => 'benefit1', 'title' => 'Faith-Based Digital Management', 'text' => 'Brings order, transparency, and digital efficiency to every aspect of church operations, from tithes to attendance.'],
                                     ['id' => 'benefit2', 'title' => 'Transparency & Accountability', 'text' => 'Track all contributions and expenditures with real-time reports that build member trust and stewardship.'],
-                                    ['id' => 'benefit3', 'title' => 'Community Engagement', 'text' => 'Connect with members through SMS, email, and announcements — fostering unity and involvement.'],
+                                    ['id' => 'benefit3', 'title' => 'Community Engagement', 'text' => 'Connect with members through SMS, email, and announcements, fostering unity and involvement.'],
                                     ['id' => 'benefit4', 'title' => 'Data-Driven Decisions', 'text' => 'Leaders gain access to real-time dashboards and analytics for effective planning and growth monitoring.'],
                                     ['id' => 'benefit5', 'title' => 'Multi-Church & Diocese Support', 'text' => 'Manage multiple congregations and branches under one centralized system with ease.'],
                                     ['id' => 'benefit6', 'title' => 'Data Security', 'text' => 'Protect sensitive member and financial data with encryption, backups, and controlled user access.'],
-                                    ['id' => 'benefit7', 'title' => 'Cloud & Mobile Access', 'text' => 'Access your church data anywhere, anytime — via mobile devices or web browsers securely.'],
+                                    ['id' => 'benefit7', 'title' => 'Cloud & Mobile Access', 'text' => 'Access your church data anywhere, anytime, via mobile devices or web browsers securely.'],
                                     ['id' => 'benefit8', 'title' => 'Training & Support', 'text' => 'Receive dedicated technical support and user training from ' . config('company.legal_name') . ' experts.'],
                                 ] as $i => $benefit)
                                 <li class="emca-benefit-item wow fadeInUp" data-wow-delay="{{ number_format($i * 0.1 + 0.2, 1) }}s">
@@ -59,7 +59,7 @@
                                             ['id' => 'faq5', 'q' => 'Can we send SMS to members?', 'a' => 'Yes. WauminiLink includes bulk SMS and email tools for announcements, ministry updates, fee reminders, and event notifications.'],
                                             ['id' => 'faq6', 'q' => 'Does it track attendance?', 'a' => 'Yes. Record attendance for services, meetings, and events automatically or manually, and generate participation reports easily.'],
                                             ['id' => 'faq7', 'q' => 'Is member data secure?', 'a' => 'WauminiLink uses role-based access, secure backups, and encryption to protect sensitive member and financial records.'],
-                                            ['id' => 'faq8', 'q' => 'Can small churches use it?', 'a' => 'Yes. WauminiLink is designed for small congregations and large dioceses alike — scalable as your ministry grows.'],
+                                            ['id' => 'faq8', 'q' => 'Can small churches use it?', 'a' => 'Yes. WauminiLink is designed for small congregations and large dioceses alike, scalable as your ministry grows.'],
                                         ] as $i => $faq)
                                         <div class="accordion-item">
                                             <h4 class="accordion-header">
@@ -99,7 +99,7 @@
                                 WauminiLink, developed by {{ config('company.legal_name') }}, is a powerful and user-friendly Church Management System designed to help churches, dioceses, and ministries manage members, finances, departments, communication, and events efficiently.
                             </p>
                             <p class="mt-3">
-                                The system centralizes all church activities in one digital platform — making it easy for leaders to track contributions, manage tithes and offerings, communicate with members, and generate financial and attendance reports in real time. It's the perfect solution for both small congregations and large multi-branch ministries.
+                                The system centralizes all church activities in one digital platform, making it easy for leaders to track contributions, manage tithes and offerings, communicate with members, and generate financial and attendance reports in real time. It's the perfect solution for both small congregations and large multi-branch ministries.
                             </p>
 
                             <div class="row mt-4">
@@ -138,19 +138,19 @@
 
                             <h3 class="mt-5">Core Functional Modules</h3>
                             <p class="mt-3">
-                                WauminiLink empowers church leaders to manage members, finances, and ministries effectively — fostering accountability, growth, and unity within the body of Christ.
+                                WauminiLink empowers church leaders to manage members, finances, and ministries effectively, fostering accountability, growth, and unity within the body of Christ.
                             </p>
 
                             <div class="row g-4 emca-module-details-list mt-4">
                                 @foreach ([
                                     ['title' => 'Member Management', 'text' => 'Register and categorize members by departments, age groups, and ministries. Maintain full member profiles with photos, contacts, and participation records.'],
                                     ['title' => 'Tithes, Offerings & Contributions', 'text' => 'Record all contributions, pledges, and donations with transparent receipts and automated financial summaries.'],
-                                    ['title' => 'Departments & Groups', 'text' => 'Manage church groups like choirs, youth, women, and elders — with membership lists, meetings, and activity tracking.'],
+                                    ['title' => 'Departments & Groups', 'text' => 'Manage church groups like choirs, youth, women, and elders, with membership lists, meetings, and activity tracking.'],
                                     ['title' => 'Events & Attendance', 'text' => 'Plan and monitor services, weddings, and conferences. Record attendance and participation automatically or manually.'],
                                     ['title' => 'Communication & Notifications', 'text' => 'Send bulk SMS and emails to members for announcements, updates, and ministry reminders instantly.'],
                                     ['title' => 'Accounting & Budgeting', 'text' => 'Manage church income and expenses with budgeting tools, ledger entries, and instant financial statements.'],
                                     ['title' => 'Branch & Multi-Campus Management', 'text' => 'Link multiple church branches or zones and access consolidated reports from a central dashboard.'],
-                                    ['title' => 'Reports & Analytics', 'text' => 'Generate insightful reports on attendance, finances, and member growth — supporting data-driven decision-making.'],
+                                    ['title' => 'Reports & Analytics', 'text' => 'Generate insightful reports on attendance, finances, and member growth, supporting data-driven decision-making.'],
                                 ] as $module)
                                 <div class="col-md-6">
                                     <div class="emca-module-detail-item h-100">

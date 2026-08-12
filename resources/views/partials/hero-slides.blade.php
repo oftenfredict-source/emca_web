@@ -12,7 +12,7 @@
             'image' => 'images/Banner_hero2.jpg',
             'tagline' => 'Smart Software Solutions',
             'title' => "School & Business <br> Management <br> Systems",
-            'text' => 'From ShuleXpert for schools to MauzoLink for retail—we build <br> practical software that simplifies daily operations.',
+            'text' => 'From ShuleXpert for schools to MauzoLink for retail, we build <br> practical software that simplifies daily operations.',
             'btn_label' => 'Our Solutions',
             'btn_url' => route('solutions'),
         ],

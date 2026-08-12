@@ -7,7 +7,7 @@
                     <div class="visa-sidebar">
                         <div class="visa-widget-categories emca-benefits-categories">
                             <h4 class="wid-title">Key Benefits of MauzoLink</h4>
-                            <p class="emca-benefits-intro">MauzoLink empowers retailers and entrepreneurs with full visibility of sales, inventory, and profits — enabling smart business decisions and operational excellence.</p>
+                            <p class="emca-benefits-intro">MauzoLink empowers retailers and entrepreneurs with full visibility of sales, inventory, and profits, enabling smart business decisions and operational excellence.</p>
                             <ul id="mauzolinkBenefitsList">
                                 @foreach ([
                                     ['id' => 'benefit1', 'title' => 'Speed & Accuracy', 'text' => 'Accelerate sales with barcode scanning, automatic pricing, and instant stock deductions after every sale.'],
@@ -16,7 +16,7 @@
                                     ['id' => 'benefit4', 'title' => 'Profit Tracking', 'text' => 'Monitor daily, weekly, and monthly profits with expense tracking and customizable reports.'],
                                     ['id' => 'benefit5', 'title' => 'Multi-Branch Management', 'text' => 'Oversee multiple stores or outlets from a centralized dashboard with branch-specific performance reports.'],
                                     ['id' => 'benefit6', 'title' => 'Data Security', 'text' => 'Keep all transactions safe with encrypted storage, access permissions, and reliable data backups.'],
-                                    ['id' => 'benefit7', 'title' => 'Cloud & Offline Flexibility', 'text' => 'Operate online or offline — your sales continue even without an internet connection.'],
+                                    ['id' => 'benefit7', 'title' => 'Cloud & Offline Flexibility', 'text' => 'Operate online or offline, your sales continue even without an internet connection.'],
                                     ['id' => 'benefit8', 'title' => '24/7 Support', 'text' => 'Receive full support, system updates, and staff training from ' . config('company.legal_name') . ' experts.'],
                                 ] as $i => $benefit)
                                 <li class="emca-benefit-item wow fadeInUp" data-wow-delay="{{ number_format($i * 0.1 + 0.2, 1) }}s">
@@ -53,8 +53,8 @@
                                     <div class="accordion" id="mauzolinkFaqAccordion">
                                         @foreach ([
                                             ['id' => 'faq1', 'q' => 'What is MauzoLink?', 'a' => 'MauzoLink is a Point of Sale and Inventory Management System by ' . config('company.legal_name') . ' that helps retail shops, restaurants, pharmacies, and SMEs manage sales, stock, suppliers, and finances in one platform.'],
-                                            ['id' => 'faq2', 'q' => 'Which businesses can use MauzoLink?', 'a' => 'MauzoLink is tailored for retail shops, supermarkets, restaurants, bars, pharmacies, and SMEs — with specialized modes for food service and pharmacy operations.'],
-                                            ['id' => 'faq3', 'q' => 'Does it work without internet?', 'a' => 'Yes. MauzoLink supports offline sales processing — transactions continue at the counter and sync when your connection is restored.'],
+                                            ['id' => 'faq2', 'q' => 'Which businesses can use MauzoLink?', 'a' => 'MauzoLink is tailored for retail shops, supermarkets, restaurants, bars, pharmacies, and SMEs, with specialized modes for food service and pharmacy operations.'],
+                                            ['id' => 'faq3', 'q' => 'Does it work without internet?', 'a' => 'Yes. MauzoLink supports offline sales processing, transactions continue at the counter and sync when your connection is restored.'],
                                             ['id' => 'faq4', 'q' => 'Can I manage multiple branches?', 'a' => 'Yes. Oversee multiple outlets from a centralized dashboard with branch-specific sales, stock, and profit reports.'],
                                             ['id' => 'faq5', 'q' => 'Does it support barcode scanning?', 'a' => 'Yes. Process sales quickly with barcode scanning, digital receipts, invoice generation, and flexible payment options.'],
                                             ['id' => 'faq6', 'q' => 'Are financial reports included?', 'a' => 'Yes. View real-time insights on top products, revenue trends, profit margins, expenses, and staff performance through visual dashboards.'],
@@ -96,10 +96,10 @@
                         <div class="details-content">
                             <h2 class="title-anim">MauzoLink Overview</h2>
                             <p class="mt-3">
-                                MauzoLink, developed by {{ config('company.legal_name') }}, is a modern Point of Sale and Inventory Management System tailored for retail shops, supermarkets, restaurants, bars, pharmacies, and SMEs. It automates sales processing, inventory tracking, supplier management, and financial reporting — improving accuracy, speed, and efficiency across your business.
+                                MauzoLink, developed by {{ config('company.legal_name') }}, is a modern Point of Sale and Inventory Management System tailored for retail shops, supermarkets, restaurants, bars, pharmacies, and SMEs. It automates sales processing, inventory tracking, supplier management, and financial reporting, improving accuracy, speed, and efficiency across your business.
                             </p>
                             <p class="mt-3">
-                                The system connects your sales counters, storerooms, and management dashboards in real time — giving you full control of your business performance. Whether you manage a single outlet or multiple branches, MauzoLink helps you track every sale, monitor stock movements, and boost profitability effortlessly.
+                                The system connects your sales counters, storerooms, and management dashboards in real time, giving you full control of your business performance. Whether you manage a single outlet or multiple branches, MauzoLink helps you track every sale, monitor stock movements, and boost profitability effortlessly.
                             </p>
 
                             <div class="row mt-4">
@@ -138,12 +138,12 @@
 
                             <h3 class="mt-5">Core Functional Modules</h3>
                             <p class="mt-3">
-                                MauzoLink provides all the tools needed to manage sales, inventory, and operations efficiently — from the counter to the back office.
+                                MauzoLink provides all the tools needed to manage sales, inventory, and operations efficiently, from the counter to the back office.
                             </p>
 
                             <div class="row g-4 emca-module-details-list mt-4">
                                 @foreach ([
-                                    ['title' => 'Point of Sale (POS)', 'text' => 'Process sales instantly with barcode scanning, receipt printing, and flexible payment options — even when offline.'],
+                                    ['title' => 'Point of Sale (POS)', 'text' => 'Process sales instantly with barcode scanning, receipt printing, and flexible payment options, even when offline.'],
                                     ['title' => 'Inventory Management', 'text' => 'Monitor stock levels, transfers, and expiries in real time with alerts for low or out-of-stock products.'],
                                     ['title' => 'Supplier & Purchase Orders', 'text' => 'Manage suppliers, create purchase orders, record deliveries, and track supply performance and costs.'],
                                     ['title' => 'Billing & Invoicing', 'text' => 'Generate accurate invoices and digital receipts, track customer payments, and manage sales records automatically.'],

@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="modinatheme">
-        <meta name="description" content="ShuleXpert — integrated School Management System for Pre, Primary, and Secondary Schools in Tanzania by {{ config('company.name') }}.">
+        <meta name="description" content="ShuleXpert, integrated School Management System for Pre, Primary, and Secondary Schools in Tanzania by {{ config('company.name') }}.">
         <!-- ======== Page title ============ -->
         <title>ShuleXpert - {{ config('company.site_title', 'EmCa Techonologies') }}</title>
         @include('partials.favicon')

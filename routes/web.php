@@ -21,6 +21,8 @@ Route::get('/service/details/{slug}', function (string $slug) {
     return redirect()->route('services.show', $slug, 301);
 });
 Route::get('/service/{slug}', [PageController::class, 'serviceDetails'])->name('services.show');
+Route::get('/pricing', [PageController::class, 'pricing'])->name('pricing');
+Route::get('/pricing/{slug}', [PageController::class, 'pricingShow'])->name('pricing.show');
 Route::get('/team', [PageController::class, 'team'])->name('team');
 Route::get('/team/{slug}', [PageController::class, 'teamDetails'])->name('team.details');
 Route::redirect('/team/details', '/team', 301);

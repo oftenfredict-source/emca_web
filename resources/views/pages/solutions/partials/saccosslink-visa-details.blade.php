@@ -52,10 +52,10 @@
                                 <div class="faq-accordion">
                                     <div class="accordion" id="saccosslinkFaqAccordion">
                                         @foreach ([
-                                            ['id' => 'faq1', 'q' => 'What is SACCOSLink?', 'a' => 'SACCOSLink is a Core Banking System by ' . config('company.legal_name') . ' designed for Savings and Credit Cooperative Societies — automating members, shares, savings, deposits, loans, and accounting.'],
-                                            ['id' => 'faq2', 'q' => 'Is it compliant with TCDC and COASCO?', 'a' => 'Yes. SACCOSLink generates PEARLS ratios, COASCO, TCDC, and BOT regulatory reports instantly — ensuring transparency and compliance with Tanzanian standards.'],
-                                            ['id' => 'faq3', 'q' => 'Does it support mobile banking?', 'a' => 'Yes. Members can access services through the Member Portal, Mobile App, and USSD — including offline-capable channels for wider reach.'],
-                                            ['id' => 'faq4', 'q' => 'Can it manage multiple branches?', 'a' => 'Yes. SACCOSLink supports multi-branch and multi-user operations — ideal for growing cooperatives and nationwide networks.'],
+                                            ['id' => 'faq1', 'q' => 'What is SACCOSLink?', 'a' => 'SACCOSLink is a Core Banking System by ' . config('company.legal_name') . ' designed for Savings and Credit Cooperative Societies, automating members, shares, savings, deposits, loans, and accounting.'],
+                                            ['id' => 'faq2', 'q' => 'Is it compliant with TCDC and COASCO?', 'a' => 'Yes. SACCOSLink generates PEARLS ratios, COASCO, TCDC, and BOT regulatory reports instantly, ensuring transparency and compliance with Tanzanian standards.'],
+                                            ['id' => 'faq3', 'q' => 'Does it support mobile banking?', 'a' => 'Yes. Members can access services through the Member Portal, Mobile App, and USSD, including offline-capable channels for wider reach.'],
+                                            ['id' => 'faq4', 'q' => 'Can it manage multiple branches?', 'a' => 'Yes. SACCOSLink supports multi-branch and multi-user operations, ideal for growing cooperatives and nationwide networks.'],
                                             ['id' => 'faq5', 'q' => 'How does loan management work?', 'a' => 'Digital loan lifecycle from application to repayment with guarantor verification, collateral tracking, flexible interest methods, and automated eligibility checks.'],
                                             ['id' => 'faq6', 'q' => 'Does it integrate with ATM and agency banking?', 'a' => 'Yes. SACCOSLink connects with ATM networks, Agency Banking, Mobile Money, and other core banking systems for real-time interoperability.'],
                                             ['id' => 'faq7', 'q' => 'Is member data secure?', 'a' => 'SACCOSLink uses advanced encryption, role-based access, automatic backups, and audit trails to safeguard cooperative data.'],
@@ -96,10 +96,10 @@
                         <div class="details-content">
                             <h2 class="title-anim">SACCOSLink Overview</h2>
                             <p class="mt-3">
-                                SACCOSLink, developed by {{ config('company.legal_name') }}, is a secure and user-friendly Core Banking System designed for Savings and Credit Cooperative Societies (SACCOS). It automates key operations — transforming the way SACCOS operates from manual records to a fully digital platform — including Member Management, Shares, Savings, Deposits, Loans, and Accounting — ensuring efficiency, transparency, and compliance with TCDC, COASCO, BOT, and IFRS standards.
+                                SACCOSLink, developed by {{ config('company.legal_name') }}, is a secure and user-friendly Core Banking System designed for Savings and Credit Cooperative Societies (SACCOS). It automates key operations, transforming the way SACCOS operates from manual records to a fully digital platform, including Member Management, Shares, Savings, Deposits, Loans, and Accounting, ensuring efficiency, transparency, and compliance with TCDC, COASCO, BOT, and IFRS standards.
                             </p>
                             <p class="mt-3">
-                                With seamless integration to ATM services, Mobile Banking (App &amp; USSD), Agency Banking, and the Members Portal (Internet Banking), SACCOSLink empowers your SACCOS to offer modern, connected, and reliable financial services that reach every member — anytime, anywhere.
+                                With seamless integration to ATM services, Mobile Banking (App &amp; USSD), Agency Banking, and the Members Portal (Internet Banking), SACCOSLink empowers your SACCOS to offer modern, connected, and reliable financial services that reach every member, anytime, anywhere.
                             </p>
 
                             <div class="row mt-4">
@@ -148,14 +148,14 @@
                                     ['title' => 'Savings, Shares & Deposits', 'text' => 'Automated interest calculations, recurring savings, and instant member notifications that build confidence and trust.'],
                                     ['title' => 'Loans Management', 'text' => 'Digital loan lifecycle from application to repayment with guarantor verification, collateral tracking, and flexible interest methods.'],
                                     ['title' => 'Accounting & Financials', 'text' => 'Integrated double-entry accounting system with automatic journal entries, reconciliations, and IFRS-compliant reporting.'],
-                                    ['title' => 'Reporting & Compliance', 'text' => 'PEARLS ratios, COASCO, TCDC, and BOT regulatory reports generated instantly — ensuring transparency and compliance.'],
-                                    ['title' => 'Digital Access Channels', 'text' => 'Member Portal, Mobile App, and USSD access — empowering members to transact anytime, anywhere, even offline.'],
+                                    ['title' => 'Reporting & Compliance', 'text' => 'PEARLS ratios, COASCO, TCDC, and BOT regulatory reports generated instantly, ensuring transparency and compliance.'],
+                                    ['title' => 'Digital Access Channels', 'text' => 'Member Portal, Mobile App, and USSD access, empowering members to transact anytime, anywhere, even offline.'],
                                     ['title' => 'System Integrations', 'text' => 'Seamlessly connects with ATM networks, Agency Banking, Mobile Money, and other core banking systems for real-time interoperability.'],
                                     ['title' => 'Data Backup & Security', 'text' => 'Advanced encryption, automatic backups, and audit trails safeguard your data and ensure business continuity at all times.'],
-                                    ['title' => 'Task & Workflow Management', 'text' => 'Automates daily office workflows — from approvals to internal communications — ensuring accountability and performance tracking.'],
+                                    ['title' => 'Task & Workflow Management', 'text' => 'Automates daily office workflows, from approvals to internal communications, ensuring accountability and performance tracking.'],
                                     ['title' => 'Analytics & Decision Support', 'text' => 'Interactive dashboards and visual reports for data-driven insights that support smarter, faster managerial decisions.'],
-                                    ['title' => 'Notifications & Communication', 'text' => 'Instant SMS and email alerts keep members informed on loans, savings, and transactions — enhancing engagement and trust.'],
-                                    ['title' => 'Cloud or On-Premise Deployment', 'text' => 'Flexible hosting options that adapt to your SACCOS infrastructure — whether on your own servers or in a secure cloud environment.'],
+                                    ['title' => 'Notifications & Communication', 'text' => 'Instant SMS and email alerts keep members informed on loans, savings, and transactions, enhancing engagement and trust.'],
+                                    ['title' => 'Cloud or On-Premise Deployment', 'text' => 'Flexible hosting options that adapt to your SACCOS infrastructure, whether on your own servers or in a secure cloud environment.'],
                                 ] as $module)
                                 <div class="col-md-6">
                                     <div class="emca-module-detail-item h-100">

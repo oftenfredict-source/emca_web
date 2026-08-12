@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="EmCa Techonologies">
-        <meta name="description" content="EmCa Techonologies — ICT solutions, software, and digital services in Tanzania and worldwide.">
+        <meta name="description" content="EmCa Techonologies, ICT solutions, software, and digital services in Tanzania and worldwide.">
         <!-- ======== Page title ============ -->
         <title>{{ config('company.site_title', 'EmCa Techonologies') }}</title>
         @include('partials.favicon')
@@ -517,7 +517,7 @@
                             </div>
                             <div class="content">
                                 <h3>Let’s Discuss Your Business Needs</h3>
-                                <p>Tell us what you’re looking for—ICT consulting, cloud & infrastructure, graphics design, or social media—and we’ll point you to the best service.</p>
+                                <p>Tell us what you’re looking for, ICT consulting, cloud & infrastructure, graphics design, or social media, and we’ll point you to the best service.</p>
                             </div>
                         </div>
                         <a href="{{ route('contact') }}" class="theme-btn bg-white wow fadeInUp" data-wow-delay=".5s">

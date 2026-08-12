@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="modinatheme">
-        <meta name="description" content="WauminiLink — Church Management System for churches, dioceses and ministries by {{ config('company.name') }}.">
+        <meta name="description" content="WauminiLink, Church Management System for churches, dioceses and ministries by {{ config('company.name') }}.">
         <!-- ======== Page title ============ -->
         <title>WauminiLink - {{ config('company.site_title', 'EmCa Techonologies') }}</title>
         @include('partials.favicon')

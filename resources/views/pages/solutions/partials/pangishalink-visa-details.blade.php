@@ -7,12 +7,12 @@
                     <div class="visa-sidebar">
                         <div class="visa-widget-categories emca-benefits-categories">
                             <h4 class="wid-title">Key Benefits of PangishaLink</h4>
-                            <p class="emca-benefits-intro">PangishaLink enhances control, accuracy, and efficiency in managing rental operations — empowering property owners and managers with real-time visibility.</p>
+                            <p class="emca-benefits-intro">PangishaLink enhances control, accuracy, and efficiency in managing rental operations, empowering property owners and managers with real-time visibility.</p>
                             <ul id="pangishalinkBenefitsList">
                                 @foreach ([
-                                    ['id' => 'benefit1', 'title' => 'Automation & Efficiency', 'text' => 'Automate tenant billing, rent reminders, and renewals — saving time and reducing administrative workload.'],
+                                    ['id' => 'benefit1', 'title' => 'Automation & Efficiency', 'text' => 'Automate tenant billing, rent reminders, and renewals, saving time and reducing administrative workload.'],
                                     ['id' => 'benefit2', 'title' => 'Accurate Financial Management', 'text' => 'Gain instant insights into income, expenses, arrears, and profit margins through detailed reports and charts.'],
-                                    ['id' => 'benefit3', 'title' => 'Multi-Property Management', 'text' => 'Manage several properties and locations within one account — ideal for institutions and real estate investors.'],
+                                    ['id' => 'benefit3', 'title' => 'Multi-Property Management', 'text' => 'Manage several properties and locations within one account, ideal for institutions and real estate investors.'],
                                     ['id' => 'benefit4', 'title' => 'Tenant Engagement', 'text' => 'Tenants can access receipts, statements, and submit requests directly through the online portal or mobile app.'],
                                     ['id' => 'benefit5', 'title' => 'Data Security', 'text' => 'All transactions are encrypted with audit trails and backups ensuring maximum data safety and integrity.'],
                                     ['id' => 'benefit6', 'title' => 'Decision Support', 'text' => 'Visual dashboards display occupancy rates, payment trends, and performance metrics for smart decision-making.'],
@@ -96,7 +96,7 @@
                         <div class="details-content">
                             <h2 class="title-anim">PangishaLink Overview</h2>
                             <p class="mt-3">
-                                PangishaLink, developed by {{ config('company.legal_name') }}, is a modern Rental & Hostel Management System that automates property operations for real estate companies, landlords, and educational institutions. It simplifies tenant registration, billing, rent collection, room allocation, maintenance, and reporting — all in one platform.
+                                PangishaLink, developed by {{ config('company.legal_name') }}, is a modern Rental & Hostel Management System that automates property operations for real estate companies, landlords, and educational institutions. It simplifies tenant registration, billing, rent collection, room allocation, maintenance, and reporting, all in one platform.
                             </p>
                             <p class="mt-3">
                                 The system is designed to eliminate manual paperwork and provide instant visibility into your rental performance. With real-time dashboards, automated invoices, and digital payment integration, PangishaLink ensures full control, transparency, and profitability for property managers.
@@ -137,18 +137,18 @@
 
                             <h3 class="mt-5">Core Functional Modules</h3>
                             <p class="mt-3">
-                                PangishaLink integrates all aspects of property, tenant, and financial management — ensuring seamless coordination and easy monitoring of every rental activity.
+                                PangishaLink integrates all aspects of property, tenant, and financial management, ensuring seamless coordination and easy monitoring of every rental activity.
                             </p>
 
                             <div class="row g-4 emca-module-details-list mt-4">
                                 @foreach ([
                                     ['title' => 'Property & Room Management', 'text' => 'Manage multiple buildings, rooms, and units with occupancy tracking, room allocation, and maintenance history.'],
                                     ['title' => 'Tenant Management', 'text' => 'Digital tenant registration, contract management, ID verification, and automated tenancy renewals.'],
-                                    ['title' => 'Billing & Invoicing', 'text' => 'Automatically generate rent invoices, penalties, and utility charges — with instant SMS or email reminders.'],
+                                    ['title' => 'Billing & Invoicing', 'text' => 'Automatically generate rent invoices, penalties, and utility charges, with instant SMS or email reminders.'],
                                     ['title' => 'Payments & Reconciliation', 'text' => 'Track payments from tenants, generate receipts, and reconcile accounts with automated payment matching.'],
                                     ['title' => 'Maintenance Management', 'text' => 'Record maintenance requests, assign technicians, and monitor costs to keep properties in top condition.'],
                                     ['title' => 'Landlord & Agent Portal', 'text' => 'Landlords or agents can access real-time rent reports, occupancy status, and income summaries securely online.'],
-                                    ['title' => 'Reporting & Analytics', 'text' => 'Generate comprehensive reports — rent collection, vacancy trends, maintenance costs, and profit analysis.'],
+                                    ['title' => 'Reporting & Analytics', 'text' => 'Generate comprehensive reports, rent collection, vacancy trends, maintenance costs, and profit analysis.'],
                                     ['title' => 'Data Backup & Security', 'text' => 'All data is securely encrypted with automatic backups and role-based user access for full data protection.'],
                                 ] as $module)
                                 <div class="col-md-6">

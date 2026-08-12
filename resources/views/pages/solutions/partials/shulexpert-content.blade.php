@@ -13,7 +13,7 @@
             <h2 class="title-anim">Integrated School Management for Tanzania</h2>
         </div>
         <p>
-            ShuleXpert is an integrated School Management System designed to meet the operational needs of Pre, Primary, and Secondary Schools in Tanzania. It automates student records, attendance, academic performance, finance, communication, and staff management — ensuring accountability, transparency, and efficiency.
+            ShuleXpert is an integrated School Management System designed to meet the operational needs of Pre, Primary, and Secondary Schools in Tanzania. It automates student records, attendance, academic performance, finance, communication, and staff management, ensuring accountability, transparency, and efficiency.
         </p>
         <p class="mb-0">
             The system centralizes school operations, connects teachers, students, and parents, and simplifies reporting for school heads and education authorities. With web and mobile access, ShuleXpert makes school management easier, faster, and paper-free.
@@ -122,7 +122,7 @@
             <div class="emca-highlight-content">
                 <span class="highlight-label">Why Schools Choose ShuleXpert</span>
                 <h3>Paper-Free Operations, Real Results</h3>
-                <p>From enrollment to report cards, fee collection to parent communication — every workflow lives in one connected platform built for Tanzanian schools.</p>
+                <p>From enrollment to report cards, fee collection to parent communication, every workflow lives in one connected platform built for Tanzanian schools.</p>
                 <ul class="emca-check-list">
                     <li><i class="fas fa-check-circle"></i>Role-based access for admins, teachers, parents & students</li>
                     <li><i class="fas fa-check-circle"></i>SMS alerts and portal notifications</li>
@@ -138,19 +138,19 @@
             <span class="wow fadeInUp">Advantages</span>
             <h2 class="title-anim wow fadeInUp" data-wow-delay=".1s">Key Benefits of ShuleXpert</h2>
             <p class="emca-block-intro wow fadeInUp" data-wow-delay=".2s">
-                Enhanced transparency, performance, and collaboration — creating a smarter learning environment for every school.
+                Enhanced transparency, performance, and collaboration, creating a smarter learning environment for every school.
             </p>
         </div>
         <div class="row g-4">
             @foreach ([
-                ['icon' => 'fa-cogs', 'accent' => 'blue', 'title' => 'Automation & Efficiency', 'text' => 'Digitize daily school operations — saving time, reducing paperwork, and improving accuracy across all departments.'],
+                ['icon' => 'fa-cogs', 'accent' => 'blue', 'title' => 'Automation & Efficiency', 'text' => 'Digitize daily school operations, saving time, reducing paperwork, and improving accuracy across all departments.'],
                 ['icon' => 'fa-handshake', 'accent' => 'green', 'title' => 'Enhanced Collaboration', 'text' => 'Connect teachers, parents, and students through a shared communication and performance platform.'],
                 ['icon' => 'fa-chart-pie', 'accent' => 'orange', 'title' => 'Data-Driven Decisions', 'text' => 'Real-time analytics and dashboards enable informed decisions on academics, finances, and staff performance.'],
                 ['icon' => 'fa-eye', 'accent' => 'red', 'title' => 'Transparency & Accountability', 'text' => 'Ensure accurate fee tracking, grading, and attendance management for parents and administrators alike.'],
-                ['icon' => 'fa-globe-africa', 'accent' => 'purple', 'title' => 'Accessibility', 'text' => 'Access ShuleXpert anytime, anywhere — on web browsers or mobile devices, even with low internet connectivity.'],
+                ['icon' => 'fa-globe-africa', 'accent' => 'purple', 'title' => 'Accessibility', 'text' => 'Access ShuleXpert anytime, anywhere, on web browsers or mobile devices, even with low internet connectivity.'],
                 ['icon' => 'fa-headset', 'accent' => 'navy', 'title' => 'Support & Training', 'text' => 'Full system setup, user training, and ongoing support from ' . config('company.legal_name') . ' experts.'],
                 ['icon' => 'fa-sliders-h', 'accent' => 'blue', 'title' => 'Customizable for Every School', 'text' => 'Designed to fit the structure and reporting standards of Pre, Primary, and Secondary Schools in Tanzania.'],
-                ['icon' => 'fa-server', 'accent' => 'green', 'title' => 'Cloud or On-Premise', 'text' => 'Flexible hosting options for schools with different infrastructure capabilities — secure and scalable.'],
+                ['icon' => 'fa-server', 'accent' => 'green', 'title' => 'Cloud or On-Premise', 'text' => 'Flexible hosting options for schools with different infrastructure capabilities, secure and scalable.'],
             ] as $i => $benefit)
             <div class="col-md-6 wow fadeInUp" data-wow-delay="{{ number_format(($i % 2) * 0.1 + 0.2, 1) }}s">
                 <div class="emca-benefit-item accent-{{ $benefit['accent'] }}">

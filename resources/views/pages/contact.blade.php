@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="modinatheme">
-        <meta name="description" content="Contact {{ config('company.site_title', 'EmCa Techonologies') }} — Ben Bella Street, Moshi Municipality. Call {{ config('company.phone') }} or email {{ config('company.email') }}.">
+        <meta name="description" content="Contact {{ config('company.site_title', 'EmCa Techonologies') }}, Ben Bella Street, Moshi Municipality. Call {{ config('company.phone') }} or email {{ config('company.email') }}.">
         <!-- ======== Page title ============ -->
         <title>Contact Us - {{ config('company.site_title', 'EmCa Techonologies') }}</title>
         @include('partials.favicon')

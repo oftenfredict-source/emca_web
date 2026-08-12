@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="modinatheme">
-        <meta name="description" content="MauzoLink — modern Point of Sale and Inventory Management System for retail, restaurants, pharmacies and SMEs by {{ config('company.name') }}.">
+        <meta name="description" content="MauzoLink, modern Point of Sale and Inventory Management System for retail, restaurants, pharmacies and SMEs by {{ config('company.name') }}.">
         <!-- ======== Page title ============ -->
         <title>MauzoLink - {{ config('company.site_title', 'EmCa Techonologies') }}</title>
         @include('partials.favicon')

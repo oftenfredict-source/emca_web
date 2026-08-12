@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="modinatheme">
-        <meta name="description" content="EmCa Techonologies LTD — leading Tanzanian ICT firm providing technology services and solutions across Tanzania and worldwide.">
+        <meta name="description" content="EmCa Techonologies LTD, leading Tanzanian ICT firm providing technology services and solutions across Tanzania and worldwide.">
         <!-- ======== Page title ============ -->
         <title>About Us - {{ config('company.site_title', 'EmCa Techonologies') }}</title>
         @include('partials.favicon')
@@ -279,7 +279,7 @@
                                 </h2>
                             </div>
                             <p class="mt-4 mt-md-0 text-white wow fadeInUp" data-wow-delay=".5s">
-                                {{ config('company.name') }} delivers reliable, modern, and affordable ICT solutions — from consultancy and software development to web platforms and full infrastructure implementation.
+                                {{ config('company.name') }} delivers reliable, modern, and affordable ICT solutions, from consultancy and software development to web platforms and full infrastructure implementation.
                             </p>
                             <a href="{{ route('service') }}" class="theme-btn bg-white mt-4 wow fadeInUp" data-wow-delay=".7s">
                                 <span>

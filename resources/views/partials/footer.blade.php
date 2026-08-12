@@ -105,8 +105,8 @@
                             </p>
                             <h5>Working Hours</h5>
                             <p>
-                                Monday – Friday<br>
-                                08:00 AM – 05:00 PM
+                                Monday - Friday<br>
+                                08:00 AM - 05:00 PM
                             </p>
                         </div>
                     </div>
@@ -139,6 +139,7 @@
                 </p>
                 <ul class="footer-menu wow fadeInRight" data-wow-delay=".5s">
                     <li><a href="{{ route('about') }}">About</a></li>
+                    <li><a href="{{ route('pricing') }}">Pricing</a></li>
                     <li><a href="{{ route('contact') }}">Contact</a></li>
                     <li><a href="{{ route('faq') }}">FAQs</a></li>
                     <li><a href="{{ route('news') }}">News</a></li>

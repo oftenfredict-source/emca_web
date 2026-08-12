@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\TeamMember;
 use App\Models\Testimonial;
+use App\Services\ExchangeRateService;
 
 class PageController extends Controller
 {
@@ -114,6 +115,37 @@ class PageController extends Controller
     public function countryDetails()
     {
         return view('pages.country-details');
+    }
+
+    public function pricing()
+    {
+        $services = config('pricing.services');
+        $firstSlug = array_key_first($services);
+
+        return redirect()->route('pricing.show', $firstSlug);
+    }
+
+    public function pricingShow(string $slug, ExchangeRateService $exchangeRates)
+    {
+        $services = config('pricing.services');
+
+        if (! isset($services[$slug])) {
+            abort(404);
+        }
+
+        $exchange = $exchangeRates->usdToTzs();
+        $meta = config('pricing.meta');
+        $meta['usd_rate'] = $exchange['rate'];
+        $meta['usd_rate_source'] = $exchange['source'];
+        $meta['usd_rate_fetched_at'] = $exchange['fetched_at'];
+        $meta['usd_rate_is_live'] = $exchange['is_live'];
+
+        return view('pages.pricing', [
+            'meta' => $meta,
+            'services' => $services,
+            'service' => $services[$slug],
+            'slug' => $slug,
+        ]);
     }
 
     public function solutions()

@@ -7,6 +7,9 @@
                                                 @include('partials.nav-pages-services')
 
                                                 @include('partials.nav-pages-solutions')
+                                                <li class="{{ request()->routeIs('pricing*') ? 'active' : '' }}">
+                                                    <a href="{{ route('pricing') }}">Pricing</a>
+                                                </li>
                                                 @include('partials.nav-blog')
                                                 <li class="{{ request()->routeIs('contact') ? 'active' : '' }}">
                                                     <a href="{{ route('contact') }}">Contact</a>

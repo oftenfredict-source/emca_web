@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'intro' => 'Find answers about EmCa Techonologies LTD — our services, products, team, and how we help schools, businesses, and institutions across Tanzania with practical ICT solutions.',
+    'intro' => 'Find answers about EmCa Techonologies LTD, our services, products, team, and how we help schools, businesses, and institutions across Tanzania with practical ICT solutions.',
 
     'categories' => [
         'general' => [
@@ -15,7 +15,7 @@ return [
                 ],
                 [
                     'question' => 'Where is EmCa located?',
-                    'answer' => 'We are located on Ben Bella Street, Moshi Municipality — opposite the High Court of Tanzania, near the Kilimanjaro Regional Commissioner\'s Office. P.O. Box 20, Moshi – Kilimanjaro.',
+                    'answer' => 'We are located on Ben Bella Street, Moshi Municipality, opposite the High Court of Tanzania, near the Kilimanjaro Regional Commissioner\'s Office. P.O. Box 20, Moshi - Kilimanjaro.',
                 ],
                 [
                     'question' => 'How can I contact EmCa?',
@@ -27,15 +27,15 @@ return [
                 ],
                 [
                     'question' => 'Does EmCa work with clients outside Moshi?',
-                    'answer' => 'Yes. Although our office is in Moshi, we serve clients across Tanzania and beyond. Many of our services — including software products, web development, and remote support — can be delivered wherever you are located.',
+                    'answer' => 'Yes. Although our office is in Moshi, we serve clients across Tanzania and beyond. Many of our services, including software products, web development, and remote support, can be delivered wherever you are located.',
                 ],
                 [
                     'question' => 'What makes EmCa different from other ICT companies?',
-                    'answer' => 'We combine local understanding with practical, ready-to-use products and custom development. Our team builds solutions tailored to Tanzanian schools, businesses, and institutions — not generic templates — with ongoing support you can rely on.',
+                    'answer' => 'We combine local understanding with practical, ready-to-use products and custom development. Our team builds solutions tailored to Tanzanian schools, businesses, and institutions, not generic templates, with ongoing support you can rely on.',
                 ],
                 [
                     'question' => 'Can EmCa help a small business or startup?',
-                    'answer' => 'Absolutely. We work with organizations of all sizes — from small shops and startups to large schools and institutions. We recommend solutions that fit your budget and scale as you grow.',
+                    'answer' => 'Absolutely. We work with organizations of all sizes, from small shops and startups to large schools and institutions. We recommend solutions that fit your budget and scale as you grow.',
                 ],
                 [
                     'question' => 'How do I get started with EmCa?',
@@ -50,11 +50,11 @@ return [
             'items' => [
                 [
                     'question' => 'What services does EmCa offer?',
-                    'answer' => 'We offer ICT consultancy, software development, web development, graphics design, social media management, and ICT infrastructure setup — including networking, servers, and technical support.',
+                    'answer' => 'We offer ICT consultancy, software development, web development, graphics design, social media management, and ICT infrastructure setup, including networking, servers, and technical support.',
                 ],
                 [
                     'question' => 'Do you build custom software for clients?',
-                    'answer' => 'Yes. We design and develop custom management systems, websites, and applications tailored to your workflows — from requirements gathering and design through development, testing, deployment, and support.',
+                    'answer' => 'Yes. We design and develop custom management systems, websites, and applications tailored to your workflows, from requirements gathering and design through development, testing, deployment, and support.',
                 ],
                 [
                     'question' => 'How long does a typical project take?',
@@ -97,7 +97,7 @@ return [
                 ],
                 [
                     'question' => 'Can your systems be accessed on mobile devices?',
-                    'answer' => 'Many of our solutions are web-based and work on phones, tablets, and computers with an internet connection. Mobile accessibility depends on the specific product and setup — we can advise during consultation.',
+                    'answer' => 'Many of our solutions are web-based and work on phones, tablets, and computers with an internet connection. Mobile accessibility depends on the specific product and setup, we can advise during consultation.',
                 ],
                 [
                     'question' => 'Is training provided when we adopt a product?',
@@ -128,7 +128,7 @@ return [
             'items' => [
                 [
                     'question' => 'Who is on the EmCa team?',
-                    'answer' => 'Our team includes experienced professionals in management, accounting, system development, business analysis, and graphics design — working together to deliver reliable ICT solutions for our clients.',
+                    'answer' => 'Our team includes experienced professionals in management, accounting, system development, business analysis, and graphics design, working together to deliver reliable ICT solutions for our clients.',
                 ],
                 [
                     'question' => 'Can I meet the team before starting a project?',
@@ -148,7 +148,7 @@ return [
                 ],
                 [
                     'question' => 'Does EmCa have in-house designers and developers?',
-                    'answer' => 'Yes. We have in-house system developers, business analysts, graphics designers, and management staff — so your project is handled by our own team from planning through delivery and support.',
+                    'answer' => 'Yes. We have in-house system developers, business analysts, graphics designers, and management staff, so your project is handled by our own team from planning through delivery and support.',
                 ],
                 [
                     'question' => 'Will the same team handle support after go-live?',
@@ -183,7 +183,7 @@ return [
                 ],
                 [
                     'question' => 'Do you offer installment or phased payment plans?',
-                    'answer' => 'For larger projects, we can agree on phased payments tied to project milestones — such as design, development, deployment, and training — so you pay as progress is delivered.',
+                    'answer' => 'For larger projects, we can agree on phased payments tied to project milestones, such as design, development, deployment, and training, so you pay as progress is delivered.',
                 ],
                 [
                     'question' => 'Is there a maintenance or subscription fee after purchase?',
@@ -195,7 +195,7 @@ return [
                 ],
                 [
                     'question' => 'Are there discounts for schools or non-profit organizations?',
-                    'answer' => 'We understand budget constraints for schools and non-profits. Contact us to discuss your situation — we offer flexible pricing and packages where possible to make solutions accessible.',
+                    'answer' => 'We understand budget constraints for schools and non-profits. Contact us to discuss your situation, we offer flexible pricing and packages where possible to make solutions accessible.',
                 ],
             ],
         ],

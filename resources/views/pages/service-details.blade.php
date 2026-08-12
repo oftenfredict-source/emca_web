@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="modinatheme">
-        <meta name="description" content="{{ $service['name'] }} — {{ config('company.name') }}">
+        <meta name="description" content="{{ $service['name'] }}, {{ config('company.name') }}">
         <!-- ======== Page title ============ -->
         <title>{{ $service['title'] }} - {{ config('company.site_title', 'EmCa Techonologies') }}</title>
         @include('partials.favicon')
