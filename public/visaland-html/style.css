@@ -3979,7 +3979,23 @@ nav#mobile-menu li.has-dropdown.active.menu-thumb > a i.fas.fa-angle-down {
 
 /* ===== Pricing page ===== */
 .emca-pricing-page .visa-widget-categories .wid-title {
-    margin-bottom: 18px;
+    margin-bottom: 14px;
+    font-size: 18px;
+}
+
+.emca-pricing-page .visa-widget-categories ul li {
+    padding: 14px 16px;
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+.emca-pricing-page .visa-widget-categories ul li span {
+    width: 44px;
+    line-height: 44px;
+}
+
+.emca-pricing-intro {
+    margin-bottom: 8px;
 }
 
 .emca-pricing-toolbar {
@@ -3993,7 +4009,7 @@ nav#mobile-menu li.has-dropdown.active.menu-thumb > a i.fas.fa-angle-down {
 
 .emca-pricing-year {
     display: inline-block;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     color: var(--theme);
 }
@@ -4009,10 +4025,10 @@ nav#mobile-menu li.has-dropdown.active.menu-thumb > a i.fas.fa-angle-down {
     border: 0;
     background: transparent;
     color: var(--header);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.04em;
-    padding: 10px 18px;
+    padding: 9px 14px;
     cursor: pointer;
     transition: all 0.25s ease;
     line-height: 1;
@@ -4032,154 +4048,222 @@ nav#mobile-menu li.has-dropdown.active.menu-thumb > a i.fas.fa-angle-down {
 }
 
 .emca-currency-rate-note {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text);
-    margin: 0 0 12px;
+    margin: 0 0 14px;
 }
 
 .emca-currency-rate-note .emca-usd-hint:not(.d-none) {
     display: inline;
 }
 
-.emca-pricing-note {
-    padding: 14px 16px;
-    background: rgba(180, 35, 45, 0.06);
-    border-left: 3px solid var(--theme);
-    font-size: 15px;
+.emca-pricing-title {
+    margin: 0 0 8px;
+    font-size: 24px;
+    line-height: 1.25;
+    color: var(--header);
+    font-weight: 700;
 }
 
-.emca-pricing-table-wrap {
-    border: 1px solid var(--border);
-    overflow: hidden;
-}
-
-.emca-pricing-table {
-    width: 100%;
+.emca-pricing-desc {
     margin: 0;
-    border-collapse: collapse;
-}
-
-.emca-pricing-table thead th {
-    background: var(--header);
-    color: var(--white);
-    font-size: 15px;
-    font-weight: 600;
-    padding: 16px 18px;
-    text-align: left;
-    white-space: nowrap;
-}
-
-.emca-pricing-table tbody td {
-    padding: 18px;
-    vertical-align: top;
-    border-bottom: 1px solid var(--border);
-    font-size: 15px;
+    font-size: 14px;
+    line-height: 1.6;
     color: var(--text);
+    max-width: 40rem;
+}
+
+.emca-pricing-note {
+    margin-top: 12px;
+    padding: 10px 12px;
+    background: rgba(226, 9, 53, 0.06);
+    border-left: 3px solid var(--theme);
+    font-size: 13px;
     line-height: 1.55;
 }
 
-.emca-pricing-table tbody tr:last-child td {
-    border-bottom: none;
+.emca-pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
 }
 
-.emca-pricing-table tbody tr:nth-child(even) {
-    background: #fafafa;
+.emca-price-card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+        "top price"
+        "includes price";
+    column-gap: 16px;
+    row-gap: 6px;
+    align-items: center;
+    height: auto;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    background: #fff;
+    transition: border-color 0.2s ease, background 0.2s ease;
 }
 
-.emca-pricing-table tbody td strong {
+.emca-price-card:hover {
+    border-color: rgba(226, 9, 53, 0.4);
+    background: #fffafb;
+    transform: none;
+}
+
+.emca-price-card-top {
+    grid-area: top;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0;
+}
+
+.emca-price-card-no {
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(226, 9, 53, 0.08);
+    color: var(--theme);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.emca-price-card-name {
+    margin: 0;
+    padding-top: 0;
+    font-size: 13px;
+    line-height: 1.3;
     color: var(--header);
     font-weight: 600;
 }
 
+.emca-price-card-includes {
+    grid-area: includes;
+    margin: 0;
+    flex: initial;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text);
+}
+
+.emca-price-card-foot {
+    grid-area: price;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    text-align: right;
+    min-width: 118px;
+}
+
+.emca-price-card-label {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text2);
+}
+
 .emca-pricing-amount {
-    font-weight: 700;
+    display: block;
     color: var(--theme);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: 0;
     white-space: nowrap;
 }
 
 .emca-pricing-disclaimer,
 .emca-pricing-steps {
-    padding: 22px 24px;
+    padding: 18px 20px;
     border: 1px solid var(--border);
-    background: var(--white);
+    border-top: 3px solid var(--theme);
+    background: #fff;
 }
 
 .emca-pricing-disclaimer h4,
 .emca-pricing-steps h4 {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: var(--header);
 }
 
 .emca-pricing-disclaimer p,
 .emca-pricing-steps ol {
     margin: 0;
-    font-size: 15px;
-    line-height: 1.7;
+    font-size: 13px;
+    line-height: 1.65;
     color: var(--text);
 }
 
 .emca-pricing-steps ol {
-    padding-left: 1.2rem;
+    padding-left: 1.1rem;
 }
 
 .emca-pricing-steps li + li {
-    margin-top: 6px;
+    margin-top: 4px;
 }
 
 .emca-pricing-cta {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 16px 24px;
+    gap: 12px 18px;
 }
 
 .emca-pricing-phone {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     font-weight: 600;
     color: var(--header);
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .emca-pricing-phone:hover {
     color: var(--theme);
 }
 
-@media (max-width: 767px) {
-    .emca-pricing-table thead {
-        display: none;
+@media (min-width: 768px) {
+    .emca-pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
     }
 
-    .emca-pricing-table tbody tr {
-        display: block;
-        border-bottom: 1px solid var(--border);
-        padding: 14px 0;
+    .emca-pricing-title {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 575px) {
+    .emca-price-card {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "top"
+            "includes"
+            "price";
+        row-gap: 8px;
     }
 
-    .emca-pricing-table tbody tr:nth-child(even) {
-        background: transparent;
+    .emca-price-card-foot {
+        text-align: left;
+        min-width: 0;
+        padding-top: 8px;
+        border-top: 1px dashed var(--border);
     }
 
-    .emca-pricing-table tbody td {
-        display: block;
-        border: none;
-        padding: 6px 16px;
-    }
-
-    .emca-pricing-table tbody td::before {
-        content: attr(data-label);
-        display: block;
-        font-size: 12px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-        color: var(--text);
-        opacity: 0.7;
-        margin-bottom: 4px;
+    .emca-pricing-title {
+        font-size: 22px;
     }
 
     .emca-pricing-amount {
+        font-size: 15px;
         white-space: normal;
-        font-size: 16px;
     }
 }

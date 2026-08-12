@@ -139,67 +139,57 @@
                         <div class="col-lg-8 order-1 order-md-2 align-self-lg-start">
                             <div class="service-details-items emca-pricing-content">
                                 <div class="details-content">
-                                    <div class="emca-pricing-toolbar wow fadeInUp" data-wow-delay=".2s">
-                                        <span class="emca-pricing-year">
-                                            Valid for {{ $meta['year'] }} · Starting prices
-                                        </span>
-                                        <div class="emca-currency-toggle" role="group" aria-label="Currency">
-                                            <button type="button" class="emca-currency-btn is-active" data-currency="TZS" aria-pressed="true">TZS</button>
-                                            <button type="button" class="emca-currency-btn" data-currency="USD" aria-pressed="false">USD</button>
+                                    <div class="emca-pricing-intro wow fadeInUp" data-wow-delay=".2s">
+                                        <div class="emca-pricing-toolbar">
+                                            <span class="emca-pricing-year">
+                                                Valid for {{ $meta['year'] }} · Starting prices
+                                            </span>
+                                            <div class="emca-currency-toggle" role="group" aria-label="Currency">
+                                                <button type="button" class="emca-currency-btn is-active" data-currency="TZS" aria-pressed="true">TZS</button>
+                                                <button type="button" class="emca-currency-btn" data-currency="USD" aria-pressed="false">USD</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <p class="emca-currency-rate-note" id="emcaCurrencyRateNote">
-                                        Showing prices in <strong id="emcaActiveCurrency">TZS</strong>.
-                                        <span class="emca-usd-hint d-none">
-                                            1 USD ≈ TZS {{ number_format($meta['usd_rate'], $meta['usd_rate_is_live'] ?? false ? 2 : 0) }}
-                                            @if (!empty($meta['usd_rate_is_live']))
-                                                (live market rate
-                                                @if (!empty($meta['usd_rate_fetched_at']))
-                                                    · updated {{ \Illuminate\Support\Carbon::parse($meta['usd_rate_fetched_at'])->timezone(config('app.timezone'))->format('d M Y, H:i') }}
+                                        <p class="emca-currency-rate-note" id="emcaCurrencyRateNote">
+                                            Showing prices in <strong id="emcaActiveCurrency">TZS</strong>.
+                                            <span class="emca-usd-hint d-none">
+                                                1 USD ≈ TZS {{ number_format($meta['usd_rate'], $meta['usd_rate_is_live'] ?? false ? 2 : 0) }}
+                                                @if (!empty($meta['usd_rate_is_live']))
+                                                    (live market rate
+                                                    @if (!empty($meta['usd_rate_fetched_at']))
+                                                        · updated {{ \Illuminate\Support\Carbon::parse($meta['usd_rate_fetched_at'])->timezone(config('app.timezone'))->format('d M Y, H:i') }}
+                                                    @endif
+                                                    ).
+                                                @else
+                                                    (fallback rate, live update unavailable).
                                                 @endif
-                                                ).
-                                            @else
-                                                (fallback rate, live update unavailable).
-                                            @endif
-                                            {{ $meta['usd_rate_note'] }}
-                                        </span>
-                                    </p>
-                                    <h2 class="title-anim">{{ $service['name'] }} Pricing</h2>
-                                    <p class="mt-3">{{ $service['description'] }}</p>
-                                    @if (!empty($service['note']))
-                                        <p class="emca-pricing-note mt-3">{{ $service['note'] }}</p>
-                                    @endif
+                                                {{ $meta['usd_rate_note'] }}
+                                            </span>
+                                        </p>
+                                        <h2 class="emca-pricing-title">{{ $service['name'] }} Pricing</h2>
+                                        <p class="emca-pricing-desc">{{ $service['description'] }}</p>
+                                        @if (!empty($service['note']))
+                                            <p class="emca-pricing-note">{{ $service['note'] }}</p>
+                                        @endif
+                                    </div>
 
-                                    <div class="emca-pricing-table-wrap mt-4 wow fadeInUp" data-wow-delay=".3s" data-usd-rate="{{ (float) $meta['usd_rate'] }}">
-                                        <div class="table-responsive">
-                                            <table class="emca-pricing-table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Service / Package</th>
-                                                        <th>What's Included</th>
-                                                        <th>Starting Price</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach ($service['packages'] as $package)
-                                                        <tr>
-                                                            <td data-label="Package">
-                                                                <strong>{{ $package['name'] }}</strong>
-                                                            </td>
-                                                            <td data-label="Includes">{{ $package['includes'] }}</td>
-                                                            <td
-                                                                data-label="Price"
-                                                                class="emca-pricing-amount"
-                                                                data-amount="{{ (float) ($package['amount'] ?? 0) }}"
-                                                                data-period="{{ $package['period'] ?? '' }}"
-                                                            >
-                                                                {{ $package['price'] }}
-                                                            </td>
-                                                        </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                    <div class="emca-pricing-grid mt-4 wow fadeInUp" data-wow-delay=".3s" data-usd-rate="{{ (float) $meta['usd_rate'] }}">
+                                        @foreach ($service['packages'] as $package)
+                                            <article class="emca-price-card">
+                                                <div class="emca-price-card-top">
+                                                    <span class="emca-price-card-no">{{ str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
+                                                    <span class="emca-price-card-name">{{ $package['name'] }}</span>
+                                                </div>
+                                                <p class="emca-price-card-includes">{{ $package['includes'] }}</p>
+                                                <div class="emca-price-card-foot">
+                                                    <span class="emca-price-card-label">Starting from</span>
+                                                    <span
+                                                        class="emca-pricing-amount"
+                                                        data-amount="{{ (float) ($package['amount'] ?? 0) }}"
+                                                        data-period="{{ $package['period'] ?? '' }}"
+                                                    >{{ $package['price'] }}</span>
+                                                </div>
+                                            </article>
+                                        @endforeach
                                     </div>
 
                                     <div class="emca-pricing-disclaimer mt-4 wow fadeInUp" data-wow-delay=".4s">
@@ -252,7 +242,7 @@
         <script src="{{ asset('visaland-html/assets/js/main.js') }}"></script>
         <script>
             (function () {
-                var wrap = document.querySelector('.emca-pricing-table-wrap');
+                var wrap = document.querySelector('.emca-pricing-grid');
                 if (!wrap) return;
 
                 var rate = parseFloat(wrap.getAttribute('data-usd-rate')) || 2650;
@@ -275,8 +265,8 @@
 
                 function formatPrice(amountTzs, period, currency) {
                     var value = currency === 'USD' ? (amountTzs / rate) : amountTzs;
-                    var prefix = currency === 'USD' ? 'From USD ' : 'From TZS ';
-                    return prefix + formatNumber(value, currency) + (period || '');
+                    var code = currency === 'USD' ? 'USD' : 'TZS';
+                    return code + ' ' + formatNumber(value, currency) + (period || '');
                 }
 
                 function setCurrency(currency) {
