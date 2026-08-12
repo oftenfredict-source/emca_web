@@ -1,9 +1,15 @@
 <!--<< Footer Section Start >>-->
 <footer class="footer-section footer-bg emca-footer">
     <div class="emca-footer-video-wrap" aria-hidden="true">
-        <video class="emca-footer-video" autoplay muted loop playsinline preload="metadata">
-            <source src="{{ asset('images/footer.mp4') }}" type="video/mp4">
-        </video>
+        {{-- 15MB video: load only when footer is near viewport so first page open stays fast --}}
+        <video
+            class="emca-footer-video"
+            muted
+            loop
+            playsinline
+            preload="none"
+            data-src="{{ asset('images/footer.mp4') }}"
+        ></video>
         <div class="emca-footer-video-overlay"></div>
     </div>
     <div class="arrow-shape-1 float-bob-x">
@@ -148,3 +154,36 @@
         </div>
     </div>
 </footer>
+<script>
+(function () {
+    var video = document.querySelector('.emca-footer-video[data-src]');
+    if (!video) return;
+
+    function loadFooterVideo() {
+        if (video.dataset.loaded === '1') return;
+        video.dataset.loaded = '1';
+        var source = document.createElement('source');
+        source.src = video.getAttribute('data-src');
+        source.type = 'video/mp4';
+        video.appendChild(source);
+        video.load();
+        var playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(function () {});
+        }
+    }
+
+    if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+            if (!entries[0] || !entries[0].isIntersecting) return;
+            loadFooterVideo();
+            observer.disconnect();
+        }, { rootMargin: '250px 0px' });
+        observer.observe(video);
+    } else {
+        window.addEventListener('load', function () {
+            setTimeout(loadFooterVideo, 2500);
+        });
+    }
+})();
+</script>
