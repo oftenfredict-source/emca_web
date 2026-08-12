@@ -1,7 +1,7 @@
 <!--<< Footer Section Start >>-->
 <footer class="footer-section footer-bg emca-footer">
     <div class="emca-footer-video-wrap" aria-hidden="true">
-        <video class="emca-footer-video" autoplay muted loop playsinline preload="auto">
+        <video class="emca-footer-video" autoplay muted loop playsinline preload="metadata">
             <source src="{{ asset('images/footer.mp4') }}" type="video/mp4">
         </video>
         <div class="emca-footer-video-overlay"></div>

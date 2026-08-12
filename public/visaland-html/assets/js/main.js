@@ -623,11 +623,21 @@
     }
 
     function loader() {
-      $(window).on('load', function() {
-          // Animate loader off screen
-          $(".preloader").addClass('loaded');
-          $(".preloader").delay(600).fadeOut();
-      });
+      var done = false;
+
+      function hidePreloader() {
+          if (done) {
+              return;
+          }
+          done = true;
+          var $preloader = $(".preloader");
+          $preloader.addClass('loaded');
+          $preloader.fadeOut(300);
+      }
+
+      // Cap at 1s so large live assets (video/images) do not keep the loader on screen
+      setTimeout(hidePreloader, 1000);
+      $(window).on('load', hidePreloader);
   }
   loader();
     
