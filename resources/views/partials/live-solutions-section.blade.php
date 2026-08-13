@@ -2,7 +2,7 @@
     $liveSolutionSlugs = $liveSolutionSlugs ?? array_keys(config('live-solutions'));
 @endphp
 
-<section class="emca-live-solutions-section fix section-padding bg-cover" style="background-image: url('{{ asset('images/server1.jpg') }}');">
+<section class="emca-live-solutions-section fix section-padding bg-cover" style="background-image: url('{{ site_image_url('home_live_solutions_bg') }}');">
     <div class="container">
         <div class="section-title text-center emca-live-solutions-title">
             <span class="wow fadeInUp">Live Systems</span>

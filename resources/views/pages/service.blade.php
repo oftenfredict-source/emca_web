@@ -60,7 +60,7 @@
                         <div class="header-main style-2">
                             <div class="logo">
                                 <a href="{{ route('home') }}" class="header-logo">
-                                    <img src="{{ asset('images/logo_header.png') }}" alt="logo-img">
+                                    <img src="{{ site_image_url('logo') }}" alt="logo-img">
                                 </a>
                             </div>
                             <div class="header-left">
@@ -100,7 +100,7 @@
         </header>
 
             <!--<< Breadcrumb Section Start >>-->
-            <div class="breadcrumb-wrapper section-padding bg-cover" style="background-image: url('{{ asset('images/Service_banner.jpg') }}');">
+            <div class="breadcrumb-wrapper section-padding bg-cover" style="background-image: url('{{ site_image_url('banner_services') }}');">
                 <div class="container">
                     <div class="page-heading">
                         <h1 class="wow fadeInUp" data-wow-delay=".3s">Services</h1>
@@ -149,7 +149,7 @@
             </section>
     
             <!--<< Cta Contact Section Start >>--> 
-            <section class="cta-banner-contact-section fix section-padding bg-cover" style="background-image: url('{{ asset('images/Digital Growth.jpg') }}');">
+            <section class="cta-banner-contact-section fix section-padding bg-cover" style="background-image: url('{{ site_image_url('cta_services') }}');">
                 <div class="container">
                     <div class="cta-banner-concat-wrapper">
                         <h2 class="title-anim">Ready to Power Your <br> Digital Growth?</h2>

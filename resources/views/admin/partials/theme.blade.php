@@ -124,6 +124,51 @@
         border-left-color: #fff;
     }
 
+    .admin-nav-group {
+        display: block;
+    }
+
+    .admin-nav-toggle {
+        width: 100%;
+        border: 0;
+        background: transparent;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .admin-nav-chevron {
+        font-size: 0.75rem;
+        opacity: 0.8;
+        transition: transform 0.2s ease;
+    }
+
+    .admin-nav-group.is-open .admin-nav-chevron {
+        transform: rotate(180deg);
+    }
+
+    .admin-nav-submenu {
+        display: none;
+        padding: 0.15rem 0 0.35rem;
+    }
+
+    .admin-nav-group.is-open .admin-nav-submenu {
+        display: block;
+    }
+
+    .admin-sidebar .admin-nav-sublink {
+        padding: 0.55rem 1.5rem 0.55rem 3.15rem;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.72);
+        border-left-color: transparent;
+    }
+
+    .admin-sidebar .admin-nav-sublink:hover,
+    .admin-sidebar .admin-nav-sublink.active {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.1);
+        border-left-color: rgba(255, 255, 255, 0.55);
+    }
+
     .admin-content {
         margin-left: var(--sidebar-width);
         padding: 1.5rem 2rem;

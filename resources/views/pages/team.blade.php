@@ -60,7 +60,7 @@
                         <div class="header-main style-2">
                             <div class="logo">
                                 <a href="{{ route('home') }}" class="header-logo">
-                                    <img src="{{ asset('images/logo_header.png') }}" alt="logo-img">
+                                    <img src="{{ site_image_url('logo') }}" alt="logo-img">
                                 </a>
                             </div>
                             <div class="header-left">
@@ -100,7 +100,7 @@
         </header>
 
             <!--<< Breadcrumb Section Start >>-->
-            <div class="breadcrumb-wrapper section-padding bg-cover" style="background-image: url('{{ asset('images/team.jpg') }}');">
+            <div class="breadcrumb-wrapper section-padding bg-cover" style="background-image: url('{{ site_image_url('banner_team') }}');">
                 <div class="container">
                     <div class="page-heading">
                         <h1 class="wow fadeInUp" data-wow-delay=".3s">Team</h1>

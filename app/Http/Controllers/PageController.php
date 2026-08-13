@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Partner;
 use App\Models\Post;
 use App\Models\TeamMember;
 use App\Models\Testimonial;
 use App\Services\ExchangeRateService;
+use App\Services\PricingCatalogService;
 
 class PageController extends Controller
 {
@@ -14,6 +16,7 @@ class PageController extends Controller
         return view('pages.index', [
             'testimonials' => Testimonial::active()->get(),
             'latestPosts' => Post::published()->latest('published_at')->limit(3)->get(),
+            'partners' => Partner::active()->get(),
         ]);
     }
 
@@ -117,17 +120,20 @@ class PageController extends Controller
         return view('pages.country-details');
     }
 
-    public function pricing()
+    public function pricing(PricingCatalogService $pricing)
     {
-        $services = config('pricing.services');
-        $firstSlug = array_key_first($services);
+        $firstSlug = $pricing->firstSlug();
+
+        if ($firstSlug === null) {
+            abort(404);
+        }
 
         return redirect()->route('pricing.show', $firstSlug);
     }
 
-    public function pricingShow(string $slug, ExchangeRateService $exchangeRates)
+    public function pricingShow(string $slug, ExchangeRateService $exchangeRates, PricingCatalogService $pricing)
     {
-        $services = config('pricing.services');
+        $services = $pricing->services();
 
         if (! isset($services[$slug])) {
             abort(404);

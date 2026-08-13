@@ -15,6 +15,9 @@ class DatabaseSeeder extends Seeder
             AdminUserSeeder::class,
             TeamMemberSeeder::class,
             TestimonialSeeder::class,
+            SiteImageSeeder::class,
+            PricingSeeder::class,
+            PartnerSeeder::class,
         ]);
     }
 }

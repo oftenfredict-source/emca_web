@@ -6,7 +6,7 @@
                 <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                     <div class="offcanvas__logo">
                         <a href="{{ route('home') }}">
-                            <img src="{{ asset('images/logo_header.png') }}" alt="logo-img">
+                            <img src="{{ site_image_url('logo') }}" alt="logo-img">
                         </a>
                     </div>
                     <div class="offcanvas__close">

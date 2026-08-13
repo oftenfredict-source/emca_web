@@ -61,7 +61,7 @@
                             <div class="header-left">
                                 <div class="logo">
                                     <a href="{{ route('home') }}" class="header-logo">
-                                        <img src="{{ asset('images/logo_header.png') }}" alt="logo-img">
+                                        <img src="{{ site_image_url('logo') }}" alt="logo-img">
                                     </a>
                                 </div>
                                 <div class="mean__menu-wrapper">
@@ -108,8 +108,28 @@
             </div>
         </div>
 
-            <!--<< Hero Section Start >>--> 
-            <section class="hero-section hero-1">
+            <!--<< Hero Section Start >>-->
+            @php
+                $heroSettings = app(\App\Services\SiteSettingService::class);
+                $useVideoHero = $heroSettings->heroMode() === 'video'
+                    && filled($heroSettings->youtubeEmbedUrl());
+                $heroYoutubeEmbedUrl = $heroSettings->youtubeEmbedUrl();
+            @endphp
+            <section class="hero-section hero-1 {{ $useVideoHero ? 'emca-hero-is-video' : '' }}">
+                @if ($useVideoHero)
+                    <div class="emca-hero-video-bg" aria-hidden="true">
+                        <div class="emca-hero-video-frame">
+                            <iframe
+                                src="{{ $heroYoutubeEmbedUrl }}"
+                                title="Homepage hero video"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                                loading="eager"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                            ></iframe>
+                        </div>
+                    </div>
+                @endif
                 <div class="swiper-dot">
                     <div class="dot"></div>
                 </div>
@@ -130,9 +150,9 @@
                                     <div class="border-shape">
                                         <img src="{{ asset('visaland-html/assets/img/about/border-shape.png') }}" alt="shape-img">
                                     </div>
-                                    <div class="about-image bg-cover wow fadeInLeft" data-wow-delay=".3s" style="background-image: url('{{ asset('images/About1.jpg') }}');">
+                                    <div class="about-image bg-cover wow fadeInLeft" data-wow-delay=".3s" style="background-image: url('{{ site_image_url('home_about_1') }}');">
                                         <div class="about-image-2 wow fadeInUp" data-wow-delay=".5s" style="width: 269px; height: 277px;">
-                                            <img src="{{ asset('images/About2.jpg') }}" alt="about-img" width="269" height="277" style="width: 100%; height: 100%; object-fit: cover;">
+                                            <img src="{{ site_image_url('home_about_2') }}" alt="about-img" width="269" height="277" style="width: 100%; height: 100%; object-fit: cover;">
                                         </div>
                                     </div>
                                 </div>
@@ -268,7 +288,7 @@
             </section>
     
             <!--<< Server Banner Section Start >>-->
-            <section class="cta-banner-section emca-server-banner-section bg-cover section-padding" style="background-image: url('{{ asset('images/image1.jpg') }}');">
+            <section class="cta-banner-section emca-server-banner-section bg-cover section-padding" style="background-image: url('{{ site_image_url('home_video_banner') }}');">
                 <div class="container">
                     <div class="cta-banner-wrapper section-padding pt-0">
                         <div class="video-box wow fadeInUp" data-wow-delay=".3s">
@@ -387,13 +407,13 @@
                                     <div class="row g-4">
                                         <div class="col-lg-7 wow fadeInUp" data-wow-delay=".3s">
                                             <div class="choose-image-1">
-                                                <img src="{{ asset('images/why4.jpg') }}" alt="Why choose EmCa Techonologies">
+                                                <img src="{{ site_image_url('home_why_4') }}" alt="Why choose EmCa Techonologies">
                                             </div>
                                         </div>
                                         <div class="col-lg-5">
-                                            <div class="choose-image-2 bg-cover wow fadeInUp" data-wow-delay=".3s" style="background-image: url('{{ asset('images/why2.jpg') }}');"></div>
+                                            <div class="choose-image-2 bg-cover wow fadeInUp" data-wow-delay=".3s" style="background-image: url('{{ site_image_url('home_why_2') }}');"></div>
                                             <div class="choose-image-3 wow fadeInUp" data-wow-delay=".5s">
-                                                <img src="{{ asset('images/why3.jpg') }}" alt="Why choose EmCa Techonologies">
+                                                <img src="{{ site_image_url('home_why_3') }}" alt="Why choose EmCa Techonologies">
                                             </div>
                                         </div>
                                     </div>
@@ -635,22 +655,13 @@
                     <div class="brand-wrapper">
                         <h6 class="text-center wow fadeInUp" data-wow-delay=".3s">Our Proudly Partners</h6>
                         <div class="brand-carousel-active">
-                            @php
-                                $brandLogos = [
-                                    ['file' => 'asa-logo.png', 'name' => 'ASA'],
-                                    ['file' => 'jomofa_logo.jpg', 'name' => 'Jomofa'],
-                                    ['file' => 'lawsonlogo.png', 'name' => 'Lawson'],
-                                    ['file' => 'next_sms_logo.png', 'name' => 'Next SMS'],
-                                    ['file' => 'primeland_logo.png', 'name' => 'Primeland'],
-                                    ['file' => 'samshostel_logo.png', 'name' => 'Sams Hostel'],
-                                    ['file' => 'tz_pure_nature_logo.webp', 'name' => 'TZ Pure Nature'],
-                                ];
-                            @endphp
-                            @foreach ($brandLogos as $logo)
+                            @forelse (($partners ?? collect()) as $partner)
                                 <div class="brand-image">
-                                    <img src="{{ asset('images/' . $logo['file']) }}" alt="{{ $logo['name'] }} logo">
+                                    <img src="{{ $partner->logoUrl() }}" alt="{{ $partner->name }} logo">
                                 </div>
-                            @endforeach
+                            @empty
+                                {{-- Keep carousel markup even if empty --}}
+                            @endforelse
                         </div>
                     </div>
                 </div>

@@ -19,7 +19,7 @@
 <body>
     <aside class="admin-sidebar">
         <div class="brand">
-            <img src="{{ asset('images/logo_header.png') }}" alt="EmCa" class="admin-brand-logo">
+            <img src="{{ site_image_url('logo') }}" alt="EmCa" class="admin-brand-logo">
             <span>EmCa Admin</span>
         </div>
         <nav class="nav flex-column py-2">
@@ -32,6 +32,9 @@
             <a href="{{ route('admin.testimonials.index') }}" class="nav-link {{ request()->routeIs('admin.testimonials.*') ? 'active' : '' }}">
                 <i class="bi bi-chat-quote"></i> Testimonials
             </a>
+            <a href="{{ route('admin.partners.index') }}" class="nav-link {{ request()->routeIs('admin.partners.*') ? 'active' : '' }}">
+                <i class="bi bi-building"></i> Partners
+            </a>
             <a href="{{ route('admin.enquiries.index') }}" class="nav-link {{ request()->routeIs('admin.enquiries.*') ? 'active' : '' }}">
                 <i class="bi bi-envelope"></i> Enquiries
                 @php $newCount = \App\Models\Enquiry::new()->count(); @endphp
@@ -42,6 +45,64 @@
             <a href="{{ route('admin.team-members.index') }}" class="nav-link {{ request()->routeIs('admin.team-members.*') ? 'active' : '' }}">
                 <i class="bi bi-people"></i> Team & CVs
             </a>
+            @php
+                $siteImageGroups = config('site-images.groups', []);
+                $siteImagesOpen = request()->routeIs('admin.site-images.*');
+                $activeSiteImageGroup = (string) request()->query('group', array_key_first($siteImageGroups) ?: 'brand');
+            @endphp
+            <div class="admin-nav-group {{ $siteImagesOpen ? 'is-open' : '' }}">
+                <button
+                    type="button"
+                    class="nav-link admin-nav-toggle {{ $siteImagesOpen ? 'active' : '' }}"
+                    data-admin-nav-toggle
+                    aria-expanded="{{ $siteImagesOpen ? 'true' : 'false' }}"
+                >
+                    <i class="bi bi-images"></i>
+                    <span>Site Images</span>
+                    <i class="bi bi-chevron-down admin-nav-chevron ms-auto"></i>
+                </button>
+                <div class="admin-nav-submenu">
+                    @foreach ($siteImageGroups as $groupKey => $groupLabel)
+                        <a
+                            href="{{ route('admin.site-images.index', ['group' => $groupKey]) }}"
+                            class="nav-link admin-nav-sublink {{ $siteImagesOpen && $activeSiteImageGroup === $groupKey ? 'active' : '' }}"
+                        >
+                            {{ $groupLabel }}
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+            @php
+                $pricingNavServices = \App\Models\PricingService::query()->orderBy('sort_order')->get(['slug', 'name']);
+                $pricingOpen = request()->routeIs('admin.pricing.*');
+                $activePricingSlug = (string) request()->query('service', $pricingNavServices->first()->slug ?? '');
+            @endphp
+            <div class="admin-nav-group {{ $pricingOpen ? 'is-open' : '' }}">
+                <button
+                    type="button"
+                    class="nav-link admin-nav-toggle {{ $pricingOpen ? 'active' : '' }}"
+                    data-admin-nav-toggle
+                    aria-expanded="{{ $pricingOpen ? 'true' : 'false' }}"
+                >
+                    <i class="bi bi-tags"></i>
+                    <span>Pricing</span>
+                    <i class="bi bi-chevron-down admin-nav-chevron ms-auto"></i>
+                </button>
+                <div class="admin-nav-submenu">
+                    @forelse ($pricingNavServices as $pricingService)
+                        <a
+                            href="{{ route('admin.pricing.index', ['service' => $pricingService->slug]) }}"
+                            class="nav-link admin-nav-sublink {{ $pricingOpen && $activePricingSlug === $pricingService->slug ? 'active' : '' }}"
+                        >
+                            {{ $pricingService->name }}
+                        </a>
+                    @empty
+                        <a href="{{ route('admin.pricing.index') }}" class="nav-link admin-nav-sublink {{ $pricingOpen ? 'active' : '' }}">
+                            Pricing
+                        </a>
+                    @endforelse
+                </div>
+            </div>
             <a href="{{ route('admin.analytics.index') }}" class="nav-link {{ request()->routeIs('admin.analytics.*') ? 'active' : '' }}">
                 <i class="bi bi-graph-up"></i> Visitor Analytics
             </a>
@@ -80,6 +141,16 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('[data-admin-nav-toggle]').forEach(function (button) {
+            button.addEventListener('click', function () {
+                var group = button.closest('.admin-nav-group');
+                if (!group) return;
+                var isOpen = group.classList.toggle('is-open');
+                button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+        });
+    </script>
     @stack('scripts')
 </body>
 </html>

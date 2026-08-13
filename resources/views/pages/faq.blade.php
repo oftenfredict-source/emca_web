@@ -60,7 +60,7 @@
                         <div class="header-main style-2">
                             <div class="logo">
                                 <a href="{{ route('home') }}" class="header-logo">
-                                    <img src="{{ asset('images/logo_header.png') }}" alt="logo-img">
+                                    <img src="{{ site_image_url('logo') }}" alt="logo-img">
                                 </a>
                             </div>
                             <div class="header-left">
@@ -101,7 +101,7 @@
 
 
             <!--<< Breadcrumb Section Start >>-->
-            <div class="breadcrumb-wrapper section-padding bg-cover" style="background-image: url('{{ asset('images/Faq_banner.jpg') }}');">
+            <div class="breadcrumb-wrapper section-padding bg-cover" style="background-image: url('{{ site_image_url('banner_faq') }}');">
                 <div class="container">
                     <div class="page-heading">
                         <h1 class="wow fadeInUp" data-wow-delay=".3s">Faq</h1>
@@ -138,7 +138,7 @@
                                     {{ config('faq.intro') }}
                                 </p>
                                 <div class="emca-faq-image wow fadeInUp mt-4" data-wow-delay=".7s">
-                                    <img src="{{ asset('images/customercare.png') }}" alt="Customer care - Frequently Asked Questions">
+                                    <img src="{{ site_image_url('need_help') }}" alt="Customer care - Frequently Asked Questions">
                                 </div>
                             </div>
                             <div class="col-lg-6 mt-5 mt-lg-0">

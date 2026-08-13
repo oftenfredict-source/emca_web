@@ -60,7 +60,7 @@
                         <div class="header-main style-2">
                             <div class="logo">
                                 <a href="{{ route('home') }}" class="header-logo">
-                                    <img src="{{ asset('images/logo_header.png') }}" alt="logo-img">
+                                    <img src="{{ site_image_url('logo') }}" alt="logo-img">
                                 </a>
                             </div>
                             <div class="header-left">
@@ -100,7 +100,7 @@
         </header>
 
        <!--<< Breadcrumb Section Start >>-->
-       <div class="breadcrumb-wrapper section-padding bg-cover" style="background-image: url('{{ asset('images/about-hero.png') }}');">
+       <div class="breadcrumb-wrapper section-padding bg-cover" style="background-image: url('{{ site_image_url('about_hero') }}');">
         <div class="container">
             <div class="page-heading">
                 <h1 class="wow fadeInUp" data-wow-delay=".3s">about us</h1>
@@ -131,9 +131,9 @@
                             <div class="border-shape">
                                 <img src="{{ asset('visaland-html/assets/img/about/border-shape.png') }}" alt="shape-img">
                             </div>
-                            <div class="about-image bg-cover wow fadeInLeft" data-wow-delay=".3s" style="background-image: url('{{ asset('images/About1.jpg') }}');">
+                            <div class="about-image bg-cover wow fadeInLeft" data-wow-delay=".3s" style="background-image: url('{{ site_image_url('about_1') }}');">
                                 <div class="about-image-2 emca-about-image-2 wow fadeInUp" data-wow-delay=".5s">
-                                    <img src="{{ asset('images/About2.jpg') }}" alt="about-img">
+                                    <img src="{{ site_image_url('about_2') }}" alt="about-img">
                                 </div>
                             </div>
                         </div>

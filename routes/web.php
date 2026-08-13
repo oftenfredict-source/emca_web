@@ -4,7 +4,10 @@ use App\Http\Controllers\Admin\AnalyticsController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EnquiryController as AdminEnquiryController;
+use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\PricingController;
+use App\Http\Controllers\Admin\SiteImageController;
 use App\Http\Controllers\Admin\TeamMemberController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\EnquiryController;
@@ -67,7 +70,17 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         Route::resource('posts', PostController::class)->except(['show']);
         Route::resource('testimonials', TestimonialController::class)->except(['show']);
+        Route::resource('partners', PartnerController::class)->except(['show']);
         Route::resource('team-members', TeamMemberController::class)->only(['index', 'edit', 'update']);
+
+        Route::get('/site-images', [SiteImageController::class, 'index'])->name('site-images.index');
+        Route::put('/site-images/hero-settings', [SiteImageController::class, 'updateHeroSettings'])->name('site-images.hero-settings');
+        Route::put('/site-images/{siteImage}', [SiteImageController::class, 'update'])->name('site-images.update');
+        Route::delete('/site-images/{siteImage}', [SiteImageController::class, 'restore'])->name('site-images.restore');
+
+        Route::get('/pricing', [PricingController::class, 'index'])->name('pricing.index');
+        Route::put('/pricing/services/{service}', [PricingController::class, 'updateService'])->name('pricing.services.update');
+        Route::put('/pricing/packages/{package}', [PricingController::class, 'updatePackage'])->name('pricing.packages.update');
 
         Route::get('/enquiries', [AdminEnquiryController::class, 'index'])->name('enquiries.index');
         Route::get('/enquiries/{enquiry}', [AdminEnquiryController::class, 'show'])->name('enquiries.show');

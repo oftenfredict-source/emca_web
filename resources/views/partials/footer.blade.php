@@ -72,7 +72,7 @@
                     <div class="single-footer-widget">
                         <div class="widget-head">
                             <a href="{{ route('home') }}">
-                                <img src="{{ asset('images/logo_header.png') }}" alt="{{ config('company.name') }}">
+                                <img src="{{ site_image_url('logo') }}" alt="{{ config('company.name') }}">
                             </a>
                         </div>
                         <div class="footer-content">
