@@ -15,21 +15,25 @@ class SiteImageService
      */
     public function syncCatalog(): void
     {
-        $slots = config('site-images.slots', []);
+        try {
+            $slots = config('site-images.slots', []);
 
-        foreach ($slots as $key => $slot) {
-            SiteImage::updateOrCreate(
-                ['key' => $key],
-                [
-                    'label' => $slot['label'],
-                    'group' => $slot['group'] ?? 'general',
-                    'default_path' => $slot['default'],
-                    'sort_order' => $slot['sort'] ?? 0,
-                ]
-            );
+            foreach ($slots as $key => $slot) {
+                SiteImage::updateOrCreate(
+                    ['key' => $key],
+                    [
+                        'label' => $slot['label'],
+                        'group' => $slot['group'] ?? 'general',
+                        'default_path' => $slot['default'],
+                        'sort_order' => $slot['sort'] ?? 0,
+                    ]
+                );
+            }
+
+            $this->forgetCache();
+        } catch (\Throwable $exception) {
+            // Ignore until site_images migration has been run.
         }
-
-        $this->forgetCache();
     }
 
     /**

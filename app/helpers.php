@@ -12,7 +12,9 @@ if (! function_exists('site_image')) {
         try {
             return app(SiteImageService::class)->path($key, $fallback);
         } catch (\Throwable $exception) {
-            $default = config("site-images.slots.{$key}.default");
+            $default = is_string(config("site-images.slots.{$key}.default") ?? null)
+                ? config("site-images.slots.{$key}.default")
+                : null;
 
             return ltrim((string) ($default ?: $fallback ?: 'images/logo_header.png'), '/');
         }
@@ -28,7 +30,9 @@ if (! function_exists('site_image_url')) {
         try {
             return app(SiteImageService::class)->url($key, $fallback);
         } catch (\Throwable $exception) {
-            return asset(site_image($key, $fallback));
+            $path = site_image($key, $fallback);
+
+            return $path !== '' ? asset($path) : asset('images/logo_header.png');
         }
     }
 }
@@ -39,6 +43,10 @@ if (! function_exists('site_setting')) {
      */
     function site_setting(string $key, ?string $default = null): ?string
     {
-        return app(SiteSettingService::class)->get($key, $default);
+        try {
+            return app(SiteSettingService::class)->get($key, $default);
+        } catch (\Throwable $exception) {
+            return $default;
+        }
     }
 }

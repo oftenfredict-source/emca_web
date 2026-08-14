@@ -13,10 +13,18 @@ class PageController extends Controller
 {
     public function home()
     {
+        $partners = collect();
+
+        try {
+            $partners = Partner::active()->get();
+        } catch (\Throwable $exception) {
+            // partners table may not be migrated yet on live
+        }
+
         return view('pages.index', [
             'testimonials' => Testimonial::active()->get(),
             'latestPosts' => Post::published()->latest('published_at')->limit(3)->get(),
-            'partners' => Partner::active()->get(),
+            'partners' => $partners,
         ]);
     }
 
