@@ -1,3 +1,4 @@
+@php($post = $post ?? null)
 <div class="row g-3">
     <div class="col-md-8">
         <label class="form-label">Title *</label>
@@ -19,7 +20,7 @@
         <label class="form-label">Featured Image</label>
         <input type="file" name="image" class="form-control" accept="image/*">
         <small class="text-muted d-block">JPG/PNG up to 5MB. Saved to public/images/posts for live hosting.</small>
-        @if(!empty($post?->imageUrl()))
+        @if($post && $post->imageUrl())
             <div class="mt-2">
                 <img src="{{ $post->imageUrl() }}" alt="" style="max-height: 90px; border-radius: 8px;">
             </div>
@@ -32,7 +33,7 @@
     <div class="col-md-3">
         <label class="form-label">Publish Date</label>
         <input type="datetime-local" name="published_at" class="form-control"
-            value="{{ old('published_at', isset($post) && $post->published_at ? $post->published_at->format('Y-m-d\TH:i') : '') }}">
+            value="{{ old('published_at', $post && $post->published_at ? $post->published_at->format('Y-m-d\TH:i') : '') }}">
     </div>
     <div class="col-md-3 d-flex align-items-end">
         <div class="form-check mb-2">
