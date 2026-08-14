@@ -4268,72 +4268,68 @@ nav#mobile-menu li.has-dropdown.active.menu-thumb > a i.fas.fa-angle-down {
     }
 }
 
-/* Homepage hero YouTube background */
+/* Homepage hero YouTube background — same box as image slides */
 .hero-1.emca-hero-is-video {
-    position: relative !important;
-    overflow: hidden !important;
-    background: #16171A !important;
-    min-height: 560px;
+    position: relative;
+    overflow: hidden;
+    background: #16171A;
 }
 
 .hero-1.emca-hero-is-video .emca-hero-video-bg {
-    position: absolute !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    z-index: 0 !important;
-    overflow: hidden !important;
-    pointer-events: none !important;
-    background: #16171A !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background: #16171A;
 }
 
 .hero-1.emca-hero-is-video .emca-hero-video-bg::after {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    background: linear-gradient(90deg, rgba(22, 23, 26, 0.88) 0%, rgba(22, 23, 26, 0.4) 55%, rgba(22, 23, 26, 0.25) 100%) !important;
-    z-index: 2 !important;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #16171A 0.06%, rgba(22, 23, 26, 0.35) 99.93%);
+    z-index: 2;
 }
 
+/* Fill hero box like .hero-image cover; clipped by parent overflow */
 .hero-1.emca-hero-is-video .emca-hero-video-frame {
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    width: 177.78% !important; /* 16/9 cover for wide banners */
-    height: 100% !important;
-    min-width: 100% !important;
-    min-height: 100% !important;
-    transform: translate(-50%, -50%) !important;
-    z-index: 1 !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%) scale(1.35);
+    transform-origin: center center;
+    z-index: 1;
 }
 
 .hero-1.emca-hero-is-video .emca-hero-video-frame iframe {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    border: 0 !important;
-    max-width: none !important;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    max-width: none;
 }
 
 .hero-1.emca-hero-is-video .hero-slider,
-.hero-1.emca-hero-is-video .swiper-dot,
-.hero-1.emca-hero-is-video .shape-image,
-.hero-1.emca-hero-is-video .shape-image-2,
-.hero-1.emca-hero-is-video .hero-content {
+.hero-1.emca-hero-is-video .swiper-dot {
     position: relative;
     z-index: 3;
 }
 
 .hero-1.emca-hero-is-video .hero-slider {
-    background: transparent !important;
+    background: transparent;
 }
 
-/* Keep fade slides stacked; never force position:relative on slides */
+.hero-1.emca-hero-is-video .hero-content {
+    z-index: 4;
+}
+
+/* Keep fade slides stacked */
 .hero-1 .hero-slider.swiper-fade .swiper-slide {
     pointer-events: none;
     opacity: 0 !important;
@@ -4346,22 +4342,8 @@ nav#mobile-menu li.has-dropdown.active.menu-thumb > a i.fas.fa-angle-down {
     z-index: 2;
 }
 
-@media (max-width: 991px) {
-    .hero-1.emca-hero-is-video {
-        min-height: 480px;
-    }
-
+@media (max-width: 767px) {
     .hero-1.emca-hero-is-video .emca-hero-video-frame {
-        width: 220% !important;
-    }
-}
-
-@media (max-width: 575px) {
-    .hero-1.emca-hero-is-video {
-        min-height: 420px;
-    }
-
-    .hero-1.emca-hero-is-video .emca-hero-video-frame {
-        width: 280% !important;
+        transform: translate(-50%, -50%) scale(1.55);
     }
 }

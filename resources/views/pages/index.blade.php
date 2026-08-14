@@ -38,14 +38,14 @@
         @endphp
         @if ($useVideoHeroEarly)
             <style>
-                .hero-1.emca-hero-is-video{position:relative!important;overflow:hidden!important;background:#16171A!important;min-height:560px}
-                .hero-1.emca-hero-is-video .emca-hero-video-bg{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important;overflow:hidden!important;pointer-events:none!important;background:#16171A!important}
-                .hero-1.emca-hero-is-video .emca-hero-video-bg::after{content:""!important;position:absolute!important;inset:0!important;background:linear-gradient(90deg,rgba(22,23,26,.88) 0%,rgba(22,23,26,.4) 55%,rgba(22,23,26,.25) 100%)!important;z-index:2!important}
-                .hero-1.emca-hero-is-video .emca-hero-video-frame{position:absolute!important;top:50%!important;left:50%!important;width:177.78%!important;height:100%!important;min-width:100%!important;min-height:100%!important;transform:translate(-50%,-50%)!important;z-index:1!important}
-                .hero-1.emca-hero-is-video .emca-hero-video-frame iframe{position:absolute!important;top:0!important;left:0!important;width:100%!important;height:100%!important;border:0!important;max-width:none!important}
-                .hero-1.emca-hero-is-video .hero-slider,.hero-1.emca-hero-is-video .swiper-dot,.hero-1.emca-hero-is-video .hero-content{position:relative;z-index:3}
-                @media (max-width:991px){.hero-1.emca-hero-is-video{min-height:480px}.hero-1.emca-hero-is-video .emca-hero-video-frame{width:220%!important}}
-                @media (max-width:575px){.hero-1.emca-hero-is-video{min-height:420px}.hero-1.emca-hero-is-video .emca-hero-video-frame{width:280%!important}}
+                .hero-1.emca-hero-is-video{position:relative;overflow:hidden;background:#16171A}
+                .hero-1.emca-hero-is-video .emca-hero-video-bg{position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;overflow:hidden;pointer-events:none;background:#16171A}
+                .hero-1.emca-hero-is-video .emca-hero-video-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#16171A .06%,rgba(22,23,26,.35) 99.93%);z-index:2}
+                .hero-1.emca-hero-is-video .emca-hero-video-frame{position:absolute;top:50%;left:50%;width:100%;height:100%;transform:translate(-50%,-50%) scale(1.35);transform-origin:center center;z-index:1}
+                .hero-1.emca-hero-is-video .emca-hero-video-frame iframe{display:block;width:100%;height:100%;border:0;max-width:none}
+                .hero-1.emca-hero-is-video .hero-slider,.hero-1.emca-hero-is-video .swiper-dot{position:relative;z-index:3;background:transparent}
+                .hero-1.emca-hero-is-video .hero-content{z-index:4}
+                @media (max-width:767px){.hero-1.emca-hero-is-video .emca-hero-video-frame{transform:translate(-50%,-50%) scale(1.55)}}
             </style>
         @endif
     </head>
@@ -139,8 +139,6 @@
                             <iframe
                                 src="{{ $heroYoutubeEmbedUrl }}"
                                 title="Homepage hero video"
-                                width="1920"
-                                height="1080"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowfullscreen
                                 loading="eager"
