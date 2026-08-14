@@ -42,12 +42,6 @@
 
 @foreach ($slides as $slide)
     <div class="swiper-slide">
-        <div class="shape-image" data-animation="fadeInLeft" data-delay="2.1s">
-            <img src="{{ asset('visaland-html/assets/img/hero/object1.png') }}" alt="shape-img">
-        </div>
-        <div class="shape-image-2 fadeInRight animated" data-animation="fadeInRight" data-delay="2.3s">
-            <img src="{{ asset('visaland-html/assets/img/hero/right-shape.png') }}" alt="shape-img">
-        </div>
         @unless ($useVideoHero)
             <div class="hero-image bg-cover" style="background-image: url('{{ asset($slide['image']) }}');"></div>
         @endunless
