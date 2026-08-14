@@ -9,7 +9,13 @@ if (! function_exists('site_image')) {
      */
     function site_image(string $key, ?string $fallback = null): string
     {
-        return app(SiteImageService::class)->path($key, $fallback);
+        try {
+            return app(SiteImageService::class)->path($key, $fallback);
+        } catch (\Throwable $exception) {
+            $default = config("site-images.slots.{$key}.default");
+
+            return ltrim((string) ($default ?: $fallback ?: 'images/logo_header.png'), '/');
+        }
     }
 }
 
@@ -19,7 +25,11 @@ if (! function_exists('site_image_url')) {
      */
     function site_image_url(string $key, ?string $fallback = null): string
     {
-        return app(SiteImageService::class)->url($key, $fallback);
+        try {
+            return app(SiteImageService::class)->url($key, $fallback);
+        } catch (\Throwable $exception) {
+            return asset(site_image($key, $fallback));
+        }
     }
 }
 

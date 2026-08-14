@@ -15,9 +15,13 @@ class SiteSettingService
     public function all(): array
     {
         return Cache::remember(self::CACHE_KEY, now()->addHours(6), function () {
-            return SiteSetting::query()
-                ->pluck('value', 'key')
-                ->all();
+            try {
+                return SiteSetting::query()
+                    ->pluck('value', 'key')
+                    ->all();
+            } catch (\Throwable $exception) {
+                return [];
+            }
         });
     }
 

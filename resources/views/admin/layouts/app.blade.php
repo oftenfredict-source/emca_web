@@ -19,7 +19,7 @@
 <body>
     <aside class="admin-sidebar">
         <div class="brand">
-            <img src="{{ site_image_url('logo') }}" alt="EmCa" class="admin-brand-logo">
+            <img src="{{ function_exists('site_image_url') ? site_image_url('logo') : asset('images/logo_header.png') }}" alt="EmCa" class="admin-brand-logo">
             <span>EmCa Admin</span>
         </div>
         <nav class="nav flex-column py-2">
@@ -32,12 +32,20 @@
             <a href="{{ route('admin.testimonials.index') }}" class="nav-link {{ request()->routeIs('admin.testimonials.*') ? 'active' : '' }}">
                 <i class="bi bi-chat-quote"></i> Testimonials
             </a>
+            @if (\Illuminate\Support\Facades\Route::has('admin.partners.index'))
             <a href="{{ route('admin.partners.index') }}" class="nav-link {{ request()->routeIs('admin.partners.*') ? 'active' : '' }}">
                 <i class="bi bi-building"></i> Partners
             </a>
+            @endif
             <a href="{{ route('admin.enquiries.index') }}" class="nav-link {{ request()->routeIs('admin.enquiries.*') ? 'active' : '' }}">
                 <i class="bi bi-envelope"></i> Enquiries
-                @php $newCount = \App\Models\Enquiry::new()->count(); @endphp
+                @php
+                    try {
+                        $newCount = \App\Models\Enquiry::new()->count();
+                    } catch (\Throwable $exception) {
+                        $newCount = 0;
+                    }
+                @endphp
                 @if($newCount > 0)
                     <span class="badge bg-danger ms-auto">{{ $newCount }}</span>
                 @endif
@@ -45,6 +53,7 @@
             <a href="{{ route('admin.team-members.index') }}" class="nav-link {{ request()->routeIs('admin.team-members.*') ? 'active' : '' }}">
                 <i class="bi bi-people"></i> Team & CVs
             </a>
+            @if (\Illuminate\Support\Facades\Route::has('admin.site-images.index'))
             @php
                 $siteImageGroups = config('site-images.groups', []);
                 $siteImagesOpen = request()->routeIs('admin.site-images.*');
@@ -72,11 +81,17 @@
                     @endforeach
                 </div>
             </div>
+            @endif
             @php
-                $pricingNavServices = \App\Models\PricingService::query()->orderBy('sort_order')->get(['slug', 'name']);
+                try {
+                    $pricingNavServices = \App\Models\PricingService::query()->orderBy('sort_order')->get(['slug', 'name']);
+                } catch (\Throwable $exception) {
+                    $pricingNavServices = collect();
+                }
                 $pricingOpen = request()->routeIs('admin.pricing.*');
                 $activePricingSlug = (string) request()->query('service', $pricingNavServices->first()->slug ?? '');
             @endphp
+            @if (\Illuminate\Support\Facades\Route::has('admin.pricing.index'))
             <div class="admin-nav-group {{ $pricingOpen ? 'is-open' : '' }}">
                 <button
                     type="button"
@@ -103,6 +118,7 @@
                     @endforelse
                 </div>
             </div>
+            @endif
             <a href="{{ route('admin.analytics.index') }}" class="nav-link {{ request()->routeIs('admin.analytics.*') ? 'active' : '' }}">
                 <i class="bi bi-graph-up"></i> Visitor Analytics
             </a>

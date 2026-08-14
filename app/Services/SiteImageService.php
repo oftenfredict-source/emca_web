@@ -38,10 +38,14 @@ class SiteImageService
     public function allByKey(): Collection
     {
         return Cache::remember(self::CACHE_KEY, now()->addHours(6), function () {
-            return SiteImage::query()
-                ->orderBy('sort_order')
-                ->get()
-                ->keyBy('key');
+            try {
+                return SiteImage::query()
+                    ->orderBy('sort_order')
+                    ->get()
+                    ->keyBy('key');
+            } catch (\Throwable $exception) {
+                return collect();
+            }
         });
     }
 

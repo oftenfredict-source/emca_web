@@ -24,30 +24,34 @@ class PricingCatalogService
     public function services(): array
     {
         return Cache::remember(self::CACHE_KEY, now()->addHour(), function () {
-            return PricingService::query()
-                ->with('packages')
-                ->orderBy('sort_order')
-                ->get()
-                ->mapWithKeys(function (PricingService $service) {
-                    return [
-                        $service->slug => [
-                            'name' => $service->name,
-                            'icon' => $service->icon,
-                            'description' => $service->description,
-                            'note' => $service->note,
-                            'packages' => $service->packages->map(function ($package) {
-                                return [
-                                    'name' => $package->name,
-                                    'includes' => $package->includes,
-                                    'amount' => (int) $package->amount,
-                                    'period' => (string) ($package->period ?? ''),
-                                    'price' => $package->formattedPriceLabel(),
-                                ];
-                            })->values()->all(),
-                        ],
-                    ];
-                })
-                ->all();
+            try {
+                return PricingService::query()
+                    ->with('packages')
+                    ->orderBy('sort_order')
+                    ->get()
+                    ->mapWithKeys(function (PricingService $service) {
+                        return [
+                            $service->slug => [
+                                'name' => $service->name,
+                                'icon' => $service->icon,
+                                'description' => $service->description,
+                                'note' => $service->note,
+                                'packages' => $service->packages->map(function ($package) {
+                                    return [
+                                        'name' => $package->name,
+                                        'includes' => $package->includes,
+                                        'amount' => (int) $package->amount,
+                                        'period' => (string) ($package->period ?? ''),
+                                        'price' => $package->formattedPriceLabel(),
+                                    ];
+                                })->values()->all(),
+                            ],
+                        ];
+                    })
+                    ->all();
+            } catch (\Throwable $exception) {
+                return config('pricing.services', []);
+            }
         });
     }
 
