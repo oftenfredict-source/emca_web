@@ -22,7 +22,7 @@
             <img src="{{ function_exists('site_image_url') ? site_image_url('logo') : asset('images/logo_header.png') }}" alt="EmCa" class="admin-brand-logo">
             <span>EmCa Admin</span>
         </div>
-        <nav class="nav flex-column py-2">
+        <nav class="admin-sidebar-nav py-2">
             <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                 <i class="bi bi-speedometer2"></i> Dashboard
             </a>

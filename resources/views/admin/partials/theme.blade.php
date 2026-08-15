@@ -111,6 +111,11 @@
         flex: 1 1 auto;
         min-height: 0;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        align-content: flex-start;
         overflow-y: auto;
         overflow-x: hidden;
         overscroll-behavior: contain;
@@ -119,6 +124,12 @@
         scrollbar-gutter: stable;
         scrollbar-width: thin;
         scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+    }
+
+    .admin-sidebar > nav > * {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 100%;
     }
 
     .admin-sidebar > nav::-webkit-scrollbar {
