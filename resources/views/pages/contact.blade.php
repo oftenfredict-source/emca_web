@@ -184,35 +184,52 @@
                                     <h3>Fill Up The Form</h3>
                                     <p>Your email address will not be published. Required fields are marked *</p>
                                 </div>
-                                <form action="{{ route('contact.store') }}" id="contact-form" method="POST">
+                                <form action="{{ route('contact.store') }}" id="emca-contact-form" method="POST" novalidate>
                                     @csrf
                                     @if(session('success'))
                                         <div class="alert alert-success mb-3">{{ session('success') }}</div>
                                     @endif
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger mb-3">
+                                            {{ $errors->first() }}
+                                        </div>
+                                    @endif
                                     <div class="row g-3">
                                         <div class="col-12">
                                             <div class="form-clt">
-                                                <input type="text" name="name" id="name" placeholder="Your Name*">
+                                                <input type="text" name="name" id="name" placeholder="Your Name*" value="{{ old('name') }}" required>
                                                 <div class="icon">
                                                     <i class="fal fa-user"></i>
                                                 </div>
                                             </div>
+                                            @error('name')
+                                                <div class="emca-antispam-error">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="col-12">
                                             <div class="form-clt">
-                                                <input type="email" name="email" id="email" placeholder="Email Address*">
+                                                <input type="email" name="email" id="email" placeholder="Email Address*" value="{{ old('email') }}" required>
                                                 <div class="icon">
                                                     <i class="fal fa-envelope"></i>
                                                 </div>
                                             </div>
+                                            @error('email')
+                                                <div class="emca-antispam-error">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="col-12">
                                             <div class="form-clt">
-                                                <textarea name="message" id="message" placeholder="Enter Your Messege here"></textarea>
+                                                <textarea name="message" id="message" placeholder="Enter Your Messege here" required>{{ old('message') }}</textarea>
                                                 <div class="icon">
                                                     <i class="fal fa-edit"></i>
                                                 </div>
                                             </div>
+                                            @error('message')
+                                                <div class="emca-antispam-error">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="col-12">
+                                            @include('partials.contact-antispam')
                                         </div>
                                         <div class="col-12">
                                             <button type="submit" class="theme-btn emca-contact-submit">
@@ -271,9 +288,10 @@
     <script src="{{ asset('visaland-html/assets/js/wow.min.js') }}"></script>
     <!--<< Circle Progress Js >>-->
     <script src="{{ asset('visaland-html/assets/js/circle-progress.js') }}"></script>
-    <!--<< Ajax.js >>-->
-    <script src="{{ asset('visaland-html/assets/js/ajax-mail.js') }}"></script>
     <!--<< Main.js >>-->
     <script src="{{ asset('visaland-html/assets/js/main.js') }}"></script>
+    @if (filled(config('services.recaptcha.site_key')) && filled(config('services.recaptcha.secret_key')))
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    @endif
     </body>
 </html>

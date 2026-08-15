@@ -1641,6 +1641,49 @@ button,
     font-size: 14px;
 }
 
+.emca-contact-page .emca-antispam {
+    margin-top: 4px;
+}
+
+.emca-contact-page .emca-not-robot {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 12px 14px;
+    border: 1px solid rgba(148, 0, 0, 0.18);
+    border-radius: 10px;
+    background: #fff;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+}
+
+.emca-contact-page .emca-not-robot input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: #940000;
+    cursor: pointer;
+}
+
+.emca-contact-page .emca-antispam-error {
+    margin-top: 8px;
+    color: #b02a37;
+    font-size: 13px;
+}
+
+.emca-contact-page .emca-hp {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
 @media (max-width: 767px) {
     .emca-contact-page .emca-contact-form {
         padding: 22px 20px;

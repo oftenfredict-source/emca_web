@@ -17,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
-Route::post('/contact', [EnquiryController::class, 'store'])->name('contact.store');
+Route::post('/contact', [EnquiryController::class, 'store'])
+    ->middleware('throttle:5,1')
+    ->name('contact.store');
 Route::get('/service', [PageController::class, 'service'])->name('service');
 Route::get('/service/details', fn () => redirect()->route('services.show', 'ict-consultancy', 301))->name('service.details');
 Route::get('/service/details/{slug}', function (string $slug) {
