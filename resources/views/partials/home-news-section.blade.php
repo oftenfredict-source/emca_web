@@ -15,7 +15,7 @@
                 </div>
                 <div class="news-content">
                     <h3><a href="{{ route('news.details', $post->slug) }}">{{ $post->title }}</a></h3>
-                    <p>{{ $post->excerpt ?? Str::limit(strip_tags($post->content), 120) }}</p>
+                    <p>{{ Str::limit(strip_tags($post->excerpt ?: $post->content), 110) }}</p>
                     <a href="{{ route('news.details', $post->slug) }}" class="link-btn">
                         <span>Read More</span> <i class="fas fa-chevron-right"></i>
                     </a>

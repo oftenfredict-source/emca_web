@@ -78,12 +78,18 @@
 
     .admin-sidebar {
         width: var(--sidebar-width);
-        min-height: 100vh;
+        height: 100vh;
+        height: 100dvh;
+        max-height: 100vh;
+        max-height: 100dvh;
         background: linear-gradient(180deg, var(--emca-primary-dark) 0%, var(--emca-primary) 100%);
         position: fixed;
         left: 0;
         top: 0;
         z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
     }
 
     .admin-sidebar .brand {
@@ -96,6 +102,28 @@
         display: flex;
         align-items: center;
         gap: 0.75rem;
+        flex-shrink: 0;
+    }
+
+    .admin-sidebar > nav {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        overscroll-behavior: contain;
+        padding-bottom: 1rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+    }
+
+    .admin-sidebar > nav::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .admin-sidebar > nav::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.35);
+        border-radius: 999px;
     }
 
     .admin-brand-logo {
