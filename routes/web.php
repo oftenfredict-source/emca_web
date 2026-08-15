@@ -83,6 +83,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::put('/pricing/packages/{package}', [PricingController::class, 'updatePackage'])->name('pricing.packages.update');
 
         Route::get('/enquiries', [AdminEnquiryController::class, 'index'])->name('enquiries.index');
+        Route::delete('/enquiries/bulk-destroy', [AdminEnquiryController::class, 'bulkDestroy'])->name('enquiries.bulk-destroy');
         Route::get('/enquiries/{enquiry}', [AdminEnquiryController::class, 'show'])->name('enquiries.show');
         Route::put('/enquiries/{enquiry}', [AdminEnquiryController::class, 'update'])->name('enquiries.update');
         Route::delete('/enquiries/{enquiry}', [AdminEnquiryController::class, 'destroy'])->name('enquiries.destroy');

@@ -69,4 +69,18 @@ class EnquiryController extends Controller
 
         return redirect()->route('admin.enquiries.index')->with('success', 'Enquiry deleted.');
     }
+
+    public function bulkDestroy(Request $request): RedirectResponse
+    {
+        $data = $request->validate([
+            'ids' => ['required', 'array', 'min:1'],
+            'ids.*' => ['integer', 'distinct', 'exists:enquiries,id'],
+        ]);
+
+        $deleted = Enquiry::query()->whereIn('id', $data['ids'])->delete();
+
+        return redirect()
+            ->route('admin.enquiries.index', $request->only(['status', 'search']))
+            ->with('success', $deleted.' enquir'.($deleted === 1 ? 'y' : 'ies').' deleted.');
+    }
 }

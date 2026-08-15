@@ -89,73 +89,118 @@
     </div>
 
     <div class="admin-panel">
-        <div class="admin-panel-head">
-            <div>
-                <h2>Messages</h2>
-                <p>
-                    @if(request()->filled('status') || request()->filled('search'))
-                        Filtered results
-                    @else
-                        Latest customer enquiries
-                    @endif
-                </p>
-            </div>
-        </div>
+        <form
+            id="enquiries-bulk-form"
+            action="{{ route('admin.enquiries.bulk-destroy') }}"
+            method="POST"
+            data-confirm="Delete the selected enquiries? This cannot be undone."
+        >
+            @csrf
+            @method('DELETE')
+            @if(request()->filled('status'))
+                <input type="hidden" name="status" value="{{ request('status') }}">
+            @endif
+            @if(request()->filled('search'))
+                <input type="hidden" name="search" value="{{ request('search') }}">
+            @endif
 
-        <div class="table-responsive">
-            <table class="table admin-table mb-0">
-                <thead>
-                    <tr>
-                        <th>Customer</th>
-                        <th>Source</th>
-                        <th>Status</th>
-                        <th>Date</th>
-                        <th class="text-end">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse($enquiries as $enquiry)
-                        <tr class="{{ $enquiry->status === 'new' ? 'admin-row-new' : '' }}">
-                            <td>
-                                <div class="admin-person">
-                                    <div class="admin-person-avatar">
-                                        <span>{{ strtoupper(substr($enquiry->name, 0, 1)) }}</span>
-                                    </div>
-                                    <div class="admin-person-meta">
-                                        <strong>{{ $enquiry->name }}</strong>
-                                        <small class="text-muted d-block">{{ $enquiry->email }}</small>
-                                        <small class="text-muted text-truncate d-block" style="max-width: 280px">
-                                            {{ \Illuminate\Support\Str::limit($enquiry->message, 70) }}
-                                        </small>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>{{ ucfirst($enquiry->source) }}</td>
-                            <td>
-                                <span class="admin-status admin-status--{{ $enquiry->status === 'new' ? 'new' : 'muted' }}">
-                                    {{ ucfirst($enquiry->status) }}
-                                </span>
-                            </td>
-                            <td class="text-muted">{{ $enquiry->created_at->format('M d, Y · H:i') }}</td>
-                            <td class="text-end">
-                                <a href="{{ route('admin.enquiries.show', $enquiry) }}" class="btn btn-sm btn-outline-primary">
-                                    <i class="bi bi-eye"></i> View
-                                </a>
-                            </td>
-                        </tr>
-                    @empty
+            <div class="admin-panel-head">
+                <div>
+                    <h2>Messages</h2>
+                    <p>
+                        @if(request()->filled('status') || request()->filled('search'))
+                            Filtered results
+                        @else
+                            Latest customer enquiries
+                        @endif
+                    </p>
+                </div>
+                <div class="d-flex align-items-center gap-2 flex-wrap">
+                    <span id="enquiries-selected-count" class="small text-muted">0 selected</span>
+                    <button
+                        type="submit"
+                        id="enquiries-bulk-delete"
+                        class="btn btn-sm btn-outline-danger"
+                        disabled
+                    >
+                        <i class="bi bi-trash"></i> Delete selected
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table admin-table mb-0">
+                    <thead>
                         <tr>
-                            <td colspan="5">
-                                <div class="admin-empty">
-                                    <i class="bi bi-envelope"></i>
-                                    <p>No enquiries found.</p>
-                                </div>
-                            </td>
+                            <th style="width: 42px">
+                                <input
+                                    type="checkbox"
+                                    class="form-check-input"
+                                    id="enquiries-select-all"
+                                    aria-label="Select all enquiries on this page"
+                                    @disabled($enquiries->isEmpty())
+                                >
+                            </th>
+                            <th>Customer</th>
+                            <th>Source</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th class="text-end">Actions</th>
                         </tr>
-                    @endforelse
-                </tbody>
-            </table>
-        </div>
+                    </thead>
+                    <tbody>
+                        @forelse($enquiries as $enquiry)
+                            <tr class="{{ $enquiry->status === 'new' ? 'admin-row-new' : '' }}">
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        class="form-check-input enquiry-row-check"
+                                        name="ids[]"
+                                        value="{{ $enquiry->id }}"
+                                        aria-label="Select enquiry from {{ $enquiry->name }}"
+                                    >
+                                </td>
+                                <td>
+                                    <div class="admin-person">
+                                        <div class="admin-person-avatar">
+                                            <span>{{ strtoupper(substr($enquiry->name, 0, 1)) }}</span>
+                                        </div>
+                                        <div class="admin-person-meta">
+                                            <strong>{{ $enquiry->name }}</strong>
+                                            <small class="text-muted d-block">{{ $enquiry->email }}</small>
+                                            <small class="text-muted text-truncate d-block" style="max-width: 280px">
+                                                {{ \Illuminate\Support\Str::limit($enquiry->message, 70) }}
+                                            </small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{{ ucfirst($enquiry->source) }}</td>
+                                <td>
+                                    <span class="admin-status admin-status--{{ $enquiry->status === 'new' ? 'new' : 'muted' }}">
+                                        {{ ucfirst($enquiry->status) }}
+                                    </span>
+                                </td>
+                                <td class="text-muted">{{ $enquiry->created_at->format('M d, Y · H:i') }}</td>
+                                <td class="text-end">
+                                    <a href="{{ route('admin.enquiries.show', $enquiry) }}" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-eye"></i> View
+                                    </a>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="6">
+                                    <div class="admin-empty">
+                                        <i class="bi bi-envelope"></i>
+                                        <p>No enquiries found.</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </form>
 
         @if ($enquiries->hasPages())
             <div class="admin-pagination mt-3 d-flex justify-content-between align-items-center flex-wrap gap-2">
@@ -169,3 +214,62 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+    (function () {
+        var form = document.getElementById('enquiries-bulk-form');
+        if (!form) return;
+
+        var selectAll = document.getElementById('enquiries-select-all');
+        var deleteBtn = document.getElementById('enquiries-bulk-delete');
+        var countLabel = document.getElementById('enquiries-selected-count');
+        var checks = Array.prototype.slice.call(form.querySelectorAll('.enquiry-row-check'));
+
+        function sync() {
+            var selected = checks.filter(function (el) { return el.checked; });
+            var selectedCount = selected.length;
+            var total = checks.length;
+
+            if (countLabel) {
+                countLabel.textContent = selectedCount + ' selected';
+            }
+            if (deleteBtn) {
+                deleteBtn.disabled = selectedCount === 0;
+            }
+            if (selectAll) {
+                selectAll.checked = total > 0 && selectedCount === total;
+                selectAll.indeterminate = selectedCount > 0 && selectedCount < total;
+            }
+        }
+
+        if (selectAll) {
+            selectAll.addEventListener('change', function () {
+                checks.forEach(function (el) {
+                    el.checked = selectAll.checked;
+                });
+                sync();
+            });
+        }
+
+        checks.forEach(function (el) {
+            el.addEventListener('change', sync);
+        });
+
+        form.addEventListener('submit', function (event) {
+            var selectedCount = checks.filter(function (el) { return el.checked; }).length;
+            if (selectedCount === 0) {
+                event.preventDefault();
+                return;
+            }
+
+            var message = form.getAttribute('data-confirm') || 'Delete selected enquiries?';
+            if (!window.confirm(message)) {
+                event.preventDefault();
+            }
+        });
+
+        sync();
+    })();
+</script>
+@endpush
