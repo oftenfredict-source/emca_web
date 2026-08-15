@@ -2,13 +2,28 @@
 
 namespace App\Services;
 
-use Illuminate\Http\Client\RequestException;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Validation\ValidationException;
 
 class ContactFormGuard
 {
+    public function makeMathChallenge(): array
+    {
+        $left = random_int(1, 9);
+        $right = random_int(1, 9);
+
+        return [
+            'left' => $left,
+            'right' => $right,
+            'token' => Crypt::encrypt([
+                'answer' => $left + $right,
+                'exp' => now()->addHours(2)->getTimestamp(),
+            ]),
+        ];
+    }
+
     public function assertNotSpam(Request $request): void
     {
         if ($this->honeypotFilled($request)) {
@@ -23,22 +38,12 @@ class ContactFormGuard
             ]);
         }
 
-        if ($this->recaptchaEnabled()) {
-            $this->assertRecaptcha($request);
-
-            return;
-        }
-
-        if (! $request->boolean('not_robot')) {
-            throw ValidationException::withMessages([
-                'not_robot' => 'Please confirm you are not a robot.',
-            ]);
-        }
+        $this->assertMathChallenge($request);
     }
 
     public function honeypotFilled(Request $request): bool
     {
-        $value = trim((string) $request->input('website_url', ''));
+        $value = trim((string) $request->input('company_website', ''));
 
         return $value !== '';
     }
@@ -53,45 +58,49 @@ class ContactFormGuard
 
         $age = time() - $startedAt;
 
-        // Too fast (bot) or absurdly old/stale token.
         return $age >= 3 && $age <= 60 * 60 * 6;
     }
 
-    public function recaptchaEnabled(): bool
+    public function assertMathChallenge(Request $request): void
     {
-        return filled(config('services.recaptcha.site_key'))
-            && filled(config('services.recaptcha.secret_key'));
-    }
+        $token = (string) $request->input('human_check_token', '');
+        $answer = trim((string) $request->input('human_check_answer', ''));
 
-    public function assertRecaptcha(Request $request): void
-    {
-        $token = (string) $request->input('g-recaptcha-response', '');
-
-        if ($token === '') {
+        if ($token === '' || $answer === '') {
             throw ValidationException::withMessages([
-                'g-recaptcha-response' => 'Please complete the “I’m not a robot” check.',
+                'human_check_answer' => 'Please answer the anti-spam question.',
+            ]);
+        }
+
+        if (! preg_match('/^-?\d+$/', $answer)) {
+            throw ValidationException::withMessages([
+                'human_check_answer' => 'Please enter a number for the anti-spam question.',
             ]);
         }
 
         try {
-            $response = Http::asForm()
-                ->timeout(8)
-                ->post('https://www.google.com/recaptcha/api/siteverify', [
-                    'secret' => config('services.recaptcha.secret_key'),
-                    'response' => $token,
-                    'remoteip' => $request->ip(),
-                ])
-                ->throw()
-                ->json();
-        } catch (RequestException $exception) {
+            $payload = Crypt::decrypt($token);
+        } catch (DecryptException) {
             throw ValidationException::withMessages([
-                'g-recaptcha-response' => 'Robot check temporarily unavailable. Please try again.',
+                'human_check_answer' => 'Anti-spam check expired. Please refresh and try again.',
             ]);
         }
 
-        if (! ($response['success'] ?? false)) {
+        if (! is_array($payload) || ! isset($payload['answer'], $payload['exp'])) {
             throw ValidationException::withMessages([
-                'g-recaptcha-response' => 'Robot check failed. Please try again.',
+                'human_check_answer' => 'Anti-spam check expired. Please refresh and try again.',
+            ]);
+        }
+
+        if (now()->getTimestamp() > (int) $payload['exp']) {
+            throw ValidationException::withMessages([
+                'human_check_answer' => 'Anti-spam check expired. Please refresh and try again.',
+            ]);
+        }
+
+        if ((int) $answer !== (int) $payload['answer']) {
+            throw ValidationException::withMessages([
+                'human_check_answer' => 'Incorrect answer. Please try again.',
             ]);
         }
     }

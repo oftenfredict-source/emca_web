@@ -290,8 +290,5 @@
     <script src="{{ asset('visaland-html/assets/js/circle-progress.js') }}"></script>
     <!--<< Main.js >>-->
     <script src="{{ asset('visaland-html/assets/js/main.js') }}"></script>
-    @if (filled(config('services.recaptcha.site_key')) && filled(config('services.recaptcha.secret_key')))
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    @endif
     </body>
 </html>

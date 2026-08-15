@@ -23,10 +23,10 @@ class EnquiryController extends Controller
             'subject' => ['nullable', 'string', 'max:255'],
             'message' => ['required', 'string', 'min:10', 'max:5000'],
             'source' => ['nullable', 'string', 'max:100'],
-            'website_url' => ['nullable', 'string', 'max:255'],
+            'company_website' => ['nullable', 'string', 'max:255'],
             'form_started_at' => ['required', 'integer'],
-            'not_robot' => ['nullable'],
-            'g-recaptcha-response' => ['nullable', 'string'],
+            'human_check_token' => ['required', 'string'],
+            'human_check_answer' => ['required', 'string', 'max:10'],
         ]);
 
         $guard->assertNotSpam($request);

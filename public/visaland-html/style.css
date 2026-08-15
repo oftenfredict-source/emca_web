@@ -1645,6 +1645,49 @@ button,
     margin-top: 4px;
 }
 
+.emca-contact-page .emca-math-check {
+    display: block;
+    margin: 0;
+}
+
+.emca-contact-page .emca-math-check-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.emca-contact-page .emca-math-check-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.emca-contact-page .emca-math-check-q {
+    font-size: 15px;
+    font-weight: 700;
+    color: #222;
+}
+
+.emca-contact-page .emca-math-check-input {
+    width: 120px;
+    max-width: 100%;
+    padding: 10px 12px;
+    border: 1px solid rgba(148, 0, 0, 0.2);
+    border-radius: 8px;
+    background: #fff;
+    font-size: 14px;
+    color: #222;
+}
+
+.emca-contact-page .emca-math-check-input:focus {
+    outline: none;
+    border-color: #940000;
+    box-shadow: 0 0 0 0.15rem rgba(148, 0, 0, 0.12);
+}
+
 .emca-contact-page .emca-not-robot {
     display: inline-flex;
     align-items: center;
@@ -1676,12 +1719,14 @@ button,
 }
 
 .emca-contact-page .emca-hp {
-    position: absolute;
-    left: -10000px;
-    top: auto;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
+    position: absolute !important;
+    left: -10000px !important;
+    top: auto !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
 @media (max-width: 767px) {
