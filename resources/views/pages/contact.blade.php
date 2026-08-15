@@ -181,8 +181,8 @@
                         <div class="col-lg-6 mt-5 mt-lg-0">
                             <div class="contact-form-items emca-contact-form wow fadeInUp" data-wow-delay=".3s">
                                 <div class="contact-title">
-                                    <h3>Fill Up The Form</h3>
-                                    <p>Your email address will not be published. Required fields are marked *</p>
+                                    <h3>Send us a message</h3>
+                                    <p>We usually reply within one business day. Fields marked * are required.</p>
                                 </div>
                                 <form action="{{ route('contact.store') }}" id="emca-contact-form" method="POST" novalidate>
                                     @csrf
@@ -196,8 +196,9 @@
                                     @endif
                                     <div class="row g-3">
                                         <div class="col-12">
+                                            <label class="emca-field-label" for="name">Your name *</label>
                                             <div class="form-clt">
-                                                <input type="text" name="name" id="name" placeholder="Your Name*" value="{{ old('name') }}" required>
+                                                <input type="text" name="name" id="name" placeholder="e.g. Amina Juma" value="{{ old('name') }}" autocomplete="name" required>
                                                 <div class="icon">
                                                     <i class="fal fa-user"></i>
                                                 </div>
@@ -207,8 +208,9 @@
                                             @enderror
                                         </div>
                                         <div class="col-12">
+                                            <label class="emca-field-label" for="email">Email address *</label>
                                             <div class="form-clt">
-                                                <input type="email" name="email" id="email" placeholder="Email Address*" value="{{ old('email') }}" required>
+                                                <input type="email" name="email" id="email" placeholder="name@example.com" value="{{ old('email') }}" autocomplete="email" autocapitalize="off" spellcheck="false" required>
                                                 <div class="icon">
                                                     <i class="fal fa-envelope"></i>
                                                 </div>
@@ -218,8 +220,9 @@
                                             @enderror
                                         </div>
                                         <div class="col-12">
-                                            <div class="form-clt">
-                                                <textarea name="message" id="message" placeholder="Enter Your Messege here" required>{{ old('message') }}</textarea>
+                                            <label class="emca-field-label" for="message">Your message *</label>
+                                            <div class="form-clt emca-form-clt-textarea">
+                                                <textarea name="message" id="message" placeholder="Tell us briefly how we can help..." required>{{ old('message') }}</textarea>
                                                 <div class="icon">
                                                     <i class="fal fa-edit"></i>
                                                 </div>
@@ -233,7 +236,7 @@
                                         </div>
                                         <div class="col-12">
                                             <button type="submit" class="theme-btn emca-contact-submit">
-                                                <span><i class="fal fa-paper-plane me-2"></i>Get In Touch</span>
+                                                <span><i class="fal fa-paper-plane me-2"></i>Send message</span>
                                             </button>
                                         </div>
                                     </div>

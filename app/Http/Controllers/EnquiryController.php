@@ -25,8 +25,9 @@ class EnquiryController extends Controller
             'source' => ['nullable', 'string', 'max:100'],
             'company_website' => ['nullable', 'string', 'max:255'],
             'form_started_at' => ['required', 'integer'],
-            'human_check_token' => ['required', 'string'],
-            'human_check_answer' => ['required', 'string', 'max:10'],
+            'not_robot' => ['accepted'],
+        ], [
+            'not_robot.accepted' => 'Please confirm you are not a robot.',
         ]);
 
         $guard->assertNotSpam($request);

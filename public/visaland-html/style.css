@@ -1592,124 +1592,158 @@ button,
 
 /* Contact page */
 .emca-contact-page .emca-contact-form {
-    padding: 28px 32px;
-    border-radius: 12px;
+    padding: 32px 34px;
+    border-radius: 16px;
+    background: #fff;
+    border: 1px solid rgba(148, 0, 0, 0.08);
+    box-shadow: 0 18px 40px rgba(110, 0, 0, 0.08);
 }
 
 .emca-contact-page .emca-contact-form .contact-title {
-    margin-bottom: 18px;
+    margin-bottom: 22px;
 }
 
 .emca-contact-page .emca-contact-form .contact-title h3 {
-    font-size: 24px;
-    margin-bottom: 6px;
+    font-size: 26px;
+    margin-bottom: 8px;
+    color: #1f1f1f;
 }
 
 .emca-contact-page .emca-contact-form .contact-title p {
     font-size: 14px;
     margin-bottom: 0;
-    line-height: 1.6;
+    line-height: 1.65;
+    color: #6c757d;
+}
+
+.emca-contact-page .emca-field-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #444;
+}
+
+.emca-contact-page .emca-contact-form .form-clt {
+    position: relative;
+    margin-bottom: 0;
 }
 
 .emca-contact-page .emca-contact-form .form-clt input,
 .emca-contact-page .emca-contact-form .form-clt textarea {
-    padding: 12px 44px 12px 16px;
-    font-size: 14px;
+    width: 100%;
+    padding: 14px 48px 14px 16px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.45;
+    color: #222;
+    background: #faf7f7;
+    border: 1px solid rgba(148, 0, 0, 0.14);
+    border-radius: 12px;
+    outline: none;
+    text-transform: none;
+    box-shadow: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.emca-contact-page .emca-contact-form .form-clt input:focus,
+.emca-contact-page .emca-contact-form .form-clt textarea:focus {
+    background: #fff;
+    border-color: #940000;
+    box-shadow: 0 0 0 0.18rem rgba(148, 0, 0, 0.12);
+}
+
+.emca-contact-page .emca-contact-form .form-clt input::placeholder,
+.emca-contact-page .emca-contact-form .form-clt textarea::placeholder {
+    color: #9aa0a6;
+    text-transform: none;
+    font-weight: 400;
 }
 
 .emca-contact-page .emca-contact-form .form-clt textarea {
-    min-height: 110px;
-    padding-top: 12px;
+    min-height: 140px;
+    padding: 14px 48px 14px 16px;
+    resize: vertical;
 }
 
 .emca-contact-page .emca-contact-form .form-clt .icon {
+    position: absolute;
     top: 50%;
+    right: 16px;
+    left: auto;
     transform: translateY(-50%);
-    right: 14px;
+    pointer-events: none;
+    display: block;
+}
+
+.emca-contact-page .emca-contact-form .emca-form-clt-textarea .icon {
+    top: 18px;
+    transform: none;
 }
 
 .emca-contact-page .emca-contact-form .form-clt .icon i {
-    font-size: 14px;
+    font-size: 15px;
+    color: #940000;
 }
 
 .emca-contact-page .emca-contact-submit {
-    padding: 12px 24px;
-    font-size: 14px;
+    width: 100%;
+    justify-content: center;
+    padding: 14px 24px;
+    font-size: 15px;
+    border-radius: 12px;
 }
 
 .emca-contact-page .emca-contact-submit span {
-    font-size: 14px;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .emca-contact-page .emca-antispam {
-    margin-top: 4px;
-}
-
-.emca-contact-page .emca-math-check {
-    display: block;
-    margin: 0;
-}
-
-.emca-contact-page .emca-math-check-label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #333;
-}
-
-.emca-contact-page .emca-math-check-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 12px;
-}
-
-.emca-contact-page .emca-math-check-q {
-    font-size: 15px;
-    font-weight: 700;
-    color: #222;
-}
-
-.emca-contact-page .emca-math-check-input {
-    width: 120px;
-    max-width: 100%;
-    padding: 10px 12px;
-    border: 1px solid rgba(148, 0, 0, 0.2);
-    border-radius: 8px;
-    background: #fff;
-    font-size: 14px;
-    color: #222;
-}
-
-.emca-contact-page .emca-math-check-input:focus {
-    outline: none;
-    border-color: #940000;
-    box-shadow: 0 0 0 0.15rem rgba(148, 0, 0, 0.12);
+    margin-top: 2px;
 }
 
 .emca-contact-page .emca-not-robot {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     margin: 0;
-    padding: 12px 14px;
-    border: 1px solid rgba(148, 0, 0, 0.18);
-    border-radius: 10px;
-    background: #fff;
-    color: #333;
-    font-size: 14px;
-    font-weight: 600;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(148, 0, 0, 0.05) 0%, rgba(148, 0, 0, 0.02) 100%);
+    border: 1px solid rgba(148, 0, 0, 0.14);
     cursor: pointer;
     user-select: none;
 }
 
 .emca-contact-page .emca-not-robot input {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     margin: 0;
+    flex-shrink: 0;
     accent-color: #940000;
     cursor: pointer;
+}
+
+.emca-contact-page .emca-not-robot-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.emca-contact-page .emca-not-robot-text strong {
+    font-size: 15px;
+    font-weight: 700;
+    color: #222;
+}
+
+.emca-contact-page .emca-not-robot-text small {
+    font-size: 12px;
+    color: #7a8088;
 }
 
 .emca-contact-page .emca-antispam-error {
@@ -1731,11 +1765,15 @@ button,
 
 @media (max-width: 767px) {
     .emca-contact-page .emca-contact-form {
-        padding: 22px 20px;
+        padding: 22px 18px;
     }
 
     .emca-contact-page .emca-contact-form .contact-title h3 {
-        font-size: 20px;
+        font-size: 22px;
+    }
+
+    .emca-contact-page .emca-contact-form .form-clt .icon {
+        display: block;
     }
 }
 
