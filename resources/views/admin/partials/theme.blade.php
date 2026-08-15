@@ -1,6 +1,6 @@
 <style>
     :root {
-        --sidebar-width: 260px;
+        --sidebar-width: 300px;
         --emca-primary: #940000;
         --emca-primary-dark: #6e0000;
         --emca-primary-light: #b33333;
@@ -78,6 +78,7 @@
 
     .admin-sidebar {
         width: var(--sidebar-width);
+        min-width: var(--sidebar-width);
         height: 100vh;
         height: 100dvh;
         max-height: 100vh;
@@ -86,14 +87,15 @@
         position: fixed;
         left: 0;
         top: 0;
-        z-index: 1000;
+        z-index: 1040;
         display: flex;
         flex-direction: column;
         overflow: hidden;
+        box-sizing: border-box;
     }
 
     .admin-sidebar .brand {
-        padding: 1.25rem 1.5rem;
+        padding: 1.25rem 1.25rem;
         color: #fff;
         font-weight: 700;
         font-size: 1.15rem;
@@ -108,11 +110,13 @@
     .admin-sidebar > nav {
         flex: 1 1 auto;
         min-height: 0;
+        width: 100%;
         overflow-y: auto;
         overflow-x: hidden;
         overscroll-behavior: contain;
         padding-bottom: 1rem;
         -webkit-overflow-scrolling: touch;
+        scrollbar-gutter: stable;
         scrollbar-width: thin;
         scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
     }
@@ -133,16 +137,36 @@
         background: #fff;
         border-radius: 8px;
         padding: 4px;
+        flex-shrink: 0;
     }
 
     .admin-sidebar .nav-link {
         color: rgba(255, 255, 255, 0.85);
-        padding: 0.75rem 1.5rem;
+        padding: 0.7rem 1.15rem;
         display: flex;
         align-items: center;
-        gap: 0.75rem;
+        gap: 0.65rem;
         border-left: 3px solid transparent;
         transition: all 0.2s ease;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+        line-height: 1.35;
+        word-break: normal;
+        overflow-wrap: break-word;
+    }
+
+    .admin-sidebar .nav-link > i:first-child {
+        flex-shrink: 0;
+        width: 1.15rem;
+        text-align: center;
+    }
+
+    .admin-sidebar .nav-link > span {
+        flex: 1 1 auto;
+        min-width: 0;
+        white-space: normal;
+        overflow: visible;
     }
 
     .admin-sidebar .nav-link:hover,
@@ -154,6 +178,7 @@
 
     .admin-nav-group {
         display: block;
+        width: 100%;
     }
 
     .admin-nav-toggle {
@@ -168,6 +193,8 @@
         font-size: 0.75rem;
         opacity: 0.8;
         transition: transform 0.2s ease;
+        flex-shrink: 0;
+        margin-left: auto;
     }
 
     .admin-nav-group.is-open .admin-nav-chevron {
@@ -184,10 +211,14 @@
     }
 
     .admin-sidebar .admin-nav-sublink {
-        padding: 0.55rem 1.5rem 0.55rem 3.15rem;
-        font-size: 0.9rem;
+        padding: 0.5rem 1.15rem 0.5rem 2.85rem;
+        font-size: 0.88rem;
         color: rgba(255, 255, 255, 0.72);
         border-left-color: transparent;
+        display: block;
+        white-space: normal;
+        overflow: visible;
+        line-height: 1.35;
     }
 
     .admin-sidebar .admin-nav-sublink:hover,
@@ -200,6 +231,9 @@
     .admin-content {
         margin-left: var(--sidebar-width);
         padding: 1.5rem 2rem;
+        position: relative;
+        z-index: 1;
+        min-width: 0;
     }
 
     .stat-card {
