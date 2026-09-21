@@ -63,6 +63,14 @@
                 <div class="alert alert-success">{{ session('status') }}</div>
             @endif
 
+            @if(!empty($debugCode))
+                <div class="alert alert-warning">
+                    <strong>Local debug OTP:</strong>
+                    <span style="letter-spacing: 0.25em; font-size: 1.25rem;">{{ $debugCode }}</span>
+                    <div class="small mt-1 mb-0">Shown only when APP_DEBUG=true. Fix SMS/SMTP for live.</div>
+                </div>
+            @endif
+
             @if($errors->any())
                 <div class="alert alert-danger">
                     @foreach($errors->all() as $error)

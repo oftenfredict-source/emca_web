@@ -30,6 +30,7 @@ class AdminOtpService
             'admin_otp_attempts' => 0,
             'admin_otp_sms_sent' => false,
             'admin_otp_email_sent' => false,
+            'admin_otp_debug_code' => config('app.debug') ? $otp : null,
         ]);
 
         $delivery = $this->deliverOtp($user, $otp, $expiryMinutes);
@@ -129,7 +130,19 @@ class AdminOtpService
             'admin_otp_attempts',
             'admin_otp_sms_sent',
             'admin_otp_email_sent',
+            'admin_otp_debug_code',
         ]);
+    }
+
+    public function debugCode(): ?string
+    {
+        if (! config('app.debug')) {
+            return null;
+        }
+
+        $code = session('admin_otp_debug_code');
+
+        return filled($code) ? (string) $code : null;
     }
 
     public function resend(): bool
@@ -155,13 +168,14 @@ class AdminOtpService
             'admin_otp_attempts' => 0,
             'admin_otp_sms_sent' => $delivery['sms_sent'],
             'admin_otp_email_sent' => $delivery['email_sent'],
+            'admin_otp_debug_code' => config('app.debug') ? $otp : null,
         ]);
 
         if (config('app.debug')) {
             Log::info('Admin OTP resent (local debug).', ['otp' => $otp]);
         }
 
-        return $delivery['sms_sent'] || $delivery['email_sent'];
+        return $delivery['sms_sent'] || $delivery['email_sent'] || config('app.debug');
     }
 
     public function deliveryChannels(): array

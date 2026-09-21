@@ -54,7 +54,8 @@ class AuthController extends Controller
 
         $delivery = $this->adminOtp->issueForUser($user, $request->boolean('remember'));
 
-        if (! $delivery['sms_sent'] && ! $delivery['email_sent']) {
+        // Local/debug: allow OTP page even when SMS/email are not configured.
+        if (! $delivery['sms_sent'] && ! $delivery['email_sent'] && ! config('app.debug')) {
             $this->adminOtp->clear();
 
             return back()->withErrors([
@@ -64,9 +65,15 @@ class AuthController extends Controller
 
         $request->session()->save();
 
+        $status = $this->otpSentMessage($delivery);
+
+        if (! $delivery['sms_sent'] && ! $delivery['email_sent'] && config('app.debug')) {
+            $status = 'Local debug mode: SMS/email delivery failed. Use the code shown on the next screen.';
+        }
+
         return redirect()
             ->route('admin.login.verify')
-            ->with('status', $this->otpSentMessage($delivery));
+            ->with('status', $status);
     }
 
     private function otpSentMessage(array $delivery): string
@@ -107,6 +114,7 @@ class AuthController extends Controller
             'maskedEmail' => $this->adminOtp->maskedEmail(),
             'smsSent' => (bool) session('admin_otp_sms_sent'),
             'emailSent' => (bool) session('admin_otp_email_sent') && $this->adminOtp->emailDeliversToInbox(),
+            'debugCode' => $this->adminOtp->debugCode(),
         ]);
     }
 
@@ -157,10 +165,18 @@ class AuthController extends Controller
                 ->withErrors(['email' => 'Your verification session expired. Please sign in again.']);
         }
 
-        return back()->with('status', $this->otpSentMessage([
+        $delivery = [
             'sms_sent' => (bool) session('admin_otp_sms_sent'),
             'email_sent' => (bool) session('admin_otp_email_sent'),
-        ]));
+        ];
+
+        $status = $this->otpSentMessage($delivery);
+
+        if (! $delivery['sms_sent'] && ! $delivery['email_sent'] && config('app.debug')) {
+            $status = 'Local debug mode: use the new code shown on this page.';
+        }
+
+        return back()->with('status', $status);
     }
 
     public function logout(Request $request): RedirectResponse
