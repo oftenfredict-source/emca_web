@@ -83,6 +83,34 @@ class PricingController extends Controller
             ->with('success', $package->name.' package updated.');
     }
 
+    public function storePackage(PricingService $service): RedirectResponse
+    {
+        $source = PricingPackage::query()
+            ->where('pricing_service_id', $service->id)
+            ->orderByDesc('sort_order')
+            ->first();
+
+        $package = PricingPackage::query()->create([
+            'pricing_service_id' => $service->id,
+            'name' => 'New Package',
+            'includes' => $source?->includes ?? 'Describe what this package includes, for example pages, support hours, and revision rounds',
+            'amount' => (int) ($source?->amount ?? 0),
+            'period' => (string) ($source?->period ?? ''),
+            'sort_order' => (int) ($source?->sort_order ?? 0) + 10,
+            'is_hidden' => false,
+            'hide_price' => false,
+        ]);
+
+        $this->pricing->forgetCache();
+
+        return redirect()
+            ->route('admin.pricing.index', [
+                'service' => $service->slug,
+                'added' => $package->id,
+            ])
+            ->with('success', 'New package added. Edit the template and save.');
+    }
+
     public function bulkUpdatePackages(Request $request, PricingService $service): RedirectResponse
     {
         $data = $request->validate([

@@ -10,14 +10,20 @@
             <h1 class="admin-dash-title">{{ $activeService->name ?? 'Pricing' }}</h1>
             <p class="admin-dash-subtitle">
                 @if ($activeService)
-                    Edit packages, hide a price or a whole package, delete a package, and save all changes at once.
+                    Add a package from a ready template, then edit, hide, delete, or save all changes at once.
                 @else
                     No pricing services found. Run the PricingSeeder to import packages from config.
                 @endif
             </p>
         </div>
         @if ($activeService)
-            <div class="admin-dash-hero-actions">
+            <div class="admin-dash-hero-actions d-flex flex-wrap gap-2">
+                <form action="{{ route('admin.pricing.packages.store', $activeService) }}" method="POST" class="d-inline">
+                    @csrf
+                    <button type="submit" class="btn btn-light btn-sm">
+                        <i class="bi bi-plus-lg"></i> Add package
+                    </button>
+                </form>
                 <a href="{{ route('pricing.show', $activeService->slug) }}" class="btn btn-outline-light btn-sm" target="_blank">
                     <i class="bi bi-box-arrow-up-right"></i> View public page
                 </a>
@@ -83,19 +89,33 @@
             <div class="admin-panel-head">
                 <div>
                     <h2>Packages</h2>
-                    <p>{{ $packages->count() }} package{{ $packages->count() === 1 ? '' : 's' }} · amounts are in TZS · save all after editing</p>
+                    <p>{{ $packages->count() }} package{{ $packages->count() === 1 ? '' : 's' }} · amounts are in TZS · add a template, then edit and save all</p>
                 </div>
-                @if ($packages->isNotEmpty())
-                    <button type="submit" form="packages-bulk-form" class="btn btn-sm btn-primary">
-                        <i class="bi bi-save"></i> Save all packages
-                    </button>
-                @endif
+                <div class="d-flex flex-wrap gap-2">
+                    <form action="{{ route('admin.pricing.packages.store', $activeService) }}" method="POST" class="d-inline">
+                        @csrf
+                        <button type="submit" class="btn btn-sm btn-outline-primary">
+                            <i class="bi bi-plus-lg"></i> Add package
+                        </button>
+                    </form>
+                    @if ($packages->isNotEmpty())
+                        <button type="submit" form="packages-bulk-form" class="btn btn-sm btn-primary">
+                            <i class="bi bi-save"></i> Save all packages
+                        </button>
+                    @endif
+                </div>
             </div>
 
             @if ($packages->isEmpty())
                 <div class="admin-empty">
                     <i class="bi bi-tags"></i>
-                    <p>No packages for this service.</p>
+                    <p>No packages for this service. Add one from the default template, then edit the details.</p>
+                    <form action="{{ route('admin.pricing.packages.store', $activeService) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-plus-lg"></i> Add package
+                        </button>
+                    </form>
                 </div>
             @else
                 <form
@@ -111,15 +131,19 @@
                             @php
                                 $oldHidden = (bool) old('packages.'.$package->id.'.is_hidden', $package->is_hidden);
                                 $oldHidePrice = (bool) old('packages.'.$package->id.'.hide_price', $package->hide_price);
+                                $justAdded = (int) request('added') === (int) $package->id;
                             @endphp
-                            <div class="col-12">
-                                <div class="border rounded-3 p-3 bg-white pricing-package-card {{ $oldHidden ? 'is-hidden-package' : '' }}">
+                            <div class="col-12" id="package-{{ $package->id }}">
+                                <div class="border rounded-3 p-3 bg-white pricing-package-card {{ $oldHidden ? 'is-hidden-package' : '' }} {{ $justAdded ? 'is-new-package' : '' }}">
                                     <div class="d-flex justify-content-between align-items-start gap-2 mb-3">
                                         <div>
                                             <h3 class="h6 mb-1">{{ $package->name }}</h3>
                                             <p class="small text-muted mb-0">{{ $package->formattedPriceLabel() }}</p>
                                         </div>
                                         <div class="d-flex align-items-center gap-2 flex-wrap justify-content-end">
+                                            @if ($justAdded)
+                                                <span class="admin-status admin-status--new">New template</span>
+                                            @endif
                                             @if ($oldHidden)
                                                 <span class="admin-status admin-status--muted">Package hidden</span>
                                             @endif
@@ -148,6 +172,7 @@
                                                 class="form-control form-control-sm"
                                                 value="{{ old('packages.'.$package->id.'.name', $package->name) }}"
                                                 required
+                                                @if ($justAdded) autofocus @endif
                                             >
                                         </div>
 
@@ -257,6 +282,11 @@
         border-style: dashed !important;
         opacity: 0.78;
     }
+
+    .pricing-package-card.is-new-package {
+        border-color: var(--emca-primary) !important;
+        box-shadow: 0 0 0 3px rgba(148, 0, 0, 0.12);
+    }
 </style>
 @endpush
 
@@ -270,5 +300,15 @@
             }
         });
     });
+
+    var addedCard = document.querySelector('.pricing-package-card.is-new-package');
+    if (addedCard) {
+        addedCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        var nameInput = addedCard.querySelector('input[name$="[name]"]');
+        if (nameInput) {
+            nameInput.focus();
+            nameInput.select();
+        }
+    }
 </script>
 @endpush
