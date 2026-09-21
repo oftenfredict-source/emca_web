@@ -10,7 +10,7 @@
             <h1 class="admin-dash-title">{{ $activeService->name ?? 'Pricing' }}</h1>
             <p class="admin-dash-subtitle">
                 @if ($activeService)
-                    Add a package from a ready template, then edit, hide, delete, or save all changes at once.
+                    Add a package from a ready template, reorder it, then edit, hide, delete, or save all.
                 @else
                     No pricing services found. Run the PricingSeeder to import packages from config.
                 @endif
@@ -89,7 +89,7 @@
             <div class="admin-panel-head">
                 <div>
                     <h2>Packages</h2>
-                    <p>{{ $packages->count() }} package{{ $packages->count() === 1 ? '' : 's' }} · amounts are in TZS · add a template, then edit and save all</p>
+                    <p>{{ $packages->count() }} package{{ $packages->count() === 1 ? '' : 's' }} · amounts are in TZS · move a package to position 2, then save all</p>
                 </div>
                 <div class="d-flex flex-wrap gap-2">
                     <form action="{{ route('admin.pricing.packages.store', $activeService) }}" method="POST" class="d-inline">
@@ -126,14 +126,14 @@
                     @csrf
                     @method('PUT')
 
-                    <div class="row g-3">
+                    <div class="row g-3 pricing-package-list">
                         @foreach ($packages as $package)
                             @php
                                 $oldHidden = (bool) old('packages.'.$package->id.'.is_hidden', $package->is_hidden);
                                 $oldHidePrice = (bool) old('packages.'.$package->id.'.hide_price', $package->hide_price);
                                 $justAdded = (int) request('added') === (int) $package->id;
                             @endphp
-                            <div class="col-12" id="package-{{ $package->id }}">
+                            <div class="col-12 pricing-package-item" id="package-{{ $package->id }}" data-package-item>
                                 <div class="border rounded-3 p-3 bg-white pricing-package-card {{ $oldHidden ? 'is-hidden-package' : '' }} {{ $justAdded ? 'is-new-package' : '' }}">
                                     <div class="d-flex justify-content-between align-items-start gap-2 mb-3">
                                         <div>
@@ -150,7 +150,27 @@
                                             @if ($oldHidePrice)
                                                 <span class="admin-status admin-status--muted">Price hidden</span>
                                             @endif
-                                            <span class="badge text-bg-light border">#{{ str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
+                                            <div class="pricing-sort-controls">
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-move="up" title="Move up" aria-label="Move up">
+                                                    <i class="bi bi-chevron-up"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-move="down" title="Move down" aria-label="Move down">
+                                                    <i class="bi bi-chevron-down"></i>
+                                                </button>
+                                                <label class="form-label mb-0 small text-muted" for="package_position_{{ $package->id }}">Pos</label>
+                                                <input
+                                                    type="number"
+                                                    id="package_position_{{ $package->id }}"
+                                                    name="packages[{{ $package->id }}][position]"
+                                                    class="form-control form-control-sm pricing-sort-position"
+                                                    min="1"
+                                                    max="{{ max(1, $packages->count()) }}"
+                                                    value="{{ old('packages.'.$package->id.'.position', $loop->iteration) }}"
+                                                    data-package-position
+                                                    required
+                                                >
+                                                <span class="badge text-bg-light border" data-package-badge>#{{ str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
+                                            </div>
                                             <button
                                                 type="submit"
                                                 class="btn btn-sm btn-outline-danger"
@@ -287,6 +307,17 @@
         border-color: var(--emca-primary) !important;
         box-shadow: 0 0 0 3px rgba(148, 0, 0, 0.12);
     }
+
+    .pricing-sort-controls {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .pricing-sort-position {
+        width: 4.2rem;
+        text-align: center;
+    }
 </style>
 @endpush
 
@@ -309,6 +340,89 @@
             nameInput.focus();
             nameInput.select();
         }
+    }
+
+    var list = document.querySelector('.pricing-package-list');
+    if (list) {
+        function items() {
+            return Array.from(list.querySelectorAll('[data-package-item]'));
+        }
+
+        function refreshPositions() {
+            var rows = items();
+            rows.forEach(function (row, index) {
+                var position = index + 1;
+                var input = row.querySelector('[data-package-position]');
+                var badge = row.querySelector('[data-package-badge]');
+                var up = row.querySelector('[data-move="up"]');
+                var down = row.querySelector('[data-move="down"]');
+
+                if (input) {
+                    input.value = position;
+                    input.max = String(rows.length);
+                }
+                if (badge) {
+                    badge.textContent = '#' + String(position).padStart(2, '0');
+                }
+                if (up) up.disabled = index === 0;
+                if (down) down.disabled = index === rows.length - 1;
+            });
+        }
+
+        function moveRow(row, direction) {
+            var rows = items();
+            var index = rows.indexOf(row);
+            var next = index + direction;
+            if (index < 0 || next < 0 || next >= rows.length) return;
+
+            if (direction < 0) {
+                list.insertBefore(row, rows[next]);
+            } else {
+                list.insertBefore(row, rows[next].nextSibling);
+            }
+
+            refreshPositions();
+        }
+
+        function jumpToPosition(row, target) {
+            var rows = items();
+            var max = rows.length;
+            if (isNaN(target) || target < 1) target = 1;
+            if (target > max) target = max;
+
+            var current = rows.indexOf(row) + 1;
+            if (current < 1 || target === current) {
+                refreshPositions();
+                return;
+            }
+
+            var destination = rows[target - 1];
+            if (target < current) {
+                list.insertBefore(row, destination);
+            } else {
+                list.insertBefore(row, destination.nextSibling);
+            }
+
+            refreshPositions();
+        }
+
+        list.addEventListener('click', function (event) {
+            var button = event.target.closest('[data-move]');
+            if (!button) return;
+            var row = button.closest('[data-package-item]');
+            if (!row) return;
+            moveRow(row, button.getAttribute('data-move') === 'up' ? -1 : 1);
+        });
+
+        list.addEventListener('change', function (event) {
+            var input = event.target.closest('[data-package-position]');
+            if (!input) return;
+            var row = input.closest('[data-package-item]');
+            if (!row) return;
+            jumpToPosition(row, parseInt(input.value, 10));
+        });
+
+        refreshPositions();
     }
 </script>
 @endpush

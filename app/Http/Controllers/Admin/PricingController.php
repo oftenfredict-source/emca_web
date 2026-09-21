@@ -121,6 +121,7 @@ class PricingController extends Controller
             'packages.*.period' => ['nullable', 'string', 'max:50'],
             'packages.*.is_hidden' => ['sometimes', 'boolean'],
             'packages.*.hide_price' => ['sometimes', 'boolean'],
+            'packages.*.position' => ['required', 'integer', 'min:1'],
         ]);
 
         DB::transaction(function () use ($service, $data) {
@@ -130,12 +131,28 @@ class PricingController extends Controller
                 ->get()
                 ->keyBy('id');
 
-            foreach ($data['packages'] as $packageId => $payload) {
-                $package = $packages->get((int) $packageId);
+            $ordered = collect($data['packages'])
+                ->map(function (array $payload, $packageId) {
+                    return [
+                        'id' => (int) $packageId,
+                        'position' => (int) ($payload['position'] ?? 9999),
+                        'payload' => $payload,
+                    ];
+                })
+                ->sortBy([
+                    ['position', 'asc'],
+                    ['id', 'asc'],
+                ])
+                ->values();
+
+            foreach ($ordered as $index => $item) {
+                $package = $packages->get($item['id']);
 
                 if (! $package) {
                     continue;
                 }
+
+                $payload = $item['payload'];
 
                 $package->update([
                     'name' => $payload['name'],
@@ -144,6 +161,7 @@ class PricingController extends Controller
                     'period' => $payload['period'] ?? '',
                     'is_hidden' => filter_var($payload['is_hidden'] ?? false, FILTER_VALIDATE_BOOLEAN),
                     'hide_price' => filter_var($payload['hide_price'] ?? false, FILTER_VALIDATE_BOOLEAN),
+                    'sort_order' => ($index + 1) * 10,
                 ]);
             }
         });
