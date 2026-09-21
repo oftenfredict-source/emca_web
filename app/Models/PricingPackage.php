@@ -14,10 +14,14 @@ class PricingPackage extends Model
         'amount',
         'period',
         'sort_order',
+        'is_hidden',
+        'hide_price',
     ];
 
     protected $casts = [
         'amount' => 'integer',
+        'is_hidden' => 'boolean',
+        'hide_price' => 'boolean',
     ];
 
     public function service(): BelongsTo

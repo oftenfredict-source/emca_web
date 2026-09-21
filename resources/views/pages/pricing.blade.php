@@ -173,7 +173,7 @@
                                     </div>
 
                                     <div class="emca-pricing-grid mt-4 wow fadeInUp" data-wow-delay=".3s" data-usd-rate="{{ (float) $meta['usd_rate'] }}">
-                                        @foreach ($service['packages'] as $package)
+                                        @forelse ($service['packages'] as $package)
                                             <article class="emca-price-card">
                                                 <div class="emca-price-card-top">
                                                     <span class="emca-price-card-no">{{ str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
@@ -181,15 +181,22 @@
                                                 </div>
                                                 <p class="emca-price-card-includes">{{ $package['includes'] }}</p>
                                                 <div class="emca-price-card-foot">
-                                                    <span class="emca-price-card-label">Starting from</span>
-                                                    <span
-                                                        class="emca-pricing-amount"
-                                                        data-amount="{{ (float) ($package['amount'] ?? 0) }}"
-                                                        data-period="{{ $package['period'] ?? '' }}"
-                                                    >{{ $package['price'] }}</span>
+                                                    @if (!empty($package['hide_price']))
+                                                        <span class="emca-price-card-label">Price</span>
+                                                        <span class="emca-pricing-amount emca-pricing-amount--hidden">Contact us</span>
+                                                    @else
+                                                        <span class="emca-price-card-label">Starting from</span>
+                                                        <span
+                                                            class="emca-pricing-amount"
+                                                            data-amount="{{ (float) ($package['amount'] ?? 0) }}"
+                                                            data-period="{{ $package['period'] ?? '' }}"
+                                                        >{{ $package['price'] }}</span>
+                                                    @endif
                                                 </div>
                                             </article>
-                                        @endforeach
+                                        @empty
+                                            <p class="emca-pricing-empty">Packages for this service are available on request. Contact us for a tailored quote.</p>
+                                        @endforelse
                                     </div>
 
                                     <div class="emca-pricing-disclaimer mt-4 wow fadeInUp" data-wow-delay=".4s">
@@ -271,6 +278,10 @@
 
                 function setCurrency(currency) {
                     amounts.forEach(function (el) {
+                        if (el.classList.contains('emca-pricing-amount--hidden') || !el.hasAttribute('data-amount')) {
+                            return;
+                        }
+
                         var amount = parseFloat(el.getAttribute('data-amount')) || 0;
                         var period = el.getAttribute('data-period') || '';
                         el.textContent = formatPrice(amount, period, currency);

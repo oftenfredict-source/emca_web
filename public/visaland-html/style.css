@@ -4371,6 +4371,20 @@ nav#mobile-menu li.has-dropdown.active.menu-thumb > a i.fas.fa-angle-down {
     white-space: nowrap;
 }
 
+.emca-pricing-amount--hidden {
+    white-space: normal;
+}
+
+.emca-pricing-empty {
+    margin: 0;
+    padding: 18px 20px;
+    border: 1px dashed var(--border);
+    background: #fff;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
 .emca-pricing-disclaimer,
 .emca-pricing-steps {
     padding: 18px 20px;

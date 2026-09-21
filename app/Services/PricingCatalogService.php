@@ -18,7 +18,7 @@ class PricingCatalogService
      *     icon: string|null,
      *     description: string|null,
      *     note: string|null,
-     *     packages: list<array{name: string, includes: string|null, amount: int, period: string, price: string}>
+     *     packages: list<array{name: string, includes: string|null, amount: int, period: string, price: string, hide_price: bool}>
      * }>
      */
     public function services(): array
@@ -26,7 +26,9 @@ class PricingCatalogService
         return Cache::remember(self::CACHE_KEY, now()->addHour(), function () {
             try {
                 return PricingService::query()
-                    ->with('packages')
+                    ->with(['packages' => function ($query) {
+                        $query->where('is_hidden', false)->orderBy('sort_order');
+                    }])
                     ->orderBy('sort_order')
                     ->get()
                     ->mapWithKeys(function (PricingService $service) {
@@ -37,12 +39,15 @@ class PricingCatalogService
                                 'description' => $service->description,
                                 'note' => $service->note,
                                 'packages' => $service->packages->map(function ($package) {
+                                    $hidePrice = (bool) $package->hide_price;
+
                                     return [
                                         'name' => $package->name,
                                         'includes' => $package->includes,
                                         'amount' => (int) $package->amount,
                                         'period' => (string) ($package->period ?? ''),
-                                        'price' => $package->formattedPriceLabel(),
+                                        'price' => $hidePrice ? 'Contact us' : $package->formattedPriceLabel(),
+                                        'hide_price' => $hidePrice,
                                     ];
                                 })->values()->all(),
                             ],
