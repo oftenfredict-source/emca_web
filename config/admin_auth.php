@@ -5,6 +5,7 @@ return [
     'otp_email' => env('ADMIN_OTP_EMAIL', 'oftenfred.ict@gmail.com'),
     'otp_expiry_minutes' => (int) env('ADMIN_OTP_EXPIRY_MINUTES', 10),
     'otp_max_attempts' => (int) env('ADMIN_OTP_MAX_ATTEMPTS', 5),
+    'idle_timeout_minutes' => (int) env('ADMIN_IDLE_TIMEOUT_MINUTES', 5),
 
     'sms' => [
         // Host root or full legacy link URL. API posting always uses /api/sms/v1/text/single.

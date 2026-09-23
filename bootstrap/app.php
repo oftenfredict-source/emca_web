@@ -15,9 +15,11 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'admin' => \App\Http\Middleware\EnsureUserIsAdmin::class,
+            'admin.session' => \App\Http\Middleware\EnforceAdminSessionSecurity::class,
         ]);
 
         $middleware->redirectGuestsTo(fn () => route('admin.login'));
+        $middleware->redirectUsersTo(fn () => route('admin.dashboard'));
 
         $middleware->web(append: [
             \App\Http\Middleware\TrackPageView::class,

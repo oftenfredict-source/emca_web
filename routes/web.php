@@ -60,14 +60,21 @@ Route::get('/preview-404', function () {
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('guest')->group(function () {
         Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-        Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
+        Route::post('/login', [AuthController::class, 'login'])
+            ->middleware('throttle:5,1')
+            ->name('login.submit');
         Route::get('/login/verify', [AuthController::class, 'showVerifyOtp'])->name('login.verify');
-        Route::post('/login/verify', [AuthController::class, 'verifyOtp'])->name('login.verify.submit');
-        Route::post('/login/verify/resend', [AuthController::class, 'resendOtp'])->name('login.verify.resend');
+        Route::post('/login/verify', [AuthController::class, 'verifyOtp'])
+            ->middleware('throttle:5,1')
+            ->name('login.verify.submit');
+        Route::post('/login/verify/resend', [AuthController::class, 'resendOtp'])
+            ->middleware('throttle:3,1')
+            ->name('login.verify.resend');
     });
 
-    Route::middleware(['auth', 'admin'])->group(function () {
+    Route::middleware(['auth', 'admin', 'admin.session'])->group(function () {
         Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+        Route::post('/session/ping', [AuthController::class, 'ping'])->name('session.ping');
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::resource('posts', PostController::class)->except(['show']);

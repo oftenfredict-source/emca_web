@@ -64,10 +64,7 @@
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
-                <div class="mb-4 form-check">
-                    <input type="checkbox" class="form-check-input" id="remember" name="remember">
-                    <label class="form-check-label" for="remember">Remember me</label>
-                </div>
+                <p class="small text-muted mb-4">You will also enter a code sent to your phone and email. The session ends after {{ (int) config('admin_auth.idle_timeout_minutes', 5) }} minutes of inactivity.</p>
                 <button type="submit" class="btn btn-primary w-100 py-2">Sign In</button>
             </form>
         </div>

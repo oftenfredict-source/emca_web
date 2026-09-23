@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Services\AdminOtpService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
@@ -52,7 +53,7 @@ class AuthController extends Controller
             ])->onlyInput('email');
         }
 
-        $delivery = $this->adminOtp->issueForUser($user, $request->boolean('remember'));
+        $delivery = $this->adminOtp->issueForUser($user, false);
 
         // Local debug only: allow the OTP page when SMS/email are not configured.
         if (! $delivery['sms_sent'] && ! $delivery['email_sent'] && ! $this->adminOtp->isLocalDebug()) {
@@ -146,11 +147,11 @@ class AuthController extends Controller
             ]);
         }
 
-        $remember = $this->adminOtp->rememberLogin();
         $this->adminOtp->clear();
 
-        Auth::login($user, $remember);
+        Auth::login($user, false);
         $request->session()->regenerate();
+        $request->session()->put('admin_last_active_at', now()->timestamp);
 
         return redirect()->intended(route('admin.dashboard'));
     }
@@ -179,12 +180,20 @@ class AuthController extends Controller
         return back()->with('status', $status);
     }
 
+    public function ping(): Response
+    {
+        return response()->noContent();
+    }
+
     public function logout(Request $request): RedirectResponse
     {
+        $recaller = Auth::getRecallerName();
+
         Auth::logout();
         $this->adminOtp->clear();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+        cookie()->queue(cookie()->forget($recaller));
 
         return redirect()->route('admin.login');
     }
