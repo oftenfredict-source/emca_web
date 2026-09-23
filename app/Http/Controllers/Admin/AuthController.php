@@ -54,8 +54,8 @@ class AuthController extends Controller
 
         $delivery = $this->adminOtp->issueForUser($user, $request->boolean('remember'));
 
-        // Local/debug: allow OTP page even when SMS/email are not configured.
-        if (! $delivery['sms_sent'] && ! $delivery['email_sent'] && ! config('app.debug')) {
+        // Local debug only: allow the OTP page when SMS/email are not configured.
+        if (! $delivery['sms_sent'] && ! $delivery['email_sent'] && ! $this->adminOtp->isLocalDebug()) {
             $this->adminOtp->clear();
 
             return back()->withErrors([
@@ -67,7 +67,7 @@ class AuthController extends Controller
 
         $status = $this->otpSentMessage($delivery);
 
-        if (! $delivery['sms_sent'] && ! $delivery['email_sent'] && config('app.debug')) {
+        if (! $delivery['sms_sent'] && ! $delivery['email_sent'] && $this->adminOtp->isLocalDebug()) {
             $status = 'Local debug mode: SMS/email delivery failed. Use the code shown on the next screen.';
         }
 
@@ -172,7 +172,7 @@ class AuthController extends Controller
 
         $status = $this->otpSentMessage($delivery);
 
-        if (! $delivery['sms_sent'] && ! $delivery['email_sent'] && config('app.debug')) {
+        if (! $delivery['sms_sent'] && ! $delivery['email_sent'] && $this->adminOtp->isLocalDebug()) {
             $status = 'Local debug mode: use the new code shown on this page.';
         }
 

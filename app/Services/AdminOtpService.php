@@ -30,7 +30,7 @@ class AdminOtpService
             'admin_otp_attempts' => 0,
             'admin_otp_sms_sent' => false,
             'admin_otp_email_sent' => false,
-            'admin_otp_debug_code' => config('app.debug') ? $otp : null,
+            'admin_otp_debug_code' => $this->isLocalDebug() ? $otp : null,
         ]);
 
         $delivery = $this->deliverOtp($user, $otp, $expiryMinutes);
@@ -40,7 +40,7 @@ class AdminOtpService
             'admin_otp_email_sent' => $delivery['email_sent'],
         ]);
 
-        if (config('app.debug')) {
+        if ($this->isLocalDebug()) {
             Log::info('Admin OTP generated (local debug).', ['otp' => $otp]);
         }
 
@@ -136,13 +136,18 @@ class AdminOtpService
 
     public function debugCode(): ?string
     {
-        if (! config('app.debug')) {
+        if (! $this->isLocalDebug()) {
             return null;
         }
 
         $code = session('admin_otp_debug_code');
 
         return filled($code) ? (string) $code : null;
+    }
+
+    public function isLocalDebug(): bool
+    {
+        return app()->isLocal() && (bool) config('app.debug');
     }
 
     public function resend(): bool
@@ -168,14 +173,14 @@ class AdminOtpService
             'admin_otp_attempts' => 0,
             'admin_otp_sms_sent' => $delivery['sms_sent'],
             'admin_otp_email_sent' => $delivery['email_sent'],
-            'admin_otp_debug_code' => config('app.debug') ? $otp : null,
+            'admin_otp_debug_code' => $this->isLocalDebug() ? $otp : null,
         ]);
 
-        if (config('app.debug')) {
+        if ($this->isLocalDebug()) {
             Log::info('Admin OTP resent (local debug).', ['otp' => $otp]);
         }
 
-        return $delivery['sms_sent'] || $delivery['email_sent'] || config('app.debug');
+        return $delivery['sms_sent'] || $delivery['email_sent'] || $this->isLocalDebug();
     }
 
     public function deliveryChannels(): array

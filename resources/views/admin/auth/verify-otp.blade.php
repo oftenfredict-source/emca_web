@@ -63,11 +63,11 @@
                 <div class="alert alert-success">{{ session('status') }}</div>
             @endif
 
-            @if(!empty($debugCode))
+            @if(app()->isLocal() && !empty($debugCode))
                 <div class="alert alert-warning">
                     <strong>Local debug OTP:</strong>
                     <span style="letter-spacing: 0.25em; font-size: 1.25rem;">{{ $debugCode }}</span>
-                    <div class="small mt-1 mb-0">Shown only when APP_DEBUG=true. Fix SMS/SMTP for live.</div>
+                    <div class="small mt-1 mb-0">Shown only on local. Live sends the code by SMS and email only.</div>
                 </div>
             @endif
 
